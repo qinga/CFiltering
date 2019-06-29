@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>全部课程</title>
+		<link rel="stylesheet" type="text/css" href="../font-awesome-4.7.0/css/font-awesome.min.css"/>
+		<!-- layui.css样式 -->
+		<link rel="stylesheet" href="../../Admin/layui/css/layui.css" type="text/css" />
+		<link rel="stylesheet" href="./booksType.css" type="text/css">
+		<style>
+			#page, #page li{
+				display: inherit;
+			}
+			#page li{
+				list-style:none;
+			}
+			#page li.disabled a{
+				color:#c8cdd2;
+			}
+			#page .first, #page .prev, #page .next, #page .last{
+				line-height: 32px;
+				margin: 0 15px;
+			}
+			#page .page a {
+				border-radius: 50%;
+			}
+			#page .activePage a{
+				background:#4d555d;
+				color:#fff;
+			}
+			.notActivePage{
+				background:#cfcfcf;
+			}
+			.g-user-card ul li{
+				float:left;
+			}
+			.s-suggestion {
+			    padding: 7px 10px;
+			    font-size: 16px;
+			    cursor: pointer;
+			}
+			.activeDivSu{
+				background: #cfcf;
+			}
+		</style>
+	</head>
+
+	<body id="List_courseId">
+		<div id="new_header">
+			<div class="page-container new-header clearfix" id="nav">
+				<ul class="nav-item" style="line-height:50px;">
+					<li>
+						<a href="../index.html">CFiltering首页</a>
+					</li>
+					<li>
+						<a href="./booksType.html" class="active" >精品书籍</a>
+					</li>
+					<li class="moreBook">
+						<a href="../shareDynaticLink/index.html" >猿分享</a>
+					</li>
+				</ul>
+				<div class="header-right clearfix">
+					<div id="login-area">
+						<ul class="clearfix logined">
+							<li class="user-card-box" id="header-user-card">
+								<a id="header-avator" class="user-card-item js-header-avator">
+									<img src="" width="40" height="40">
+								</a>
+								<div class="g-user-card">
+									<div class="card-inner">
+										<div class="card-top clearfix">
+											<a href="" class="l">
+												<img src="" alt="weixin_青a_0">
+											</a>
+											<div class="card-top-right-box l">
+												<a href="">
+													<span class="name text-ellipsis"></span>
+												</a>
+											</div>
+										</div>
+										<div class="user-center-box">
+											<ul class="clearfix">
+												<li class="lispace">
+													<a href="../myShareArticleAndHouse/myHouseArticle.html">
+														<span>我的收藏</span>
+													</a>
+												</li>
+												<li class="lispace">
+													<a href="../myShareArticleAndHouse/myShareArticle.html">
+														<span>我的分享</span>
+													</a>
+												</li>
+												<li class="lispace">
+													<a href="../perManage/perManage.html">
+														<span>我的课程</span>
+													</a>
+												</li>
+												<li class="lispace">
+													<a href="../myShareArticleAndHouse/myLearnPath.html">
+														<span>学习路线</span>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="card-sets clearfix logoutApp">
+											<a href="javascript:void(0)" class="l">安全退出</a>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="main">
+			<div class="wrap ">
+				<div class="top">
+					<div class="course-top clearfix">
+						<a class="top-header" href="">
+							<img src="./booksType/logo-course.png"  width="140" height="60">
+						</a>
+						<div class="adver-con" style="display: inline-block;margin-left: 16px;">
+							<img src="./booksType/course-top.png" style="height:60px;width: 96px;">
+						</div>
+						<div class="course-top-search">
+							<div class="search-area" data-search="top-banner">
+								<input class="search-input" placeholder="搜索感兴趣的内容" type="text" autocomplete="off">
+								<ul class="search-area-result">
+									
+								</ul>
+							</div>
+							<div class="showhide-search" style="font-size: 18px;">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</div>
+						</div>
+					</div>
+					<div class="course-content">
+						<div class="course-nav-box">
+							<div class="course-nav-row clearfix">
+								<span class="hd l">方向：</span>
+								<div class="bdirection">
+									<ul class="">
+										<li class="course-nav-item ">
+											<a href="javaScript:void(0)" data-id="0">全部</a>
+										</li>
+										<li class="course-nav-item">
+											<a href="javaScript:void(0)" data-id="1">经典课程</a>
+										</li>
+										<li class="course-nav-item">
+											<a href="javaScript:void(0)" data-id="2">前端开发</a>
+										</li>
+										<li class="course-nav-item">
+											<a href="javaScript:void(0)"data-id="3">后端开发</a>
+										</li>
+										<li class="course-nav-item">
+											<a href="javaScript:void(0)" data-id="4">移动开发</a>
+										</li>
+										<li class="course-nav-item">
+											<a href="javaScript:void(0)" data-id="11">前沿技术</a>
+										</li>
+										<li class="course-nav-item">
+											<a href="javaScript:void(0)" data-id="6">数据库</a>
+										</li>
+										<li class="course-nav-item">
+											<a href="javaScript:void(0)" data-id="5">算法&amp;数学</a>
+										</li>
+										<li class="course-nav-item">
+											<a href="javaScript:void(0)" data-id="8">UI设计&amp;动画</a>
+										</li>
+										<li class="course-nav-item">
+											<a href="javaScript:void(0)" data-id="9">3D游戏</a>
+										</li>
+										<li class="course-nav-item">
+											<a href="javaScript:void(0)" data-id="10">专业英语</a>
+										</li>
+										<li class="course-nav-item">
+											<a href="javaScript:void(0)" data-id="7">运维</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="course-nav-row course-nav-skills clearfix">
+								<div class="js-course-skills course-skills-box">
+									<span class="hd l">分类：</span>
+									<div class="btyBooks" style="max-height: 132px;overflow: hidden;">
+										<ul class="">
+											<li class="course-nav-item all">
+												<a href="javaScript:void(0)">全部</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="course-nav-row clearfix border_bottom_none">
+								<a href="javascript:;" class="course-recommend"></a>
+								<span class="hd l">难度：</span>
+								<div class="detailBooks">
+									<ul class="">
+										<li class="course-nav-item">
+											<a href="javaScript:void(0)">全部</a>
+										</li>
+										<li class="course-nav-item ">
+											<a href="javaScript:void(0)" data-flag="begin">入门</a>
+										</li>
+										<li class="course-nav-item ">
+											<a href="javaScript:void(0)" data-flag="none">中级</a>
+										</li>
+										<li class="course-nav-item ">
+											<a href="javaScript:void(0)" data-flag="skill">高级</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="course-tool-bar clearfix"></div>
+				<div class="course-list">
+					<div class="moco-course-list">
+						<div class="clearfix detailBooksInfo">
+						
+						</div>
+					</div>
+					<div style="height: 35px;text-align: center;">
+						<div id="page" class="pagenateTools" style="display: inline-block;">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="site-foot" style="background-color: #1c1f21;padding: 18px 0;font-size:18px;">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-sm-6 col-xs-12">
+							<ul class="footer-links" style="margin-bottom:40px;">
+								<li style="float: left;margin-right: 20px;">
+									<a href="javascript:void(0)">关于我们</a>
+								</li>
+								<li style="float: left;margin-right: 20px;">
+									<a href="javascript:void(0)">推荐网站</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-8 col-sm-6 col-xs-12">
+							<p class="copyright-text">
+								Programmer is powered by innovate.
+							</p>
+						</div>
+					</div>
+				</div>
+			</footer>
+		<div id="J_GotoTop" class="elevator">
+			<a href="" class="elevator-msg" target="_blank">
+				<i class="fa fa-comment-o" aria-hidden="true"></i>
+				<span class="">意见反馈</span>
+			</a>
+			<a href="" class="elevator-faq" target="_blank">
+				<i class="fa fa-question-circle" aria-hidden="true"></i>
+				<span class="">常见问题</span>
+			</a>
+			<a href="" target="_blank" class="elevator-app">
+				<i class="fa fa-mobile" aria-hidden="true"></i>
+				<span class="">APP下载</span>
+			</a>
+			<a href="javascript:void(0)" class="elevator-weixin no-goto" id="js-elevator-weixin">
+				<i class="fa fa-weixin" aria-hidden="true"></i>
+				<span class="">官方微信</span>
+			</a>
+			<a href="javascript:void(0)" class="elevator-top no-goto" id="backTop">
+				<i class="fa fa-chevron-circle-up" aria-hidden="true"></i>
+				<span class="">返回顶部</span>
+			</a>
+		</div>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<!-- layui.js -->
+		<script src="../../Admin/layui/layui.js"></script>
+		<script type="text/javascript" src="./js/jqpaginator.min.js"></script>
+		<script type="text/javascript" src="./js/booksTypeLogin.js"></script>
+		<script type="text/javascript" src="./js/search.js"></script>
+		<script>
+			(function(){
+				//全局错误提示
+				function errorTip(str){
+					layui.use('layer', function(){
+	    				  var layer = layui.layer;
+	    				  layer.open({
+	    					  title: '信息提示',
+	    					  content: str || '亲 请稍后重试呦,请求出错',
+	    					  shadeClose: true
+	    					});    
+	    				}); 
+				}
+				//判断是否含有class为on的节点，有则去之
+				function removeOn(ele, index = null){
+					var suffix;
+					if(ele.length && $.type(ele) === "object"){
+						$.each(ele, (k, v) => {
+							if( $(v).hasClass("on") ){
+								if( index === null ){
+									$(v).removeClass("on");
+									return;
+								}else{
+									suffix = k;
+								}
+							}
+						})
+					}
+					return suffix;
+				}
+				//渲染书籍模块
+				function xuanranBooks(book){
+					//渲染书籍模块
+					var bookStr = ``;
+					for( var i = 0; i < book.bookCount; i++ ){
+					  bookStr += `<div class="course-card-container">
+										<a  href="javaScript:void(0)" class="course-card">
+										<div class="course-card-top">
+											<img class="course-banner"  src=${book["book" + i].bmgAddr} style="display: inline;">
+											<div class="course-label">
+												<label>${ book["book" + i].btyName }</label>
+												<label style="display:none">${ book["book" + i].boId }</label>
+											</div>
+										</div>
+										<div class="course-card-content">
+											<h3 class="course-card-name">${ book["book" + i].boName }</h3>
+											<div class="clearfix course-card-bottom">
+												<div class="course-card-info" style="height:24px;overflow:hidden">
+													<span>${ book["book" + i].auName }</span>
+													<span>${ book["book" + i].puName }</span>
+												</div>
+												<p class="course-card-desc">${ book["book" + i].boDesc}</p>
+											</div>
+										</div>
+									</a>
+								</div>`; 
+					}
+					$(".detailBooksInfo").html(" ");
+					$(".detailBooksInfo").append( bookStr );
+				}
+				function xuanranType(boTypeCount, booksType){
+					var str = ``;
+					for( var i = 0; i < boTypeCount; i++ ){
+						str += `<li class="course-nav-item">
+				    		<a href="javaScript:void(0)">${booksType["typeName"+i]}</a>
+					   		<span style="display:none">${booksType["typeId"+i]}</span>
+				    	</li>`;
+					}
+					//书籍分类选中全部
+					$(".btyBooks").find("li:eq(0)").addClass("on");
+					//将可能存在的其它选中，去除on
+				 	//removeOn($(".detailBooks ul li"));
+					//难度系数选中全部
+					//$(".detailBooks").find("li:eq(0)").addClass("on");
+					$(".btyBooks").children("ul").find("li:not(:eq(0))").remove();
+					$(".btyBooks").children("ul").append(str);
+				}
+				//鼠标滑过时，书籍分类栏，向下滑动
+				function hoverHandler(flag) {
+					$(".btyBooks").hover(function() {
+						$(this).css({
+							"max-height":"",
+							"overflow" : "auto"
+						})
+					}, function() {
+						$(this).css({
+							"max-height":"132px",
+							"overflow" : "hidden"
+						})
+					})
+					if(flag === true){
+						$(".bdirection").find("li:eq(0)").addClass("on");
+						$(".btyBooks").find("li:eq(0)").addClass("on");
+						$(".detailBooks").find("li:eq(0)").addClass("on");
+					}
+				}
+				//规则化处理数据
+				function sortData(data) {
+					let arr = [];
+					let reData = {};
+					$.each(data, (k, v) => {
+						if( k !== "typeCount"){
+							var t = k.replace(/[^0-9]/ig,"");
+							if( arr.indexOf(t) < 0){
+								arr.push(t);
+							}
+						}
+					})
+					arr.sort( (a, b) => {
+						return a-b;
+					})
+					for(let i = 0; i < arr.length; i++){
+						$.each(data, (k, v) => {
+							let pushk = k.replace(/[^0-9]/ig,"");
+							if( pushk === arr[i]){
+								//如果相等，则匹配
+								k = k.replace(pushk,i);
+								reData[k] = v;
+							}
+						})
+					}
+					reData.bookCount = arr.length;
+					data = null;
+					return reData;
+				}
+				function addClassOn(element, index, flag){
+					if( flag === "bty" ){
+						//btyLI
+						$.each(element, (k, v) => {
+							if( $(v).children("span") ){
+								if( $(v).children("span").text() == index ){
+									$(v).addClass("on");
+								}
+							}
+						})
+					}else if(flag === "bdr"){
+						$.each(element, (k, v) => {
+							if( $(v).children("a").attr("data-id") == index ){
+								$(v).addClass("on");
+							}
+						})
+					}
+				}
+				
+				var typeName = localStorage.getItem('typeName');
+				var inputValue = localStorage.getItem('inputValue');
+				if(typeName === "全部"){
+					typeName = 0;
+				}
+				//移除该本地存储。
+				if( typeName !== null ){
+					localStorage.removeItem('typeName')
+					localStorage.removeItem('inputValue')
+				}
+				//如果是搜索处跳转过来的，则后天查询，该类型或该书籍
+				if(typeName !== null){
+					    $.ajax({
+					    	url: "GetBooksTypeInfoAction_getBookOrBookDir",
+							type: 'post',
+							dataType : 'json',
+							data: {
+								//searchData表示特定请求,给一个数字用于后台确定调用哪个方法
+								searchData : 200,
+								//哪个书籍类型
+								btyName : typeName,
+								//查询的关键字
+								searchValue : inputValue
+							}
+					    }).then( (res ) => {
+					    	if(res.code === 200 && res.msg === "COUNT"){
+					    		if(res.data.count === 0){
+					    			res.data.count += 1;
+					    		}
+					    		var totalCounts = res.data.count;
+					    		var pageSize = 30;
+						    	$('#page').jqPaginator({
+								   totalCounts:totalCounts,
+								   pageSize:pageSize,
+								   visiblePages: 10,
+								   activeClass: 'activePage',
+								   first: '<li class="first"><a href="javascript:void(0);">首页</a></li>',
+								   prev: '<li class="prev"><a href="javascript:void(0);">上一页</a></li>',
+								   next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
+								   last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
+								   page: '<li class="page"><a href="javascript:void(0);">{{page}}</a></li>',
+								   onPageChange: function (num, type) {
+							    	 $.ajax({
+											url: "GetBooksTypeInfoAction_getBookOrBookDir",
+											type: 'post',
+											dataType : 'json',
+											data: {
+												//searchData表示书籍类型的名字
+												searchData: typeName,
+												//搜索的关键字
+												searchValue: inputValue,
+												searchStart : num,
+												searchSize : pageSize
+											}
+										}).then( (res) => {
+											//方向节点
+											var $dirLiEle = $(".bdirection").find("ul li");
+											if(res.code === 200 && res.msg !== "EMPTY"){
+												let {
+													//方向类别
+													book0: { bdrId },
+													//书籍类别中，未选中的
+													bookTypeUnSelect,
+													//第一本书籍的，表示选中的书籍类型，和类型数据库id
+													book0: { btyName, btySelectedId	}
+												} = res.data
+												
+												let data = res.data;
+												//保留book类型
+												delete data.bookTypeUnSelect;
+												if(typeName !== 0){
+													//选中方向id
+													addClassOn($dirLiEle, bdrId, "bdr" );
+												}else{
+													addClassOn($dirLiEle, 0, "bdr" );
+													addClassOn( $(".btyBooks ul li"), 0, "bty");
+												}
+												//选中全部
+											 	$(".detailBooks").find("li:eq(0)").addClass("on");
+												var str = ``;
+												var randomI = Math.ceil(Math.random() * (bookTypeUnSelect.UnSelectTypeCount - 1));
+												for(var i = 0; i < bookTypeUnSelect.UnSelectTypeCount; i++){
+													str += `<li class="course-nav-item">
+													    		<a href="javaScript:void(0)">${bookTypeUnSelect["UnSelectType"+i].UnSelectTypeName}</a>
+														   		<span style="display:none">${bookTypeUnSelect["UnSelectType"+i].UnSelectTypeId}</span>
+													    	</li>`;
+													    	if( i === randomI && typeName !== 0){
+													    		str += `<li class="course-nav-item on">
+																    		<a href="javaScript:void(0)">${btyName}</a>
+																	   		<span style="display:none">${btySelectedId}</span>
+																    	</li>`;
+													    	}
+												}
+												//渲染类型
+												$(".btyBooks").children("ul").append(str);
+												//渲染书籍
+												xuanranBooks(data);
+											 	
+											 	//表示的是前台查询是，在全部分类中查询
+											}else if(res.code === 200 && res.msg === "EMPTY") {
+												//当查询为空时，尤其是检索处通过点击分类查询该书籍时，不存在情况下。
+												let { 
+													data, data:{ typeCount }
+												} = res;
+												//先渲染方向节点。
+												addClassOn($dirLiEle, 0, "bdr");
+												var strData = ``;
+												data = sortData( data );
+												for(var i = 0; i < typeCount; i++){
+													strData += `<li class="course-nav-item">
+													    		<a href="javaScript:void(0)">${data["btyName" + i]}</a>
+														   		<span style="display:none">${data["btyId" + i]}</span>
+													    	</li>`;
+												};
+												$(".bdirection").find("li:eq(0)").addClass("on");
+												$(".btyBooks").find("li:eq(0)").addClass("on");
+												$(".detailBooks").find("li:eq(0)").addClass("on");
+												$(".detailBooksInfo").append(`<p class="no-course-helper" style="text-align: center;margin-bottom:150px">
+							                            <span>精彩书籍上传中，敬请期待！</span>
+								                        <div></div></p>`);
+												$('#page').jqPaginator('option',{ totalCounts: 0 });
+												$(".btyBooks").children("ul").append(strData);
+											}else{
+												errorTip("请求数据错误 请稍后重试");
+											}
+										}, () => {
+											    errorTip("网络错误 请稍后重试");
+											    /****这里表示后续操作，比如点击方向和点击，类别查找书籍***/
+										}).then( ( ) => {
+											reNewPage(num, pageSize);
+										}, () => {
+											errorTip("请求数据错误 请稍后重试");
+										})
+							    	 }
+							    	/*---onPageChange---*/
+					    	     })
+					    	     	/*---分页-----------*/
+					         }
+					    		 	/*   if 结束           */
+					    }, () => {
+					    			/*   ajax请求错误   */
+					    			errorTip("网络异常 请稍后重试");
+					    })
+				}else{
+						//执行到这里，则表示是直接页面跳转
+						$.ajax({
+							url: "GetBooksTypeInfoAction_getBooksAndType",
+							type: "post",
+							dataType : "json",
+							data: {
+								dataCount: 200
+							}
+						}).then( (res) => {
+							if( res.code === 200 ){
+								var totalCounts = res.data.bookCount;
+								var pageSize = 30;
+								$('#page').jqPaginator({
+								    totalCounts:totalCounts,
+								    pageSize:pageSize,
+								    visiblePages: 10,
+								    activeClass: 'activePage',
+								    first: '<li class="first"><a href="javascript:void(0);">首页</a></li>',
+								    prev: '<li class="prev"><a href="javascript:void(0);">上一页</a></li>',
+								    next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
+								    last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
+								    page: '<li class="page"><a href="javascript:void(0);">{{page}}</a></li>',
+								    onPageChange: function (num, type) {
+								    	$.ajax({
+								    		type: "post",
+								    	 	url: "GetBooksTypeInfoAction_getBooksAndType",
+											dataType: "json",
+								    		async:true,
+								    		data:{
+								    			"pageStart": num,
+								    			"pageSize": pageSize,
+								    			"type": type
+								    		}
+								    	}).then( (res) => {
+								    		if( res.code === 200){
+								    			if( res.msg === "init"){
+								    				let {
+									    				//表示整个data数据
+									    				data,
+									    				//表示整个书籍数据
+									    				data: { book },
+									    			} = res
+									    			var allData = Object.assign( {}, data);
+									    			delete data.book;
+									    			//表示书籍类型
+									    			var booksType = data;
+									    			//规则化处理一下。
+									    			booksType = sortData(booksType);
+									    			//渲染书籍类型
+									    			var str = ``;
+									    			for(var i = 0; i < booksType.bookCount; i++){
+														str += `<li class="course-nav-item">
+														    		<a href="javaScript:void(0)">${booksType["btyName"+i]}</a>
+															   		<span style="display:none">${booksType["btyId"+i]}</span>
+														    	</li>`;
+													}
+													$(".btyBooks").children("ul").append(str);
+													xuanranBooks(book);
+								    			}else if( res.msg === "change" ){
+								    				let {
+								    					data: book,
+								    					data:{ bookCount }
+								    				} = res;
+								    				xuanranBooks(book);
+								    			}
+								    		}
+								    	}, () => {
+								    		errorTip("网络错误 请稍后重试");
+								    	}).then( () => {
+								    		hoverHandler(true);
+								    		$activePage = $('#page').find(".page").not($(".activePage"));
+											$activePage.each( function(k, v) {
+												$(v).hover(function() {
+													$(this).find("a").addClass("notActivePage");
+												}, function() {
+													$(this).find("a").removeClass("notActivePage");
+												})
+											})
+								    	}, () => {
+								    		errorTip("网络异常 请稍后重试");
+								    	}).then( () => {
+								    		reNewPage(num, pageSize);
+								    	}, () => {
+								    		errorTip("网络异常 请稍后重试");
+								    	});
+								    }
+								});
+							}else{
+								errorTip("请求数据错误 请稍后重试");
+							}
+						}, () => {
+								errorTip("网络错误 请稍后重试");
+								/****这里表示后续操作，比如点击方向和点击，类别查找书籍***/
+						})
+					}
+					 	function reNewPage(num, pageSize){
+							//ajax发送请求
+											function ajaxSend( params ){
+												const param = {
+														type: "post",
+														url: null,
+														dataType: "json",
+														async: true,
+														data:{
+															start : num,
+															size : pageSize
+														}
+												};
+												$.extend(true, param, params );
+												return new Promise( (resolve, reject) => {
+													$.ajax({
+														type: param.type,
+											    	 	url: param.url,
+														dataType: param.dataType,
+											    		async: true,
+											    		data: param.data
+													}).then( (res) => {
+														resolve(res)
+													}, (res) => {
+														reject(res)
+													})
+												})
+											};
+											//难度系数转换的封装
+											function selDegree( degree ) {
+												switch (degree) {
+													case 0:
+														degree = "0";
+														break;
+													case 1:
+														degree = "begin";
+														break;
+													case 2:
+														degree = "new";
+														break;
+													case 3:
+														degree = "skill";
+														break;
+													default:
+														break;
+												}
+												return degree;
+											};
+											//方向
+											var $bdirLI = $(".bdirection ul li");
+											//类别
+											var $btyLI = $(".btyBooks ul li");
+											//难度系数
+											var $deTailLI = $(".detailBooks ul li");
+											
+											$.each($bdirLI, function(k, v) {
+												$(v).on("click", function(){
+													if(k === 0){
+														window.location.reload();
+													}else{
+														removeOn($bdirLI);
+														$(v).addClass("on");
+														//发送ajax。。
+														var ajaxParams = {
+																url: "GetBooksTypeInfoAction_getDirTypeBooks",
+																data:{
+																	direct: $(v).children("a").attr("data-id"),
+																	suffix: 0
+																}
+														};
+														let promise = ajaxSend( ajaxParams );
+														promise.then( (res) => {
+															if( res.code === 200 ){
+																let {
+																	//书籍类型数量
+																	data: { bType: { boTypeCount }},
+																	//包含书籍类型的对象
+																	data: { bType: { booksType }},
+																	//书籍数量
+																	data: { book: { bookCount}},
+																	//包含书籍的对象
+																	data: { book }
+																} = res
+																//点击方向时，必须让难度系数选中全部、、
+																//删除难度系数的on
+																removeOn($deTailLI);
+																//让全部选中
+																$deTailLI.eq(0).addClass("on");
+																xuanranType(boTypeCount, booksType);
+																if(pageSize <= book.bookCount){
+																	$(".pagenateTools").css("visibility", "hidden");
+																}
+																$('#page').jqPaginator('option',{totalCounts:book.bookCount})
+																//将分类渲染一下。
+																xuanranBooks(book);
+															}else errorTip("渲染书籍失败");
+														}, (res) => {
+															errorTip("网络异常 请稍后重试");
+														})
+													}
+												})
+											});
+											$(".btyBooks ul").on("click","li",(v) => {
+												//如果点击全部，同时方向处全部选中则，重新刷新
+												if( $(v.currentTarget).hasClass("all") && $bdirLI.eq(0).hasClass("on") ){
+														window.location.reload();
+												}else{
+													var direct = removeOn($bdirLI, true);
+													direct = $bdirLI.eq(direct).children("a").attr("data-id");
+													//寻找难度系数的角标；
+													degree = removeOn($deTailLI, true);
+													//记录此时 难度系数哪个被选中
+													var deIndex = degree;
+													degree = selDegree(degree);
+													//分类
+													var suffix = $(v.currentTarget).children("span").text();
+													if( $(v.currentTarget).hasClass("all") ){
+														suffix = 0;
+													}
+													//如果点击分类时，方向不为全部时，
+													//则查找该方向下的所有类型，和书籍，同时记录下难度相关记录的下标
+													var ajaxParams = {
+															url: "GetBooksTypeInfoAction_getDirTypeBooks",
+															data:{
+																"direct" : direct,
+																//书籍类型id
+																"suffix" : suffix,
+																"degree" : degree
+															}
+													};
+													let promise = ajaxSend( ajaxParams );
+													promise.then( (res) => {
+														if( res.code === 200 && res.msg !== "SECOND" && res.msg !=="KNOEDIRE" ){
+															//当方向为全部时，点击书籍分类的全部
+															let {
+																//书籍类型数量
+																data: { bType: { boTypeCount }},
+																//包含书籍类型的对象
+																data: { bType: { booksType }},
+																//书籍数量
+																data: { book: { bookCount}},
+																//包含书籍的对象
+																data: { book }
+															} = res
+															//将分类渲染一下。
+															xuanranType(boTypeCount, booksType);
+															if(pageSize <= book.bookCount){
+																$(".pagenateTools").css("visibility", "hidden");
+															}
+															$('#page').jqPaginator('option',{totalCounts:book.bookCount})
+															xuanranBooks(book);
+															if(suffix == 0){
+																    removeOn($deTailLI);
+																	$deTailLI.eq(0).addClass("on");
+															}
+														}else if(res.code === 200 && res.msg === "SECOND"){
+															//如果方向确定，点击书籍类型时，渲染书籍
+															let{ 
+																book
+															} = res
+															xuanranBooks(book);
+															if(pageSize <= book.bookCount){
+																$(".pagenateTools").css("visibility", "hidden");
+															}
+															$('#page').jqPaginator('option',{totalCounts:book.bookCount})
+															var $newBtyLI = $(".btyBooks ul li");
+															removeOn($newBtyLI);
+															addClassOn($newBtyLI, suffix, "bty");
+															
+														}else if( res.code === 200 && res.msg === "KNOEDIRE"){
+															//如果方向不确定，点击书籍类型时，渲染新的分类和选中对应的方向
+															
+															let{
+																//书籍类型数量
+																data: { book: { bookDire }},
+																//书籍类型数量
+																data: { bType: {boTypeCount}},
+																//包含书籍类型的对象
+																data: { bType: { booksType }},
+																data: { book }
+															} = res
+															//让难度系数 这里 记住上次的选择
+															$deTailLI.eq(deIndex).addClass("on");
+															xuanranType(boTypeCount, booksType);
+															if(pageSize <= book.bookCount){
+																$(".pagenateTools").css("visibility", "hidden");
+															}
+															$('#page').jqPaginator('option',{totalCounts:book.bookCount})
+															
+															var $newBtyLI = $(".btyBooks ul li");
+															//类别中删除on
+															removeOn($newBtyLI);
+															addClassOn($newBtyLI,suffix,"bty");
+															//方向中删除on
+															removeOn($bdirLI);
+															addClassOn($bdirLI,bookDire,"bdr");
+
+															//将分类渲染一下。
+															xuanranBooks(book);
+														}else if( res.code === 404 && res.msg === "EMPTY" ){
+															$(".detailBooksInfo").html(" ");
+															let{
+																//书籍类型数量
+																data: { boTypeCount },
+																//包含书籍类型的对象
+																data: { booksType }
+															} = res
+															xuanranType(boTypeCount, booksType);
+															var $newBtyLI = $(".btyBooks ul li");
+															//类别中删除on
+															removeOn($newBtyLI);
+															addClassOn($newBtyLI,suffix,"bty");
+															if(pageSize <= book.bookCount){
+																$(".pagenateTools").css("visibility", "hidden");
+															}
+															$('#page').jqPaginator('option',{totalCounts:0})
+														}
+													   else errorTip("渲染书籍失败");
+													}, (res) => {
+														errorTip("网络异常 请稍后重试");
+													})
+												}
+											});
+											
+											$.each($deTailLI, (k, v) => {
+												$(v).on("click", () => {
+													if( k === 0 && $bdirLI.eq(0).hasClass("on") ) {
+														window.location.reload();
+													}else{
+														removeOn( $deTailLI );
+														$(v).addClass("on");
+														//方向的角标
+														var  direct = removeOn($bdirLI, true);
+															 direct = $bdirLI.eq(direct).children("a").attr("data-id");
+															 console.log(direct + " direct ")
+														//书籍类型的角标
+														var suffix = removeOn($(".btyBooks ul li"), true);
+														console.log(suffix + " suffix ")
+														if( $(".btyBooks ul li").eq(suffix).children("span").length < 1 ){
+															suffix = 0;
+														}else
+															suffix = $(".btyBooks ul li").eq(suffix).children("span").text();
+														//难度系数的角标
+														var degree = removeOn($deTailLI, true);
+														//判断难度系数，同时，返回表示的字符串；
+														degree = selDegree(degree);
+														var ajaxParams = {
+																url: "GetBooksTypeInfoAction_getDirTypeBooks",
+																data:{
+																	specailX : "specail"
+																}
+														}
+														//发送参数data的封装。
+														if(direct === 0 && suffix === 0 ){
+															//表示方向和分类都为全部。。
+															//此时，查找书籍为degree类型的即可
+															ajaxParams.data.degree = degree;
+															ajaxParams.data.direct = direct;
+															ajaxParams.data.suffix = suffix;
+														}else if( direct !== 0 && suffix !== 0 ) {
+															//此时，表示，需要查找该类型下的书籍为degree即可。
+															ajaxParams.data.direct = direct;
+															ajaxParams.data.suffix = suffix;
+															ajaxParams.data.degree = degree;
+														}else if( direct !== 0 && suffix === 0 ){
+															//此时表明要查找该方向类型下，所有的degree。。。
+															ajaxParams.data.direct = direct;
+															ajaxParams.data.degree = degree;
+															ajaxParams.data.suffix = suffix;
+														}
+														//发送AJAX
+														let promise = ajaxSend( ajaxParams );
+														//ajax回调处理
+														promise.then( (res) => {
+															if( res.code === 200 && res.msg ==="SECOND"){
+																let {
+																	book
+																} = res
+																xuanranBooks(book);
+																if(pageSize <= book.bookCount){
+																	$(".pagenateTools").css("visibility", "hidden");
+																}
+																$('#page').jqPaginator('option',{totalCounts:book.bookCount})
+															}
+														}, (res) => {
+															errorTip("网络异常 请稍后重试");
+														})
+													}
+												})
+											});
+							//1.点击方向时，选择全部，则，分类为全部，难度为全部
+							//2.点击方向时，选择其中一个，分类为全部，难度为全部
+							//3.倘若方向有选中的，点击分类则查分类，同时难度为全部，，
+							//3.倘若方向有选中，点击分类的全部，
+						} 
+					 	//退出操作
+						$(".logoutApp").on("click",function(){
+							$.ajax({
+								url:"LoginGeneralAction_logout",
+								type: 'post',
+								dataType : 'json',
+								success(res){
+									if(res.code === 200 && res.msg === "SUCCESS"){
+										localStorage.removeItem("dbID");
+										localStorage.removeItem("dbName");
+										localStorage.removeItem("dbProfile");
+										document.location.reload();
+									}else{
+										errorTip("请求异常 请稍后重试");
+									}
+								},
+								error(){
+									errorTip("网络异常 请稍后重试");
+								}
+							})
+						})
+			}())
+			
+			$(".detailBooksInfo").on("click", "div.course-card-container", function(){
+				var bookId = $(this).find("div.course-label").children("label:eq(1)").text();
+				var documentUrl = "../booksInfor/booksInfo.html?bookId=" + bookId;
+					window.location.href = documentUrl;
+			})
+		</script>
+	</body>
+</html>

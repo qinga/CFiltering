@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.jju.cfiltering.entity">
+	<class name="Books" table="books">
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="name" length="128"/>
+		<property name="createTime" column="create_time"/>
+		<property name="lastEditTime" column="last_edit_time"/>
+		<property name="bookVersion" column="book_version"></property>
+		<property name="bookDesc" column="book_desc" length="1024"/>
+		<property name="content" column="content" length="2048"></property>
+		<property name="newBookFlag" column="new_book_flag"/>
+		<property name="skillBoostFlag" column="skill_boost_flag"/>
+		<property name="beginBookFlag" column="begin_book_flag"/>
+		
+		<!-- 与作者表 多对一的表达 -->
+		<many-to-one name="author" column="author_id" class="Author" />
+		
+		<!-- 与图片表 一对多的表达 -->
+		<set name="booksImg" cascade="save-update" inverse="true" table="books_img">
+			<key column="books_id"></key>
+			<one-to-many class="BooksImg"/>
+		</set>
+		
+		<!-- 与书籍表示多对一的关系 -->
+		<many-to-one name="publish" column="publish_id" class="Publish" />
+		
+		
+		<!-- 与书籍类型表达多对多的关系 -->
+		<set name="booksType" table="books_bookstype_map">
+			<key column="books_id"></key>
+			<many-to-many class="BooksType" column="bookstype_id"/>
+		</set>
+		
+		<!-- books与用户浏览记录表 表达一对多的关系 -->
+		<set name="userSkimMap" cascade="save-update" inverse="true" table="user_skim_map">
+			<key column="books_id"></key>
+			<one-to-many class="UserSkimMap"/>
+		</set>
+		<!-- books与用户收藏记录表 表达一对多的关系 -->
+		<set name="userBookHouseMap" cascade="save-update" inverse="true" table="user_bookhouse_map">
+			<key column="books_id"></key>
+			<one-to-many class="UserBookHouseMap"/>
+		</set>
+		<!-- books与用户评论表 表达一对多的关系 -->
+		<set name="userBookCommentsMap" cascade="save-update" inverse="true" table="user_book_comments_map">
+			<key column="books_id"></key>
+			<one-to-many class="UserBookCommentsMap"/>
+		</set>
+		<!-- books与用户评分表 表达一对多的关系 -->
+		<set name="userBookScoreMap" cascade="save-update" inverse="true" table="user_book_score_map">
+			<key column="books_id"></key>
+			<one-to-many class="UserBookScoreMap"/>
+		</set>
+	</class>
+</hibernate-mapping>

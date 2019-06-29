@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<package name="login" namespace="/" extends="struts-default" >
+		<!-- 不需要依赖service,由struts2创建action对象,spring管理生命周期 -->
+		<action name="LoginAction" class="LoginAction" method="Login"/>
+		<!-- 不需要依赖service,由struts2创建action对象,spring管理生命周期 -->
+		<action name="CallBackAction" class="CallBackAction" method="callBack">
+			<result name="RELOGIN" type="redirect">ClientPage/login/login.html</result> 
+			<result name="SAVE_USERINFO_CHAIN" type="chain">
+				<param name="actionName">UserRegisterAction</param>
+				<param name="namespace">/</param>
+				<param name="method">saveGithubUser</param>
+			</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,5 @@
+/**
+ * 
+ */
+
+var obj = new Object();

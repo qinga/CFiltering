@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>空间</title>
+		<link rel="stylesheet" href="../perManage/perManage.css" type="text/css">
+		<link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css" type="text/css"/>
+		<!-- layui.css样式 -->
+		<link rel="stylesheet" href="../../Admin/layui/css/layui.css" type="text/css" />
+	</head>
+
+	<body>
+		<div id="header">
+			<div class="page-container clearfix" id="nav">
+				<div id="logo" class="logo">
+					<a href="../index.html"  title="首页" style="text-align:center;">
+						<img title="推荐系统" src="../booksInfor/img/logo.png" style="height:72px;">
+					</a>
+				</div>
+				<ul class="nav-item">
+					<li>
+						<a href="./myLearnPath.html" class="active">我的学习路线</a>
+					</li>
+					<li>
+						<a href="../booksType/booksType.html">书海</a>
+					</li>
+					<li>
+						<a href="../shareDynaticLink/index.html">猿分享</a>
+					</li>
+				</ul>
+				<div id="login-area">
+					<ul class="clearfix logined">
+						<li class="set_btn user-card-box" id="header-user-card">
+							<a id="header-avator" class="user-card-item js-header-avator"  href="">
+								<img src="" width="40" height="40">
+							</a>
+							<!--退出-->
+							<div class="g-user-card">
+								<div class="card-inner">
+									<div class="card-top clearfix">
+										<a href="#" class="l">
+											<img src="" alt="">
+										</a>
+										<div class="card-top-right-box l">
+											<a href="#">
+												<span class="name text-ellipsis"></span>
+											</a>
+										</div>
+									</div>
+									<div class="card-sets clearfix logoutApp">
+										<a href="javascript:void(0)" class="l">安全退出</a>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="search-warp clearfix" style="min-width: 32px; height: 72px;">
+					<div class="pa searchTags">
+						<a href="#" target="_blank">小程序</a>
+						<a href="#" target="_blank">JAVA入门</a>
+					</div>
+					<div class="search-area">
+						<input class="search-input"  type="text" autocomplete="off">
+						<input type="hidden" class="btn_search">
+						<ul class="search-area-result">
+						</ul>
+					</div>
+					<div class="showhide-search">
+						<i class="fa fa-search" aria-hidden="true"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="main">
+			<div class="bg-other user-head-info">
+				<div class="user-info clearfix">
+					<div class="user-pic">
+						<div class="user-pic-bg">
+							<img class="img" src="" alt="">
+						</div>
+					</div>
+					<div class="user-info-right">
+						<h3 class="user-name clearfix">
+							<span></span>
+						</h3>
+					</div>
+					<div class="study-info clearfix">
+						<div class="item follows">
+							<div class="u-info-learn" title="学习时长430小时11分" style="cursor:pointer;">
+								<em>4h</em>
+								<span>学习时长 </span>
+							</div>
+						</div>
+						<div class="item follows">
+							<a href="#">
+								<em>1</em>
+							</a>
+							<span>经验</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="slider">
+					<ul>
+						<li>
+							<a href="../shareDynaticLink/index.html">
+								<i class="fa fa-share-square" aria-hidden="true"></i>
+								<span>动态圈</span>
+								<b class="icon-drop_right"></b>
+							</a>
+						</li>
+						<li>
+							<a href="../perManage/perManage.html">
+								<i class="fa fa-book" aria-hidden="true"></i>
+								<span>我的课程</span>
+								<b class="icon-drop_right"></b>
+							</a>
+						</li>
+						<li>
+							<a href="./myShareArticle.html" >
+								<i class="fa fa-share" aria-hidden="true"></i>
+								<span>我的分享</span>
+								<b class="icon-drop_right"></b>
+							</a>
+						</li>
+						<li>
+							<a href="./myHouseArticle.html">
+								<i class="fa fa-square" aria-hidden="true"></i>
+								<span>我的收藏</span>
+								<b class="icon-drop_right"></b>
+							</a>
+						</li>
+						<li>
+							<a href="./myLearnPath.html" class="active">
+								<i class="fa fa-leanpub" aria-hidden="true"></i>
+								<span>我的学习路线</span>
+								<b class="icon-drop_right"></b>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="u-container">
+					<div class="c-tab clearfix">
+						<div class="tool-left l">
+							<a href="#" class="sort-item active">最近学习</a>
+						</div>
+					</div>
+					<div class="js-course-list my-space-course study-tl">
+						<div class="clearfix tl-item  tl-item-first">
+							<span class="time">
+				                <b>2018</b>
+				                <em>11月15日</em>
+				            </span>
+							<div class="course-list course-list-m">
+								<ul class="clearfix">
+									<li class="course-one">
+										<div class="course-list-img l">
+											<a href="#" target="_blank">
+												<img alt="HQL数据查询基础" src="../perManage/image/5704a31b0001afa906000338-240-135.jpg" width="200" height="113">
+											</a>
+										</div>
+										<div class="course-list-cont">
+											<h3 class="study-hd">
+	                            				<a href="#" target="_blank">HQL数据查询基础</a>
+    						          			<div class="share-box clearfix">
+						            				<div class="show-btn">
+						            					<i class="icon-down2"></i>
+						            				</div>
+										            <div class="share-box-con courses-r">
+										                <a href="javascript:;" title="收藏" class="follow custom_f">
+										                	<i class="icon icon-star_outline"></i>
+										                </a>
+										                <a href="javascript:;" title="删除" class="del">
+										                	<i class="icon icon-notdisplay">
+										                	</i>
+										                </a>
+										            </div>
+					        					</div>
+						        			</h3>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="clearfix tl-item ">
+							<span class="time">
+				                <b>2018</b>
+				                <em>08月28日</em>
+				            </span>
+							<div class="course-list course-list-m">
+								<ul class="clearfix">
+									<li class="course-one" data-courseid="935" data-uid="4020106">
+										<div class="course-list-img l">
+											<a href="https://www.imooc.com/learn/935" target="_blank">
+												<img alt="Vue+Webpack打造todo应用" src="../perManage/image/5a56fdb400017d0306000338-240-135.jpg" width="200" height="113">
+											</a>
+										</div>
+										<div class="course-list-cont">
+											<h3 class="study-hd">
+	                            				<a href="https://www.imooc.com/learn/935" target="_blank">Vue+Webpack打造todo应用</a>
+        						          		<div class="share-box clearfix">
+										            <div class="show-btn"><i class="icon-down2"></i></div>
+										            <div class="share-box-con courses-r">
+										                <a href="javascript:;" title="收藏" class="follow custom_f">
+										                	<i class="icon icon-star_outline"></i>
+										                </a>
+										                <a href="javascript:;" title="删除" class="del">
+										                	<i class="icon icon-notdisplay"></i>
+										                </a>
+										            </div>
+										        </div>
+										    </h3>    
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="clearfix tl-item ">
+							<span class="time">
+				                <b>2018</b>
+				                <em>08月28日</em>
+				            </span>
+							<div class="course-list course-list-m">
+								<ul class="clearfix">
+									<li class="course-one" data-courseid="935" data-uid="4020106">
+										<div class="course-list-img l">
+											<a href="https://www.imooc.com/learn/935" target="_blank">
+												<img alt="Vue+Webpack打造todo应用" src="../perManage/image/5a56fdb400017d0306000338-240-135.jpg" width="200" height="113">
+											</a>
+										</div>
+										<div class="course-list-cont">
+											<h3 class="study-hd">
+	                            				<a href="https://www.imooc.com/learn/935" target="_blank">Vue+Webpack打造todo应用</a>
+        						          		<div class="share-box clearfix">
+										            <div class="show-btn"><i class="icon-down2"></i></div>
+										            <div class="share-box-con courses-r">
+										                <a href="javascript:;" title="收藏" class="follow custom_f">
+										                	<i class="icon icon-star_outline"></i>
+										                </a>
+										                <a href="javascript:;" title="删除" class="del">
+										                	<i class="icon icon-notdisplay"></i>
+										                </a>
+										            </div>
+										        </div>
+										    </h3>    
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="clearfix tl-item ">
+				            <span class="time">
+				                <b>2018</b>
+				                <em>09月02日</em>
+				            </span>
+				            <div class="course-list course-list-m">
+				                <ul class="clearfix">
+            	                    <li class="course-one">
+					                    <div class="course-list-img l">
+					                        <a href="/learn/713" target="_blank">
+					                            <img alt="微信授权登录" src="//img.mukewang.com/587c69610001b37b06000338-240-135.jpg" width="200" height="113">
+					                        </a>
+					                    </div>
+					                    <div class="course-list-cont">
+					                    	<h3 class="study-hd">
+					                            <a href="/learn/713" target="_blank">微信授权登录</a>
+					    						    <div class="share-box clearfix">
+										            <div class="show-btn"><i class="icon-down2"></i></div>
+										            <div class="share-box-con courses-r">
+										                <a href="javascript:;" title="收藏" class="follow custom_f">
+										                	<i class="icon icon-star_outline"></i>
+										                </a>
+										                <a href="javascript:;" title="删除" class="del">
+										                	<i class="icon icon-notdisplay"></i>
+										                </a>
+										            </div>
+										        </div>
+										    </h3>
+					                    </div>
+					                </li>
+                                	  <li class="course-one">
+					                    <div class="course-list-img l">
+					                        <a href="/learn/713" target="_blank">
+					                            <img alt="微信授权登录" src="//img.mukewang.com/587c69610001b37b06000338-240-135.jpg" width="200" height="113">
+					                        </a>
+					                    </div>
+					                    <div class="course-list-cont">
+					                    	<h3 class="study-hd">
+					                            <a href="/learn/713" target="_blank">微信授权登录</a>
+					    						    <div class="share-box clearfix">
+										            <div class="show-btn"><i class="icon-down2"></i></div>
+										            <div class="share-box-con courses-r">
+										                <a href="javascript:;" title="收藏" class="follow custom_f">
+										                	<i class="icon icon-star_outline"></i>
+										                </a>
+										                <a href="javascript:;" title="删除" class="del">
+										                	<i class="icon icon-notdisplay"></i>
+										                </a>
+										            </div>
+										        </div>
+										    </h3>
+					                    </div>
+					                </li>
+									  <li class="course-one">
+					                    <div class="course-list-img l">
+					                        <a href="#" target="_blank">
+					                            <img alt="微信授权登录" src="//img.mukewang.com/587c69610001b37b06000338-240-135.jpg" width="200" height="113">
+					                        </a>
+					                    </div>
+					                    <div class="course-list-cont">
+					                    	<h3 class="study-hd">
+					                            <a href="#" target="_blank">微信授权登录</a>
+					    						    <div class="share-box clearfix">
+										            <div class="show-btn"><i class="icon-down2"></i></div>
+										            <div class="share-box-con courses-r">
+										                <a href="javascript:;" title="收藏" class="follow custom_f">
+										                	<i class="icon icon-star_outline"></i>
+										                </a>
+										                <a href="javascript:;" title="删除" class="del">
+										                	<i class="icon icon-notdisplay"></i>
+										                </a>
+										            </div>
+										        </div>
+										    </h3>
+					                    </div>
+					                </li>
+				                </ul>
+				            </div>
+				        </div>
+						<div class="clearfix tl-item  tl-item-last">
+							<span class="time">
+				                <b>2018</b>
+				                <em>07月26日</em>
+				            </span>
+							<div class="course-list course-list-m">
+								<ul class="clearfix">
+									<li class="course-one" data-courseid="637" data-uid="4020106">
+										<div class="course-list-img l">
+											<a href="https://www.imooc.com/learn/637" target="_blank">
+												<img alt="进击Node.js基础（二）" src="../perManage/image/56f22f160001bac306000338-240-135.jpg" width="200" height="113">
+											</a>
+										</div>
+										<div class="course-list-cont">
+											<h3 class="study-hd">
+		                            			<a href="https://www.imooc.com/learn/637" target="_blank">进击Node.js基础（二）</a>
+	        						        	<div class="share-box clearfix">
+										            <div class="show-btn"><i class="icon-down2"></i></div>
+										            <div class="share-box-con courses-r">
+										                <a href="javascript:;" title="收藏" class="follow custom_f">
+										                	<i class="icon icon-star_outline"></i>
+										                </a>
+										                <a href="javascript:;" title="删除" class="del">
+										                	<i class="icon icon-notdisplay"></i>
+										                </a>
+										            </div>
+										        </div>
+									        </h3>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="qa-comment-page">
+						<div class="page">
+							<span class="disabled_page">首页</span>
+							<span class="disabled_page">上一页</span>
+							<a href="javascript:void(0)" class="active text-page-tag">1</a>
+							<a class="text-page-tag" href="#">2</a>
+							<a class="text-page-tag" href="#">3</a>
+							<a class="text-page-tag" href="#">4</a>
+							<a class="text-page-tag" href="#">5</a>
+							<a class="text-page-tag" href="#">6</a>
+							<a class="text-page-tag" href="#">7</a>
+							<a href="#">下一页</a>
+							<a href="#">尾页</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+		</div>
+		<div id="J_GotoTop" class="elevator">
+			<a href="#" class="elevator-msg" target="_blank">
+				<i class="fa fa-weixin" aria-hidden="true"></i>
+				<span class="">分享至微信</span>
+			</a>
+			<a href="#" class="elevator-faq" target="_blank">
+				<i class="fa fa-qq" aria-hidden="true"></i>
+				<span class="">分享至QQ</span>
+			</a>
+			<a href="javascript:void(0)" class="elevator-top no-goto"  id="backTop">
+				<i class="fa fa-chevron-circle-up" aria-hidden="true"></i>
+				<span class="">返回顶部</span>
+			</a>
+		</div>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="./js/myLearnPathLogin.js"></script>
+			<!-- layui.js -->
+		<script src="../../Admin/layui/layui.js"></script>
+	<script type="text/javascript">
+		(function(){
+			function errorTip(str){
+				layui.use('layer', function(){
+					  var layer = layui.layer;
+					  layer.open({
+						  title: '信息提示',
+						  content: str || '亲 请稍后重试呦,请求出错',
+						  shadeClose: true
+						});    
+					}); 
+			}
+			
+			$(".logoutApp").on("click",function(){
+				$.ajax({
+					url:"LoginGeneralAction_logout",
+					type: 'post',
+					dataType : 'json',
+					success(res){
+						if(res.code === 200 && res.msg === "SUCCESS"){
+							localStorage.removeItem("dbID");
+							localStorage.removeItem("dbName");
+							localStorage.removeItem("dbProfile");
+							document.location.href = "../index.html";
+						}else{
+							errorTip("请求异常 请稍后重试");
+						}
+					},
+					error(){
+						errorTip("网络异常 请稍后重试");
+					}
+				})
+			})
+			//搜索处
+				 $(".search-area input:eq(0)").focus(function(){
+					 $(this).parent().siblings(".searchTags").css("display","none");
+				 })
+				 $(".search-area input:eq(0)").blur(function(){
+					 $(this).parent().siblings(".searchTags").css("display","block");
+				 })
+		}())
+	</script>
+	</body>
+</html>

@@ -1,0 +1,309 @@
+<html>
+  <head>
+    <base href="<%=basePath%>">
+		<meta charset="utf-8" />
+		<title>那些年 那些事的主页</title>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">    
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="This is my page">
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+	    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+		<script src="./js/jquery.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<link type="text/css" rel="stylesheet" href="main.css" />
+	     <script type="text/javascript">
+	     $(window).ready(function(){
+	    	 
+	     	var toolBar = $("#toolbar");
+			    trigger = $("#slider_trigger");
+			    mask = $(".mask");
+			    backButton =  $(".back-top");
+			    formControl = $(".form-control");
+			    trigger.on("click",function(){
+			       $("#showWrongInfo").html(""); //遮罩层消失时，用户名密码错误提示信息消失。
+			    	mask.fadeIn();
+			    	toolBar.css('right',0);
+			    });
+			    
+			    mask.on("click",function(){
+		 	     	mask.fadeOut();
+	            	toolBar.css("right",-toolBar.width());
+			    });    
+			    
+			    backButton.on('click',function(){
+			      $('html,body').animate({
+			      	scrollTop:0
+			      },500);
+			    });
+	     	    $(window).on("scroll",function(){
+	     	    	if( ( $(window).scrollTop()*8 ) < $(window).height() )
+	     	    	    backButton.fadeOut();//消失
+	     	        else
+	     	    	    backButton.fadeIn();//显示
+	     	    });
+	     	    $(window).trigger("scroll");
+	     	    $(".fa-angle-double-down").on("click",function(){
+	     	   	  $('html,body').animate({
+			      	scrollTop:800
+			      },500);
+	     	   });
+	     });
+	   </script>
+	</head>
+   <body>
+		<!--模态框（登录框）        -->
+		<!-- 如果登录失败 转跳回首页时 模态框显示 并且回显信息 -->
+         
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  	<div class="modal-dialog" role="document"  style="width: 750px;margin: 150px auto;">
+			    <div class="modal-content">
+			    	
+			        <div class="modal-header" style="background: #be3948;">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				        	<span aria-hidden="true">&times;</span>
+				        </button>
+				        <h4 class="modal-title" id="myModalLabel">同学录登录</h4>
+			        </div>
+				      
+				    <div class="modal-body" style="background:#edf0f2;">
+				      	
+					    <form class="form-horizontal" action="${pageContext.request.contextPath }/UserLoginServlet" method="post">
+						  <div class="form-group"  style="margin-top:20px;" >
+						    <label for="inputName" class="col-sm-1 control-label hidden-xs" style="padding-right: 3px;width:65px;overflow: hidden;">用户名</label>
+						    <div class="col-sm-5 col-md-5 col-xs-6 ">
+						      <input type="text" id="userName" class="form-control " name="username" placeholder="用户名" />
+						    </div>
+						  </div>
+						  <div class="form-group"  style="margin-top:30px;" >
+						    <label for="inputPassword" class="col-sm-1 control-label hidden-xs" style="padding-right: 3px;">密&nbsp;码</label>
+						    <div class="col-sm-5  col-md-5 col-xs-6"  >
+						      <input type="password" class="form-control" name="password" placeholder="密码">
+						    </div>
+						  </div>
+						  <div class="form-group"  style="margin-top:10px;" >
+						    <div class="col-sm-5"  >
+						     <span id="showWrongInfo" style="display: none;height: 5px;padding-left: 20px" ></span>
+						    </div>
+						  </div>
+						  <div class="form-group">
+							    <div class="col-sm-offset-1 col-md-10" style="margin-top:20px;">
+							      <div class="checkbox">
+							        <label>
+							          <input type="checkbox">自动登录
+							        </label>
+							        <a href="" style="padding-left:140px;color:black;">忘记密码?</a>
+							      </div>
+							    </div>
+						   </div>
+						   <div class="form-group">
+						   	    <div class="col-sm-offset-1 col-md-8 col-sm-8" style="margin-top:30px;margin-bottom: 40px;">
+						   	    	<a href="register.jsp" class="btn btn-primary" type="button" style="border:none;padding:10px 40px;background:#d0d6d9;color:#8c959a;">
+                                                                                                                立即注册
+						   	    	</a>
+                                    <input class="btn btn-success" type="submit" value="登录" style="margin-left:30px;padding:10px 55px;">
+						   	    </div>
+						   </div>
+						</form>
+				    </div>
+				</div>
+			    <div class="login-right" style="width:46%; border-left:3px solid #8c959a; position:absolute;top:90px;right:0px;height:250px;overflow: hidden;">
+                    <div style="margin:40px 80px;width:98%;height: 240px;;">
+                    	<p>一键授权,快速登录</p>
+                    	<div style="margin-top:20px;color: white;">
+                    	     <input class="btn btn-info" type="button" value="QQ账号直接登录" style="padding:10px 70px;margin-left: -40px;">
+                    	</div>
+                        <div style="margin-top:10px;">
+                            <input class="btn btn-default" type="submit" value="微信账号直接登录"  style="padding:10px 67px;margin-left: -40px;background:green;color:white">
+                        </div>
+                    </div>
+			    </div>
+		  	</div>
+		</div>
+		
+		
+		
+		<div class="main-wrapper">
+			<header><!--页头开始-->
+				<nav>
+						<ul class="logo">
+							<li id="slider_trigger">
+								<a style="cursor: pointer;color:#fffcff">HERE<img src="img/icon.png"/></a>
+							</li>
+						</ul>
+				</nav>
+				<div id="banner">
+					<div class="inner">
+						<h1>那些年&nbsp;&nbsp;那些事</h1>
+						<p class="sub-heading">爱吃的都是好孩子
+						</p>
+						<button id="main-btn">了解我</button>
+						<div class="more">
+						    <i class="fa fa-angle-double-down"  style="font-size:24px;"></i>
+							<p>更多</p>
+						</div>
+					</div>
+				</div>
+			</header><!--页头结束-->
+			<div class="content">
+				<section class="green-section">
+					<div class="wrapper">
+						<div>
+							<h2>我们都是好孩子</h2>
+						    <div class="hr">爱吃的好孩子</div>
+						    <p>
+						    	异想天开的好孩子
+						    </p>
+					    </div>
+					</div>
+					<div class="icon-group">
+						<span  class="icon fa fa-apple" aria-hidden="true" style="font-size: 48px;"></span>
+					</div>
+						<div class="icon-group">
+						<span  class="icon fa fa-github-square" aria-hidden="true" style="font-size: 48px;"></span>
+					</div>
+						<div class="icon-group">
+						<span class="icon fa fa-android" aria-hidden="true" style="font-size: 48px;"></span>
+					</div>
+				</section>
+				<section class="gray-section">
+					<div class="article-preview">
+						<div class="img-section">
+							<img src="images/timg.jpg" alt="..." />
+						</div>
+						<div class="text-section">
+							<h2>繁星流动,和你同路</h2>
+							<div class="sub-heading">
+								HELLO MY FRIENDS
+							</div>
+							<p>
+								Aliquam ut ex ut augue consectetur interdum.Donec hendrerit imperdiect.
+						    	Mauris eleifend fringilla nullam aenean mi ligula.
+							</p>
+						</div>
+					</div>
+					<div class="article-preview">
+						<div class="text-section">
+							<h2>你来风里雨里我去接你</h2>
+							<div class="sub-heading">
+								HAPPY EVERY DAY
+							</div>
+							<p>
+								Aliquene hello nule himuhe nvmios wo wor varchaer he impredicate
+								Memeory me with your heart.Shi jie hello.Keep say hello to world.
+							</p>
+						</div>
+						<div class="img-section">
+							<img src="images/pic02.jpg" alt="..." />
+						</div>
+					</div>
+					<div class="article-preview">
+						<div class="img-section">
+							<img src="images/pic03.jpg" alt="..." />
+						</div>
+						<div class="text-section">
+							<h2>如果前方路太泥泞记得你还有我这个朋友</h2>
+							<div class="sub-heading">
+                                SAY HELLO TO WORLD
+							</div>
+							<p>
+								Aliquene hello nule himuhe nvmios wo wor varchaer he impredicate
+								Memeory me with your heart.Shi jie hello.Keep say hello to world.
+							</p>
+						</div>
+					</div>
+				</section>
+				<section class="purple-section">
+					<div class="wrapper">
+						<div class="heading-wrapper">
+							<h2>ABOUT ME</h2>
+							<div class="hr"></div>
+							<div class="sub-heading">
+								Aliquene hello nule himuhe nvmios wo wor varchaer he impredicate
+								Memeory me with your heart.Shi jie hello.Keep say hello to world.
+							</div>
+						</div>
+						<div class="card-group clearfix">
+							<div class="card">
+								<h3>浓情厚谊</h3>
+								<p>
+								    	Aliquene hello nule himuhe nvmios wo wor varchaer he impredicate
+								Memeory me with your heart.Shi jie hello.Keep say hello to world.
+								</p>
+							</div>
+							<div class="card">
+								<h3>友情无止境</h3>
+								<p>
+									Aliquene hello nule himuhe nvmios wo wor varchaer he impredicate
+								Memeory me with your heart.Shi jie hello.Keep say hello to world.
+								</p>
+							</div>
+							<div class="card">
+								<h3>心灵的沟通</h3>
+								<p>
+									Aliquene hello nule himuhe nvmios wo wor varchaer he impredicate
+								Memeory me with your heart.Shi jie hello.Keep say hello to world.
+								</p>
+							</div>
+							<div class="card">
+								<h3>消逝的时光</h3>
+								<p>
+									Aliquene hello nule himuhe nvmios wo wor varchaer he impredicate
+								Memeory me with your heart.Shi jie hello.Keep say hello to world.
+								</p>
+							</div>
+							<div class="card">
+								<h3>多少同窗往事</h3>
+								<p>
+									Aliquene hello nule himuhe nvmios wo wor varchaer he impredicate
+								Memeory me with your heart.Shi jie hello.Keep say hello to world.
+								</p>
+							</div>
+							<div class="card">
+								<h3>这个世界没有偶然</h3>
+								<p>
+									Aliquene hello nule himuhe nvmios wo wor varchaer he impredicate
+								Memeory me with your heart.Shi jie hello.Keep say hello to world.
+								</p>
+							</div>
+				        </div>
+				    </div>    
+				</section>
+			</div>
+			<div class="footer-page">
+				<div class="text-editor">
+			 	<div class="text-one">
+						<h2>时光不老我们不散</h2>
+						<p class="sub-text">	Aliquene hello nule himuhe nvmios wo wor varchaer he impredicate
+								Memeory me with your heart.Shi jie hello.Keep say hello to world.</p>
+					</div>
+					<div class="button-one">
+						<button class="button-other">记忆</button>
+						<button class="button-other1">常青</button>
+					</div>
+				</div>
+				<footer><!--页脚开始-->
+					<ul class="share-group">
+						<li class="fa fa-ravelry" aria-hidden="true" style="font-size: 48px;"></li>
+						<li class="fa fa-telegram" aria-hidden="true" style="font-size: 48px;"></li>
+						<li class="fa fa-heart-o" aria-hidden="true" style="font-size: 48px;"></li>
+						<li  class="fa fa-lemon-o" aria-hidden="true" style="font-size: 48px;"></li>
+					</ul>
+					<div class="copy">
+						@UNUITLED
+					</div>
+			    </footer><!--页脚结束-->
+	    	</div>
+	    	<div class="mask">
+	    		
+	    	</div>
+    		<ul id="toolbar">
+				<li><a data-toggle="modal" data-target="#myModal" style="cursor: pointer;">登录</a></li>
+				<li><a href="register.jsp">注册</a></li>
+				<li><a href="#">了解我</a></li>
+		    </ul>
+		    <button class="back-top">返回顶部</button>
+	   </div>
+	</body>
+</html>

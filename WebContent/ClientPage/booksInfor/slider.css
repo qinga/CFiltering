@@ -1,0 +1,110 @@
+@charset "UTF-8";
+.moco-aside-course {
+	background: #f8fafc
+}
+.moco-aside-course li {
+	margin-bottom: 8px
+}
+.moco-aside-course li .aside-course-img {
+	float: left;
+	width: 80px;
+	height: 60px;
+	border-radius: 6px;
+	overflow: hidden;
+	position: relative
+}
+.moco-aside-course li .aside-course-img img {
+	width: 80px;
+	height: 60px;
+	border-radius: 6px
+}
+.moco-aside-course li .aside-course-img .aside-course-type {
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-size: 12px;
+	color: #FFFFFF;
+	line-height: 18px;
+	padding: 2px 4px;
+	background: #1C1F21;
+	border-radius: 6px 0 6px 0
+}
+.moco-aside-course li .aside-course-content {
+	margin-left: 96px;
+	height: 67px;
+	position: relative;
+	box-sizing: border-box;
+	font-size: 12px;
+	color: #545C63;
+	line-height: 18px;
+	border-bottom: 1px solid rgba(43, 51, 59, 0.1)
+}
+.moco-aside-course li .aside-course-content a.aside-course-name {
+	padding-top: 8px;
+	font-size: 14px;
+	height: 22px;
+	line-height: 22px;
+	margin-bottom: 4px;
+	cursor: pointer;
+	color: #545C63;
+	background: #f8fafc;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	transition: all .3s;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+
+.moco-aside-course li .aside-course-content:hover a.aside-course-name {
+	position: absolute;
+	color: #1c1f21;
+	overflow: hidden;
+	height: auto;
+	max-height: 44px;
+	white-space: initial
+}
+
+.moco-aside-course li .aside-course-content:hover .aside-course-price,
+.moco-aside-course li .aside-course-content:hover .aside-course-grade,
+.moco-aside-course li .aside-course-content:hover .aside-course-people,
+.moco-aside-course li .aside-course-content:hover .aside-course-dot {
+	margin-top: 34px
+}
+
+.moco-aside-course li .aside-course-content .aside-course-price,
+.moco-aside-course li .aside-course-content .aside-course-grade,
+.moco-aside-course li .aside-course-content .aside-course-people,
+.moco-aside-course li .aside-course-content .aside-course-dot {
+	float: left
+}
+
+.moco-aside-course li .aside-course-content .aside-course-price {
+	font-weight: bold
+}
+
+.moco-aside-course li .aside-course-content .aside-course-price .aside-discount-price,
+.moco-aside-course li .aside-course-content .aside-course-price .aside-discount-intro {
+	color: #ff0000
+}
+
+.moco-aside-course li .aside-course-content .aside-course-price .aside-discount-intro {
+	margin-left: 4px;
+	line-height: 18px;
+	padding: 0 4px;
+	font-weight: normal;
+	background: rgba(242, 13, 13, 0.1);
+	border-radius: 2px;
+	display: none
+}
+
+.moco-aside-course li .aside-course-content .aside-course-dot {
+	margin-left: 1px;
+	margin-right: 1px
+}
+
+.moco-aside-course li:last-child .aside-course-content {
+	border-bottom: none
+}
+

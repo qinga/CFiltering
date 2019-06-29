@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name= "struts.multipart.maxSize" value="31457280" />
+	<constant name="struts.objectFactory" value="spring"></constant>
+	<constant name="struts.multipart.saveDir" value="/tmp"></constant> 
+	<package name="cfiltering" namespace="/" extends="struts-default" >
+		<action name="UserRegisterAction_*" class="userRegisterAction" method="{1}">
+			<result type="redirect" name="SUCCESS">ClientPage/index.html</result>
+		</action>
+		<!-- 文件上传 -->
+		<action name="UploadFileAction" class="UploadFileAciton" method="uploadFile"></action>
+		<!-- 获取专业方向下的详细书籍类型 -->
+		<action name="GetBooksTypeInfoAction_*" class="GetBooksTypeInfoAction" method="{1}"></action>
+		<!-- 用户登录 -->
+		<action name="LoginGeneralAction_*" class="LoginGeneralAction" method="{1}"></action>
+		<!-- 获取主页信息 -->
+		<action name="FindBooksAction_*" class="FindBooksAction" method="{1}"></action>
+		<action name="GetBooksAllInfoAction_*" class="getBooksAllInfoAction" method="{1}"></action>
+		<action name="UserOperatorAction_*" class="userOperatorAction" method="{1}"></action>
+		<action name="SaveDyShareAction_*" class="saveDyShareAction" method="{1}"></action>
+		<action name="LearnPathAction_*" class="learnPathAction" method="{1}"></action>
+		<!-- 用户收藏 -->
+		<action name="UserHouseBookAction_*" class="userHouseBookAction" method="{1}"></action>
+		<!-- 用户推荐 -->
+		<action name="RecommenderAction_*" class="recommenderAction" method="{1}"></action>
+	</package>
+	<include file="com/github/auth/struts.xml"></include>
+</struts>

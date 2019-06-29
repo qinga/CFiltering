@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<title>推荐系统</title>
+		<meta charset="utf-8">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+
+		<script src="../js/jquery.min.js"></script>
+		<script src="js/background3D.js"></script>
+		<script type="text/javascript" src="../verify/verify.js"></script>
+		<script type="text/javascript" src="js/validate.js"></script>
+		<link href="css/wowphp.css" rel="stylesheet">
+		<link href="../fontawesome-free-5.2.0/css/all.min.css" rel="stylesheet">
+		<link href="css/login-cleaned.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../verify/verify.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/success.css"/>
+	</head>
+
+	<body class="sticky-nav transparent-nav">
+		<div id="main_panel" class="main_panel">
+			<header class="site-header">
+				<nav class="site-navigation animated" id="header_nav">
+					<div class="container">
+						<div class="pull-left">
+							<div class="logo">
+								<a class="logo-default" href="../index.html">
+									<img src="../login/images/logob.png" alt="logo">
+								</a>
+								<a class="logo-transparent" href="../index.html">
+									<img src="../login/images/logoa.png" alt="logo">
+								</a>
+							</div>
+							<ul class="nav-menu">
+								<li>
+									<a class="" href="../index.html">首页</a>
+								</li>
+								<li>
+									<a class="" href="javascript:void(0)">推荐</a>
+								</li>
+							</ul>
+						</div>
+						<!-- END Logo and navigation links -->
+						<div class="pull-right">
+							<a class="btn-navbar search-opener" href="javascript:void(0)" id="wow-search-btn">
+								<i class="fa fa-search"></i>
+							</a>
+							<div class="dropdown user-account">
+								<a class="dropdown-toggle header-toggle" data-toggle="dropdown" aria-expanded="true" onclick="window.location = '../login/login.html'">
+									<button class="btn btn-sm waves-effect">登录</button>
+								</a>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</header>
+			<main class="main-wrap ">
+				<div class="container login_container">
+					<canvas id="constellation"></canvas>
+					<div class="row">
+						<div class="login_page">
+							<div class="col-md-12 login-block">
+								<form method="POST" id="registerFrom" action="#">
+									<header>
+										<h1 class="text-center page_header">欢迎加入 CFiltering</h1>
+									</header>
+									<div id="owl-login">
+										<div class="hand"></div>
+										<div class="hand hand-r"></div>
+										<div class="arms">
+											<div class="arm"></div>
+											<div class="arm arm-r"></div>
+										</div>
+									</div>
+									<div class="login-form-filed">
+										
+										
+										<div class="login-input ">
+											<input type="text" class="name" name="name" id="name" value="" placeholder="注册用户名" autocomplete="off"/>
+										</div>
+										
+										<div class="login-input ">
+											<input type="email" name="email" id="email" value="" placeholder="您的邮箱" autocomplete="off"/>
+										</div>
+										
+										<div class="login-input ">
+											<input type="text" name="phone" id="phone" value="" placeholder="预留手机号" autocomplete="off"/>
+										</div>
+										
+										<div class="row">
+											<div class="col col-md-6 col-xs-6">
+												<div class="login-input ">
+													<input type="password" name="password" id="password" placeholder="设置密码" />
+												</div>
+											</div>
+											<div class="col col-md-6 col-xs-6">
+												<div class="login-input">
+													<input type="password" id="passwordConfirm" placeholder="重复密码" name="passwordConfirm"/>
+												</div>
+											</div>
+										</div>
+										<div style="position:relative;">
+											<div class="container">
+									   			<!-- login-cleaned.css -->
+												<div class="geetest_check" style="padding-top:31px">
+													<i class="fa fa-times fa-2x" title="关闭">
+													</i>
+												</div>
+												<div class="pointer"></div>
+										    </div>	
+											<div id="geetest-captcha" style="display:none ;">
+												<div class="geetest_holder geetest_wind geetest_radar_success" style="width: 100%;">
+													<div class="geetest_btn">
+														<div class="geetest_ghost_success geetest_success_animate">
+															<div class="geetest_success_btn" style="width: 100%;">
+																<div class="geetest_success_box">
+																	<div class="geetest_success_show">
+																		<div class="geetest_success_pie"></div>
+																		<div class="geetest_success_filter"></div>
+																		<div class="geetest_success_mask"></div>
+																	</div>
+																	<div class="geetest_success_correct">
+																		<div class="geetest_success_icon"></div>
+																	</div>
+																</div>
+																<div class="geetest_success_radar_tip"><span class="geetest_success_radar_tip_content">验证成功</span>
+																	<span class="geetest_success_radar_tip_timeinfo"></span>
+																</div>
+																<a class="geetest_success_logo" href="javascript:void(0)"></a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="geetest-captcha" style="display: block;">
+												<div class="geetest_holder geetest_wind geetest_detect" style="width: 100%;">
+													<div class="geetest_btn">
+														<div class="geetest_radar_btn">
+															<div class="geetest_radar">
+																<div class="geetest_ring">
+																	<div class="geetest_small"></div>
+																</div>
+																<div class="geetest_sector" style="transform: rotate(0deg);">
+																	<div class="geetest_small"></div>
+																</div>
+																<div class="geetest_cross">
+																	<div class="geetest_h"></div>
+																	<div class="geetest_v"></div>
+																</div>
+																<div class="geetest_dot"></div>
+															</div>
+															<div class="geetest_radar_tip" tabindex="0" aria-label="点击按钮进行验证" style="outline-width: 0px;">
+																<span class="geetest_radar_tip_content">点击按钮进行验证</span>
+															</div>
+															<a class="geetest_logo" href="javascript:void(0)"></a>
+														</div>
+													</div>
+												</div>
+											</div>													
+										</div>
+										<div class="divider">
+											
+										</div>
+										<button type="submit" class="btn btn-block btn-login waves-effect" disabled="disabled" id="submitRegisterForm" >
+                            				<span class="ladda-button-label">注册</span>
+                      					</button>
+                      					<div id="login_msg">
+                      					</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+
+		
+			<footer class="site-footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-sm-6 col-xs-12">
+							<ul class="footer-links">
+								<li>
+									<a href="#">关于我们</a>
+								</li>
+								<li>
+									<a href="#">推荐网站</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-8 col-sm-6 col-xs-12">
+							<p class="copyright-text">
+								Programmer is powered by innovate.
+							</p>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
+<script>
+	$(function(){
+		//每次加载页面后，提交表单置为不可用。
+		$("#submitRegisterForm").attr("disabled",true)
+		/*顶部下拉效果*/
+		window.onscroll=function(){
+			if(document.documentElement.scrollTop !== 0)
+				$("body").addClass(" body-scrolled")
+			else{
+				$("body").removeClass(" body-scrolled");
+			}
+		}
+		/*验证码面板渐隐渐显展示效果*/
+		$("div.geetest-captcha").bind("click",function(){
+			$(".login-form-filed .container").fadeIn(500);
+		});
+		$(".geetest_check .fa-2x").on("click",function(){
+			$(".login-form-filed .container").fadeOut(500);
+		});
+		/*注册中的圆的渐大渐小效果*/
+		$(".geetest_holder:eq(1)").hover(function(){
+			$(this).removeClass("geetest_detect").addClass(" geetest_wait_compute");
+		},function(){
+			$(this).removeClass("geetest_wait_compute").addClass("geetest_detect");
+		});
+	})
+
+	 /*验证码图片部分*/
+	 $(".geetest_check").slideVerify({
+    	type : 2,		//类型
+		vOffset : 5,	//误差量，根据需求自行调整
+        vSpace : 5,	//间隔
+        mode: 'pop',
+        imgName : ['1.jpg', '2.jpg'],
+
+         imgSize : {
+        	width: '275px',
+        	height: '200px',
+        },
+        blockSize : {
+        	width: '40px',
+        	height: '40px',
+        },
+        barSize : {
+        	width : '275px',
+        	height : '40px',
+        },
+        ready : function() {
+    	},
+        success : function() {
+        	$(".login-form-filed").find(".container").css("display","none");
+        	$("#geetest-captcha").css("display","block");
+        	$(".geetest-captcha").css("display","none");
+        	/*验证成功后提交表单按钮可用*/
+        	$("#submitRegisterForm").attr("disabled",false)
+        },
+        error : function() {
+        }
+        
+    });
+</script>
+
+ <script>
+ 		/*表单校验*/
+		$(document).ready(function() {
+			var EXISTNAME = true;
+			$("#registerFrom").validate({
+			  	 focusCleanup:true,
+			  	   focusInvalid:false,
+			  	   wrapper:"span",
+				    rules: {
+				      name: {
+				    	   required: true,
+				    	   minlength: 2,
+				      }, 
+				      email: {
+				        required: true,
+				        email: true
+				      },
+				      phone : "isMobile",
+					 password:{
+					 	required: true,
+      					minlength: 6
+					 },
+					 passwordConfirm:{
+					 	required: true,
+					 	minlength: 6,
+					 	equalTo: "#password"
+					 }
+					
+			   	 },
+			    messages: {
+			    	name : {
+			    		required:"请输入用户名",
+			    		minlength: "最少要输入&nbsp;&nbsp;2&nbsp;&nbsp;个字符"
+			    	},
+				     email: "请输入有效的电子邮件地址",
+				     password:{
+				     	required:"请输入密码",
+				     	minlength: "最少要输入&nbsp;&nbsp;6&nbsp;&nbsp;位密码"
+				     },
+				     passwordConfirm:{
+				     	required:"再输入一遍密码呦",
+				     	minlength:"两次输入密码不一致",
+				     	equalTo: "两次输入密码不一致"
+				     }
+			    },
+			    submitHandler: function() {
+			    	if(EXISTNAME === true){
+				      $.ajax({
+					  	url : "UserRegisterAction_saveUser",
+				  		type : "post",
+				  		dataType : 'json',
+				  		data : {
+				  			name : $("#name").val(),
+				  			password : $("#password").val(),
+				  			phone : $("#phone").val(),
+				  			email : $("#email").val()
+				  		},
+				  		beforeSend() {
+				  			//第一次提交之前,将表单置为不可用,防止表单多次提交
+				  			$("#submitRegisterForm").attr("disabled",true);
+				  			$("#login_msg").html("<span style=\"color:green;font-weight:400\">注册中...</span>");
+				  		},
+				  		success(data) { 
+				  			// 请求成功后处理函数。
+				  			var stats = data.stats;
+				  			if (stats === "OK") {
+				  				//定义倒计时的时间(倒计时1分钟10秒)
+				  		    	var seconds = 4;
+				  		  		//控制时间跳转
+					  		    var timer = null;
+				  		    	function show(){
+				  		    		seconds--;
+				  		    		//判断时间到了没
+				  		    		if(seconds==0){
+				  		    			clearInterval(timer);//清除定时器
+				  		    			window.location = "../login/login.html";
+				  		    		}
+				  					$("#login_msg").html("注册成功,<span id='spanTime' style=\"color:green;font-weight:400\"></span>后跳转至登录界面");
+				  		    		document.getElementById("spanTime").innerHTML ="&nbsp;&nbsp;"+seconds+"秒&nbsp;&nbsp;";
+				  		    	}
+				  		    	//开启定时器
+				  		    	timer = setInterval(show,1000);
+				  			} else {// 后台异常处理
+				  				$("#login_msg").html(data.stats);
+				  			}
+				  		},
+				  		error : function() {
+				  			alert('请求失败');
+				  	    }
+				   });
+			    }
+			  }
+			});
+			jQuery.validator.addMethod("isMobile", function(value, element) {
+				var length = value.length;
+				var regPhone = /^1([3578]\d|4[57])\d{8}$/;
+			    return length === 11 && regPhone.test(value);
+			}, "请输入有效的手机号"); 
+		
+		 $("input[name = 'name']").bind("blur",function(){ 
+			 if($("#name").val().trim()!=="" && $("#name").val().trim().length >= 2){
+				$.ajax({
+					url : "UserRegisterAction_saveUser",
+					type : "post",
+					aysnc:false,
+			  		dataType : 'json',
+			  		data : {
+			  			name : $("#name").val()
+			  		},
+			  		beforeSend: function(){
+			  			
+			  		},
+			  		success :function(data){
+			  			if(data.stats === "SUCCESS" && data.info === "ISEXIST"){
+			  				EXISTNAME = true;
+			  				console.log("用户名不存在");
+			  			}else{
+			  				EXISTNAME = false;
+			  				if($("input[name = 'name']").nextAll().filter($(".myspan")).length > 0){
+			  					$("input[name = 'name']").nextAll().filter($(".myspan")).remove();
+			  				}
+			  				$("input[name = 'name']").after("<span class=\"myspan\" style=\"display: inline;\"><label id=\"name-error\" class=\"error myerror\" style=\"display: inline;max-width: 100%;margin-bottom: 5px;font-weight: 700\" for=\"name\">该用户名已存在</label></span>");
+			  			}
+			  		}
+				});
+			 }
+		 });
+	});
+</script>
+ 

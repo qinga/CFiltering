@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>全部课程</title>
+	</head>
+	<body>
+		<script>
+			(function(){
+				//如果是搜索处跳转过来的，则后天查询，该类型或该书籍
+				if(typeName !== null || bookId !== undefined){
+					 $.ajax({
+						
+					 }).then( (res) => {
+						if(res.code === 200 && res.msg !== "EMPTY"){
+							//从搜索处跳转过来的
+							渲染类型和书籍
+						}else if(res.code === 200 && res.msg === "EMPTY") {
+							//当查询为空时，尤其是检索处通过点击分类查询该书籍时，不存在情况下。
+							渲染类型和为空显示
+						}else{
+							errorTip("请求数据错误 请稍后重试");
+						}
+					}, () => {
+						    errorTip("网络错误 请稍后重试");
+						    /****这里表示后续操作，比如点击方向和点击，类别查找书籍***/
+					}).then( () => {
+						
+					}, () => {
+						
+					})
+				}else{
+					//执行到这里，则表示是直接页面跳转
+					$.ajax({
+						//查询书籍总量
+					}).then( (res) => {
+						if( res.code === 200 ){
+							var totalCounts = res.data.bookCount;
+							var pageSize = 30;
+							$('#page').jqPaginator({
+							    onPageChange: function (num, type) {
+							    	$.ajax({
+							    		获取分页数据
+							    	}).then( (res) => {
+							    		if( res.code === 200){
+							    			if( res.msg === "init"){
+							    				渲染书籍和类型
+							    			}else if( res.msg === "change" ){
+							    				渲染书籍
+							    			}
+							    		}
+							    	}, () => {
+							    		errorTip("网络错误 请稍后重试");
+							    	}).then( () => {
+							    		类型hover
+							    	}, () => {
+							    		errorTip("网络异常 请稍后重试");
+							    	})
+							    }
+							});
+						}else{errorTip("请求数据错误 请稍后重试");}
+					}, () => {
+							errorTip("网络错误 请稍后重试");
+							/****这里表示后续操作，比如点击方向和点击，类别查找书籍***/
+					})
+				}
+			}())
+		</script>
+	</body>
+</html>

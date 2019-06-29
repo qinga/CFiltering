@@ -1,0 +1,1948 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>推荐系统</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="fontawesome-free-5.2.0/css/all.css" type="text/css" />
+		<link rel="stylesheet" href="../Admin/layui/css/layui.css" type="text/css" />
+		<!-- 主页样式文件 -->
+		<link rel="stylesheet" href="css/main.css" type="text/css" />
+		<link href="css/training.css" rel="stylesheet" />
+		<!-- d3插件库 -->
+		<script src="js/d3.js"></script>
+		<style>
+			.activeDivSu{
+				background: #cfcf;
+			}
+			.s-suggestion{
+				padding: 7px 10px;
+				font-size: 16px;
+				cursor: pointer;
+			}
+			.s-heavy{
+				font-weight: 700;
+			}
+			.nav-flyout{
+				overflow: visible !important;
+				background: #fff;
+				border: 1px solid #bbb;
+				box-shadow: 0 2px 4px 0 rgba(0,0,0,.13);
+				font-size: 13px;
+				font-family: arial,sans-serif;
+				line-height: normal;
+			}
+			.s-separator{
+				width: 98%;
+				border-bottom: 1px solid #ddd;
+				margin: 0 auto;
+			}
+			.s-highlight-primary{
+				color: #e47911;
+			}
+			ul li.liFirst{
+				font-weight: 700;
+				font-size: 14px;
+				color: #07111b;
+			}
+			.g-user-card ul li a{
+				height: inherit;
+				display: inherit;
+			}
+		</style>
+	</head>
+	<body id="index">
+		<div id="header">
+			<div class="page-container" id="nav" style="background-color: #fff !important;">
+				<div id="logo" class="logo">
+					<a href="./index.html" target="_self" title="首页">
+						<img title="推荐系统" src="login/images/logo.png">
+					</a>
+				</div>
+				<div id="login-area">
+					<ul class="header-unlogin clearfix ">
+						<li class="liFirst">
+							<a href="./shareDynaticLink/index.html" class="liElement">猿分享</a>
+		                </li>
+		                <span style="float: left;line-height: 72px;">|</span>
+		                <li class="liFirst moreBook">
+							<a href="./booksType/booksType.html" class="liElement">书海</a>
+		                </li>
+						<li class="set_btn user-card-box" id="header-user-card" style="display:none">
+							<a id="header-avator" href="javascript:void(0)" class="user-card-item js-header-avator">
+								<img src="" width="40" height="40">
+							</a>
+							<div class="g-user-card">
+								<div class="card-inner" style="height:270px;">
+									<div class="card-top clearfix">
+										<a href="javascript:void(0)">
+											<img src="" alt=""/>
+										</a>
+										<div class="card-top-right-box">
+											<a href="javascript:void(0)">
+												<span class="text-ellipsis"></span>
+											</a>
+										</div>
+									</div>
+									<div class="user-center-box">
+										<ul class="clearfix">
+											<li class="lispace">
+												<a href="./myShareArticleAndHouse/myHouseArticle.html">
+													<span>我的收藏</span>
+												</a>
+											</li>
+											<li class="lispace">
+												<a href="./myShareArticleAndHouse/myShareArticle.html">
+													<span>我的分享</span>
+												</a>
+											</li>
+											<li class="lispace">
+												<a href="./perManage/perManage.html">
+													<span>我的课程</span>
+												</a>
+											</li>
+											<li class="lispace">
+												<a href="./myShareArticleAndHouse/myLearnPath.html">
+													<span>学习路线</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+									<div class="card-sets clearfix logoutApp">
+										<a href="javascript:void(0)" class="l" style="font-weight: 700;">安全退出</a>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-5 col-sm-6  col-md-7  col-lg-7 search-warp">
+				  	<div class="form-group searchAjax">
+						<div class="input-group">
+							<div class="input-group-addon selectBox" style="width:100px;cursor:pointer;font-weight:bold;color:black">全部分类
+								<i class="fa fa-caret-down" aria-hidden="true" style="margin-left:4px"></i>
+							</div>
+							<input type="text" class="form-control" style="height:40px;box-shadow:none;border-color:#ccc;font-weight:bold;">
+							<div class="input-group-addon" style="background-color:#EFEFEF">
+								<i class="fas fa-search"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			 </div>
+		</div>
+		<div id="main">
+			<div>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="left:213px;top:59px;">
+				    <li><a href="javascript:void(0)">全部分类</a></li>
+				    <li><a href="javascript:void(0)" data-id="1">经典课程</a></li>
+				    <li><a href="javascript:void(0)" data-id="2">前端开发</a></li>
+				    <li><a href="javascript:void(0)" data-id="3">后端开发</a></li>
+				    <li role="separator" class="divider"></li>
+				    <li><a href="javascript:void(0)" data-id="4">移动开发</a></li>
+				    <li><a href="javascript:void(0)" data-id="11">前沿技术</a></li>
+				    <li><a href="javascript:void(0)" data-id="6">数据库</a></li>
+				    <li><a href="javascript:void(0)" data-id="8">UI设计</a></li>
+				    <li role="separator" class="divider"></li>
+				    <li><a href="javascript:void(0)" data-id="5">算法&amp;数学</a></li>
+				    <li><a href="javascript:void(0)" data-id="9">3D游戏</a></li>
+				    <li><a href="javascript:void(0)" data-id="10">专业英语</a></li>
+				    <li><a href="javascript:void(0)" data-id="7">运维</a></li>
+				    <li role="separator" class="divider"></li>
+				    <li><a href="javascript:void(0)"></a></li>
+				    <li><a href="javascript:void(0)"></a></li>
+				</ul>
+			</div>
+			<div class="bk">
+			</div>
+			<!--
+	            	作者：594176850@qq.com
+	            	时间：2018-08-06
+	            	描述：头部轮播部分和导航部分
+	            -->
+			<div class="bgfff banner-box">
+				<div class="g-banner pr">
+					<div class="submenu a hide">
+						<div class="innerBox clearfix">
+							<div class="subinnerBox">
+								<div class="cates-box">
+									<div class="fe-base-box clearfix">
+										<div class="banner-line">
+											<span class="bold mr10 l small-title">前沿技术</span>
+										</div>
+										<div class="tag-box l">
+											<a  href="./booksType/booksType.html?typeId=11">数据分析&amp;挖掘</a>
+											<a  href="./booksType/booksType.html?typeId=52">微服务</a>
+											<a  href="./booksType/booksType.html?typeId=53">区块链</a>
+											<a  href="./booksType/booksType.html?typeId=54">以太坊</a>
+											<a  href="./booksType/booksType.html?typeId=55">人工智能</a>
+											<a  href="./booksType/booksType.html?typeId=56">深度学习</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="recomment-box">
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)" title="" class="clearfix">
+									<img src="" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'></h3>
+										<div class='course-card-price l'></div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											主编
+										</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns"></i>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)"  title="" class="clearfix">
+									<img src="" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'></h3>
+										<div class='course-card-price l'></div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											主编
+										</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns"></i>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)" title="" class="clearfix">
+									<img src="" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'></h3>
+										<div class='course-card-price l'></div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											主编
+										</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns"></i>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)" title="" class="clearfix">
+									<img src="" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'></h3>
+										<div class='course-card-price l'></div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											主编
+										</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns"></i>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="submenu b hide">
+						<div class="innerBox clearfix">
+							<div class="subinnerBox">
+								<div class="cates-box">
+									<div class="fe-base-box clearfix">
+										<div class="banner-line">
+											<span class="bold mr10 l small-title">经典课程</span>
+										</div>
+										<div class="tag-box l">
+											<a  href="./booksType/booksType.html">网络原理</a>
+											<a  href="./booksType/booksType.html">操作系统</a>
+											<a  href="./booksType/booksType.html">编译原理</a>
+											<a  href="./booksType/booksType.html">计算机原理</a>
+											<a  href="./booksType/booksType.html">计算机体系结构</a>
+											<a  href="./booksType/booksType.html">数据结构</a>
+											<a  href="./booksType/booksType.html">微型计算机技术</a>
+											<a  href="./booksType/booksType.html">汇编语言</a>
+											<a  href="./booksType/booksType.html">高级语言</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="recomment-box">
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)"  title="" class="clearfix">
+									<img src="" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'></h3>
+										<div class='course-card-price l'></div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											主编
+										</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns"></i>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)"  title="" class="clearfix">
+									<img src="" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'></h3>
+										<div class='course-card-price l'></div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											主编
+										</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns"></i>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)"  title="" class="clearfix">
+									<img src="" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'></h3>
+										<div class='course-card-price l'></div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											主编
+										</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns"></i>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)" title="" class="clearfix">
+									<img src="" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'></h3>
+										<div class='course-card-price l'></div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											主编
+										</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns"></i>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="submenu c hide" >
+						<div class="innerBox clearfix">
+							<div class="subinnerBox">
+								<div class="cates-box">
+									<div class="fe-base-box clearfix">
+										<div class="banner-line">
+											<span class="bold mr10 l small-title">前端开发</span>
+										</div>
+										<div class="tag-box l">
+											<a  href="./booksType/booksType.html">HTML/CSS</a>
+											<a  href="./booksType/booksType.html">JavaScript</a>
+											<a  href="./booksType/booksType.html">Vue.js</a>
+											<a  href="./booksType/booksType.html">React.JS</a>
+											<a  href="./booksType/booksType.html">Angular</a>
+											<a  href="./booksType/booksType.html">Node.js</a>
+											<a  href="./booksType/booksType.html">jQuery</a>
+											<a  href="./booksType/booksType.html">Bootstrap</a>
+											<a  href="./booksType/booksType.html">Sass/Less</a>
+											<a  href="./booksType/booksType.html">WebApp</a>
+											<a  href="./booksType/booksType.html">前端工具</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="recomment-box">
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)"  title="" class="clearfix">
+									<img src="" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'></h3>
+										<div class='course-card-price l'></div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											主编
+										</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns"></i>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)"  title="" class="clearfix">
+									<img src="" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'></h3>
+										<div class='course-card-price l'></div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											主编
+										</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns"></i>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)"  title="" class="clearfix">
+									<img src="" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'></h3>
+										<div class='course-card-price l'></div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											主编
+										</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns"></i>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)"  title="" class="clearfix">
+									<img src="" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'></h3>
+										<div class='course-card-price l'></div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											主编
+										</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns"></i>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="submenu d hide" >
+						 <div class="innerBox clearfix">
+				            <div class="subinnerBox">
+				                <div class="cates-box">
+                                   <div class="fe-base-box clearfix">
+					                   <div class="banner-line">
+					                        <span class="bold mr10 l small-title">后端开发</span>
+					                   </div>
+					                   <div class="tag-box l">
+                                           <a  href="./booksType/booksType.html">Java</a>
+                                           <a  href="./booksType/booksType.html">Python</a>
+                                           <a  href="./booksType/booksType.html">爬虫</a>
+                                           <a  href="./booksType/booksType.html">Go</a>
+                                           <a  href="./booksType/booksType.html">PHP</a>
+                                           <a  href="./booksType/booksType.html">C</a>
+                                           <a  href="./booksType/booksType.html">C++</a>
+                                           <a  href="./booksType/booksType.html">C#</a>
+                                           <a  href="./booksType/booksType.html">Ruby</a>
+                                           <a  href="./booksType/booksType.html">SpringBoot</a>
+                                           <a  href="./booksType/booksType.html">Spring</a>
+                                       </div>
+					               </div>
+					               <div class="fe-base-box clearfix">
+					                    <div class="banner-line">
+					                         <span class="bold mr10 l small-title">数据库</span>
+					                    </div>
+                   					    <div class="tag-box l">
+                                            <a  href="./booksType/booksType.html">MySQL</a>
+                                            <a  href="./booksType/booksType.html">Redis</a>
+                                            <a  href="./booksType/booksType.html">MongoDB</a>
+                                            <a  href="./booksType/booksType.html">Oracle</a>
+                                            <a  href="./booksType/booksType.html">NoSql</a>
+                                        </div>
+                				   </div>
+                               </div>
+				            </div>
+				       	 </div>
+				        <div class="recomment-box">
+                            <div class="l banner-course-card">
+								<a href="javascript:void(0)"  title="" class="clearfix">
+								    <img src="" class="l">
+								    <div class="l course-card">
+								        <h3 class="course-card-name"></h3>
+										<div class="course-card-price l"></div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l">主编</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l"><i class="icon-set_sns"></i></div>
+								    </div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)" title="" class="clearfix">
+								    <img src="" class="l">
+								    <div class="l course-card">
+								        <h3 class="course-card-name"></h3>
+										<div class="course-card-price l"></div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l">主编</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l"><i class="icon-set_sns"></i></div>
+								    </div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)"  title="" class="clearfix">
+								    <img src="" class="l">
+								    <div class="l course-card">
+								        <h3 class="course-card-name"></h3>
+										<div class="course-card-price l"></div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l">主编</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l"><i class="icon-set_sns"></i></div>
+								    </div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)" title="" class="clearfix">
+								    <img src="" class="l">
+								    <div class="l course-card">
+								        <h3 class="course-card-name"></h3>
+										<div class="course-card-price l"></div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l">主编</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l"><i class="icon-set_sns"></i></div>
+								    </div>
+								</a>
+							</div>
+                        </div>
+					</div>
+					<div class="submenu e hide" >
+						  <div class="innerBox clearfix">
+				            <div class="subinnerBox">
+				                <div class="cates-box">
+                                    <div class="fe-base-box clearfix">
+				                        <div class="banner-line">
+				                             <span class="bold mr10 l small-title">移动开发</span>
+				                        </div>
+				                        <div class="tag-box l">
+                                            <a  href="./booksType/booksType.html">Android</a>
+                                            <a  href="./booksType/booksType.html">iOS</a>
+                                            <a  href="./booksType/booksType.html">React native</a>
+                                            <a  href="./booksType/booksType.html">WEEX</a>
+                                        </div>
+				                    </div>
+				               </div>
+				            </div>
+				          </div>
+        				  <div class="recomment-box">
+                              <div class="l banner-course-card">
+								<a href="javascript:void(0)" title="" class="clearfix">
+								    <img src="" class="l">
+								    <div class="l course-card">
+								        	<h3 class="course-card-name"></h3>
+											<div class="course-card-price l"></div>
+											<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+											<div class="course-card-info l">主编</div>
+											<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+											<div class="course-card-info l"><i class="icon-set_sns"></i></div>
+								    </div>
+								</a>
+							  </div>
+							  <div class="l banner-course-card">
+								<a href="javascript:void(0)" title="" class="clearfix">
+								    <img src="" class="l">
+								    <div class="l course-card">
+								        	<h3 class="course-card-name"></h3>
+											<div class="course-card-price l"></div>
+											<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+											<div class="course-card-info l">主编</div>
+											<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+											<div class="course-card-info l"><i class="icon-set_sns"></i></div>
+								    </div>
+								</a>
+							  </div>
+							  <div class="l banner-course-card">
+								<a href="javascript:void(0)" title="" class="clearfix">
+								    <img src="" class="l">
+								    <div class="l course-card">
+								        	<h3 class="course-card-name"></h3>
+											<div class="course-card-price l"></div>
+											<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+											<div class="course-card-info l">主编</div>
+											<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+											<div class="course-card-info l"><i class="icon-set_sns"></i></div>
+								    </div>
+								</a>
+							  </div>
+							  <div class="l banner-course-card">
+								<a href="javascript:void(0)" title="" class="clearfix">
+								    <img src="" class="l">
+								    <div class="l course-card">
+								        	<h3 class="course-card-name"></h3>
+											<div class="course-card-price l"></div>
+											<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+											<div class="course-card-info l">主编</div>
+											<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+											<div class="course-card-info l"><i class="icon-set_sns"></i></div>
+								    </div>
+								</a>
+							  </div>
+						</div>
+					</div>
+					<div class="submenu f hide" >
+						 <div class="innerBox clearfix">
+				            <div class="subinnerBox">
+				                <div class="cates-box">
+				                	<div class="fe-base-box clearfix">
+					                    <div class="banner-line">
+					                         <span class="bold mr10 l small-title">算法&amp;数学</span>
+					                    </div>
+						                <div class="tag-box l">
+						                	<a  href="./booksType/booksType.html">算法&amp;数据结构</a>
+                                            <a  href="./booksType/booksType.html">算法</a>
+                                            <a  href="./booksType/booksType.html">数学</a>
+                                        </div>
+						            </div>
+                                    <div class="fe-base-box clearfix">
+					                    <div class="banner-line">
+					                         <span class="bold mr10 l small-title">运维&amp;测试</span>
+					                    </div>
+						                <div class="tag-box l">
+                                            <a  href="./booksType/booksType.html">运维</a>
+                                            <a  href="./booksType/booksType.html">自动化运维</a>
+                                            <a  href="./booksType/booksType.html">运维工具</a>
+                                            <a  href="./booksType/booksType.html">Linux</a>
+                                        </div>
+						            </div>
+                                 </div>
+				            </div>
+				        </div>
+				        <div class="recomment-box">
+                           <div class="l banner-course-card">
+								<a href="javascript:void(0)" title="" class="clearfix">
+								    <img src="" class="l">
+								    <div class="l course-card">
+								        <h3 class="course-card-name"></h3>
+										<div class="course-card-price l"></div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l">主编</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l"><i class="icon-set_sns"></i></div>
+								    </div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)" title="" class="clearfix">
+								    <img src="" class="l">
+								    <div class="l course-card">
+								        <h3 class="course-card-name"></h3>
+										<div class="course-card-price l"></div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l">主编</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l"><i class="icon-set_sns"></i></div>
+								    </div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)" title="" class="clearfix">
+								    <img src="" class="l">
+								    <div class="l course-card">
+								        <h3 class="course-card-name"></h3>
+										<div class="course-card-price l"></div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l">主编</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l"><i class="icon-set_sns"></i></div>
+								    </div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)" title="" class="clearfix">
+								    <img src="" class="l">
+								    <div class="l course-card">
+								        <h3 class="course-card-name"></h3>
+										<div class="course-card-price l"></div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l">主编</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l"><i class="icon-set_sns"></i></div>
+								    </div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="submenu g hide" >
+						<div class="innerBox clearfix">
+				            <div class="subinnerBox">
+				                <div class="cates-box">
+				                   	<div class="fe-base-box clearfix">
+									<div class="banner-line">
+										<span class="bold mr10 l small-title">UI设计</span>
+									</div>
+									<div class="tag-box l">
+										<a  href="./booksType/booksType.html">动效动画</a>
+										<a  href="./booksType/booksType.html">模型制作</a> 
+										<a  href="./booksType/booksType.html"> 设计基础</a>
+										<a  href="./booksType/booksType.html">设计工具</a> 
+									    <a  href="./booksType/booksType.html"> APPUI设计</a> 
+									</div>
+								</div>
+				                    <div class="fe-base-box clearfix">
+				                        <div class="banner-line">
+				                             <span class="bold mr10 l small-title">游戏</span>
+				                        </div>
+				                        <div class="tag-box l">
+                                            <a  href="./booksType/booksType.html?typeId=39">Unity&nbsp;3D</a>
+                                            <a  href="./booksType/booksType.html?typeId=40">Cocos2d-x</a>
+                                        </div>
+				                    </div>
+				                 </div>
+				            </div>
+				        </div>
+					<div class="recomment-box">
+						<div class="l banner-course-card">
+							<a href="javascript:void(0)" title="" class="clearfix">
+							    <img src="" class="l">
+							    <div class="l course-card">
+							        <h3 class="course-card-name"></h3>
+									<div class="course-card-price l"></div>
+									<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+									<div class="course-card-info l">主编</div>
+									<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+									<div class="course-card-info l"><i class="icon-set_sns"></i></div>
+							    </div>
+							</a>
+						</div>
+						<div class="l banner-course-card">
+							<a href="javascript:void(0)" title="" class="clearfix">
+							    <img src="" class="l">
+							    <div class="l course-card">
+							        <h3 class="course-card-name"></h3>
+									<div class="course-card-price l"></div>
+									<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+									<div class="course-card-info l">主编</div>
+									<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+									<div class="course-card-info l"><i class="icon-set_sns"></i></div>
+							    </div>
+							</a>
+						</div>
+						<div class="l banner-course-card">
+							<a href="javascript:void(0)" title="" class="clearfix">
+							    <img src="" class="l">
+							    <div class="l course-card">
+							        <h3 class="course-card-name"></h3>
+									<div class="course-card-price l"></div>
+									<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+									<div class="course-card-info l">主编</div>
+									<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+									<div class="course-card-info l"><i class="icon-set_sns"></i></div>
+							    </div>
+							</a>
+						</div>
+						<div class="l banner-course-card">
+							<a href="javascript:void(0)" title="" class="clearfix">
+							    <img src="" class="l">
+							    <div class="l course-card">
+							        <h3 class="course-card-name"></h3>
+									<div class="course-card-price l"></div>
+									<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+									<div class="course-card-info l">主编</div>
+									<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+									<div class="course-card-info l"><i class="icon-set_sns"></i></div>
+							    </div>
+							</a>
+						</div>
+					</div>
+				</div>
+					<!--
+	                    	作者：594176850@qq.com
+	                    	时间：2018-08-06
+	                    	描述：左侧导航部分，左侧导航部分，左侧导航部分，
+	                    -->
+					<div class="menuContent">
+						<div class="item">
+							<a href="javascript:void(0)">
+								<span class="group" data-id="11">前沿技术 / 区块链</span>
+								<i class="fas fa-caret-right"></i>
+							</a>
+						</div>
+						<div class="item">
+							<a href="javascript:void(0)">
+								<span class="group" data-id="1&10">经典课程 / 微机技术 </span>
+								<i class="fas fa-caret-right"></i>
+							</a>
+						</div>
+						<div class="item">
+							<a href="javascript:void(0)">
+								<span class="group" data-id="2">前端 / HTML5 / JS</span>
+								<i class="fas fa-caret-right"></i>
+							</a>
+						</div>
+						<div class="item">
+							<a href="javascript:void(0)">
+								<span class="group" data-id="3&6">后端 / JAVA / 数据库</span>
+								<i class="fas fa-caret-right"></i>
+							</a>
+						</div>
+						<div class="item">
+							<a href="javascript:void(0)">
+								<span class="group" data-id="4">移动 / Android / IOS</span>
+								<i class="fas fa-caret-right"></i>
+							</a>
+						</div>
+						<div class="item">
+							<a href="javascript:void(0)">
+								<span class="group" data-id="5&7">算法 / 数学 / 运维</span>
+								<i class="fas fa-caret-right"></i>
+							</a>
+						</div>
+						<div class="item">
+							<a href="javascript:void(0)">
+								<span class="group" data-id="8&9">UI设计 / 动画 / 游戏</span>
+								<i class="fas fa-caret-right"></i>
+							</a>
+						</div>
+					</div>
+					<!--
+	                    	作者：594176850@qq.com
+	                    	时间：2018-08-06
+	                    	描述：轮播图部分，轮播图部分
+	                    	轮播图部分，轮播图部分，轮播图部分，
+	                    -->
+					<div class="g-banner-content">
+						<!--轮播图-->
+						<div class="g-banner-box">
+							<a  href="javascript:void(0)" class="click-help">
+								<div class="banner-slide">
+									<img class="lazyone"  src="img/6.png" />
+								</div>
+							</a>
+							<a  href="javascript:void(0)" class="click-help">
+								<div class="banner-slide">
+									<img class="lazyone"  src="img/1.jpg" />
+								</div>
+							</a>
+							<a  href="javascript:void(0)" class="click-help">
+								<div class="banner-slide">
+									<img class="lazyone" src="img/3.jpg" />
+								</div>
+							</a>
+							<a  href="javascript:void(0)" class="click-help">
+								<div class="banner-slide">
+									<img class="lazyone"  src="img/2.jpg" />
+								</div>
+							</a>
+							<a  href="javascript:void(0)" class="click-help">
+								<div class="banner-slide">
+									<img class="lazyone"  src="img/4.jpg" />
+								</div>
+							</a>
+							<a  href="javascript:void(0)" class="click-help">
+								<div class="banner-slide">
+									<img class="lazyone"  src="img/5.jpg" />
+								</div>
+							</a>
+							<div class="banner-dots">
+								<span class="active"></span>
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
+							<a href="javascript:;" class="banner-anchor prev icon-left2">
+								<i class="fas fa-angle-left" style="margin-left:-5px;"></i>
+							</a>
+							<a href="javascript:;" class="banner-anchor next icon-right2">
+								<i class="fas fa-angle-right" style="margin-right:-5px;"></i>
+							</a>
+						</div>
+						<!--轮播底部部分-->
+						<div class='path-banner clearfix'>
+							<!-- 方向路线js部分 -->
+						</div>
+					</div>
+					<!--
+	                    	轮播图结束部分
+	                    -->
+				</div>
+			</div>
+			<!--
+	            	作者：594176850@qq.com
+	            	时间：2018-08-06
+	            	描述：为您推荐部分，为您推荐部分，
+	            	为您推荐部分，为您推荐部分，
+	            -->
+			<div class="bgfff">
+				<div class='container-types clearfix'>
+					<h3 class='types-title'>
+						<span class="tit-icon icon-shizhan-l tit-icon-l"></span>
+						
+						<span class="tit-icon icon-shizhan-r tit-icon-r"></span>
+					</h3>
+					<div class='clearfix types-content'>
+					</div>
+				</div>
+			</div>
+			<!--
+	            	作者：594176850@qq.com
+	            	时间：2018-08-06
+	            	描述：新上书籍，新上书籍，
+	            	新上书籍，新上书籍，新上书籍，
+	            -->
+			<div class="bg000">
+				<div class='container-types clearfix'>
+					<h3 class='types-title'>
+						<span class="tit-icon icon-new-l tit-icon-l"></span>
+						<em>新</em>／<em>上</em>／<em>线</em>／<em>书</em>／<em>籍</em>
+						<span class="tit-icon icon-new-r tit-icon-r"></span>
+					</h3>
+					<div class='clearfix types-content'>
+					</div>
+				</div>
+			</div>
+			<!--
+	            	作者：594176850@qq.com
+	            	时间：2018-08-06
+	            	描述：新手入门，新手入门
+	            	新手入门，新手入门
+	            -->
+			<div class="bgfff">
+				<div class='container-types clearfix'>
+					<h3 class='types-title'>
+						<span class="tit-icon icon-job-l tit-icon-l"></span>
+						<em>新</em>／<em>手</em>／<em>入</em>／
+						<em>门</em>／<em>指</em>／<em>导</em>
+						<span class="tit-icon icon-job-r tit-icon-r"></span>
+					</h3>
+					<div class='clearfix types-content'>
+						<div class="adsense-box l" style="background: url(img/index/two.jpg) no-repeat center center;background-size: 100%;">
+							<a href="javascript:void(0)"  >
+								<h3 class="ellipsis">java:入门到实例项目开发</h3>
+								<p class="ellipsis">快速入门java，完成从入门到实战的完美过渡</p>
+							</a>
+						</div>
+						<div class="adsense-box l" style="background: url(img/index/sectionheader.jpg) no-repeat center center;background-size: 100%;">
+							<a href="javascript:void(0)" >
+								<h3 class="ellipsis">Web前端入门到精通，最全学习路线</h3>
+								<p class="ellipsis">零基础入门Web前端开发的必备课程</p>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--
+	            	作者：594176850@qq.com
+	            	时间：2018-08-06
+	            	描述：技能提升，技能提升
+	            	技能提升，技能提升
+	            	技能提升，技能提升
+	            	技能提升，技能提升
+	            -->
+			<div class="bg000">
+				<div class='container-types clearfix'>
+					<h3 class='types-title'>
+						<span class="tit-icon icon-skill-l tit-icon-l"></span>
+						<em>技</em>／
+						<em>能</em>／
+						<em>提</em>／
+						<em>升</em>
+						<span class="tit-icon icon-skill-r tit-icon-r"></span>
+					</h3>
+					<div class='clearfix types-content'>
+						<div class="adsense-box l" style="background: url(img/index/python.jpg) no-repeat center center;background-size: 100%;">
+							<a href="javascript:void(0)"  >
+								<h3 class="ellipsis">用最短的时间高效地学习Python全指导</h3>
+								<p class="ellipsis">从菜鸟到Pythoner，最新最全的学习路线，让你更专业！</p>
+							</a>
+						</div>
+						<div class="adsense-box l" style="background: url(img/index/react.jpg) no-repeat center center;background-size: 100%;">
+							<a href="javascript:void(0)" >
+								 <h3 class="ellipsis">进入React JS世界，从入门到实战无障碍升级</h3>
+								<p class="ellipsis">贯穿案例与项目实战，快速上手企业开发</p>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 学识动态分享 -->
+			<div class="bgfff">
+				<div class="container-types">
+					<h3 class="types-title">
+						<span class="tit-icon icon-art-l tit-icon-l"></span>
+						<em>学</em>／<em>识</em>／<em>动</em>／
+						<em>态</em>／<em>分</em>／<em>享</em>／
+						<span class="tit-icon icon-art-r tit-icon-r"></span>
+					</h3>
+					<dl class="wonderful-list js-wonderful-list types-content" style="height: 960px;">
+					</dl>
+				</div>
+			</div>
+			<!-- 查看个性推荐 -->
+			<!-- 查看个性推荐 -->
+			<!-- 查看个性推荐 -->
+			<!-- 查看个性推荐 -->
+			<div class="elite-bg">
+				<div class='container-types container-teacher-types clearfix'>
+					<h3 class='types-title'>
+						<span class="tit-icon icon-teacher-l tit-icon-l"></span>
+						<span class="tit-icon icon-teacher-r tit-icon-r"></span>
+					</h3>
+					<div class="lecturer-container js-lecturer-container">
+						<div class="swiper-wrapper js-swiper-wrap">
+							<div class='lecturer-list clearfix swiper-slide'>
+						</div>
+						<div class="slider-prev icon-left2">
+							<i class="fas fa-angle-left" style="font-size:35px;margin-left:5px;"></i>
+						</div>
+						<div class="slider-next icon-right2">
+							<i class="fas fa-angle-right" style="font-size: 35px;margin-left:8px;"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 查看个性推荐 -->
+		</div>
+		<!--底部·-->
+		<!--底部·-->
+		<!--底部·-->
+		<!--底部·-->
+		<!--底部·-->
+		<!--底部#F5F5C6·-->
+		
+		<footer class="site-foot" style="background-color: #F3F0D1;padding: 55px 0;font-size:18px;">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-sm-6 col-xs-12">
+							<ul class="footer-links" style="margin-bottom:40px;">
+								<li style="float: left;margin-right: 20px;">
+									<a href="javascript:void(0)">关于我们</a>
+								</li>
+								<li style="float: left;margin-right: 20px;">
+									<a href="javascript:void(0)">推荐网站</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-8 col-sm-6 col-xs-12">
+							<p class="copyright-text">
+								Programmer is powered by innovate.
+							</p>
+						</div>
+					</div>
+				</div>
+			</footer>
+		<!--右边浮动-->
+		<div id="J_GotoTop" class="elevator" style="display: none;">
+			<a href="javascript:void(0)" class="elevator-msg">
+				<i class="fa fa-angle-up" aria-hidden="true"></i>
+				<span class="">返回顶部</span>
+			</a>
+		</div>
+		<!-- option遮罩层 -->
+		<div id="backmask" style="position:fixed;top:0;left:0;right:0;bottom:0;background:transparent;z-index:100;display:none;"></div>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<!-- bootstrap.js库 -->
+		<script src="js/bootstrap.js"></script>
+		<!-- layui.js -->
+		<script src="../Admin/layui/layui.js"></script>
+		<!-- 主页js脚本 -->
+		<script type="module" src="js/index/backToTop.js" charset="utf-8"></script>
+		<script type="text/javascript">
+			function errorTip(str){
+				layui.use('layer', function(){
+					  var layer = layui.layer;
+					  layer.open({
+						  title: '信息提示',
+						  content: str || '亲 请稍后重试呦,请求出错',
+						  shadeClose: true
+						});    
+					}); 
+			}
+			(function(){
+				/*--------1-----用户登录，则显示用户登录的信息，否则，显示登录注册的功能模块--------*/
+				var str = `<li class="liSecond">
+			                    <a href="login/login.html" id="js-signin-btn">登录</a> |
+			                    <a href="register/register.html" id="js-signup-btn">注册</a>
+			               </li>`;
+			    var $headImgArea = $("ul.header-unlogin").find("li#header-user-card");           
+					$.ajax({
+						url: "LoginGeneralAction_findUserByName",
+						type: "post",
+						dataType : "json"
+					}).then( (res) => {
+						if(res.code === 200 && res.msg === "USEREXIST"){
+							var $imgEle = $("ul.header-unlogin").find("li#header-user-card a img");
+							//设置图片
+							$.each($imgEle, (k,v) => {
+								$(v).attr("src",res.data.userProfile);
+								$(v).attr("alt",res.data.userProfile);
+							})
+							//设置用户名字
+							$(".g-user-card").find("span.text-ellipsis").text(res.data.userName);
+							$headImgArea.css("display","block");
+							localStorage.setItem("dbID",res.data.userId);
+							localStorage.setItem("dbName",res.data.userName);
+							localStorage.setItem("dbProfile",res.data.userProfile);
+						}else{
+							//如果用户不存在，则显示登录
+							$("ul.header-unlogin").find("li.moreBook").after(str);
+							$("ul.header-unlogin").find("li#header-user-card").css("display","none");
+						}
+				    }, () => {
+				    	errorTip("网络请求异常 请稍后重试");
+				    }).then( () => {
+						$headImgArea.on("mouseover", function(){
+							$(this).find(".g-user-card").css("visibility", "visible");
+						}).on("mouseleave", function(){
+							$(this).find(".g-user-card").css("visibility", "hidden");
+						})
+					}, () => {
+						errorTip("请求失败 请稍后重试");
+					})
+			})();
+			/*-------------------------------------------------------------------------------*/
+			
+			/*---------2-----------首页数据的渲染-----------------------------*/
+			function xuanran(data, strFlag, i){
+				switch (i) {
+				case 1:
+					var $typesContent =  $(".types-content").filter(":eq(1)");
+					forEach(data,$typesContent,strFlag);
+					break;
+
+				case 3:
+					var $typesContent =  $(".types-content").filter(":eq(3)");
+					forEach(data,$typesContent,strFlag);
+					break;
+				case 2:
+					var $typesContent =  $(".types-content").filter(":eq(2)");
+					secModule(data,$typesContent,strFlag);
+					break;
+				}
+				
+				function secModule(data, $typesContent, strFlag){
+					var str = ``;
+					for(var i = 0; i< data.bookBeginCount; i++){
+						if(i < 3 || i === 5 || i === 7){
+							str += `<div class='index-card-container course-card-container contain'>
+										<a class='course-card' href="javascript:void(0)" >
+											<div style="display:none">${data["bookBeginId" + i]}</div>
+											<div class='course-card-top '>
+												<div class="course-banner">
+													<div class="img-up" style="background-image: url(${data["bookBeginAddr" + i]});">
+														<div class="course-label">
+															<label>${data["bookBeginMark" + i]}</label>
+														</div>
+													</div>
+													<div class="img-mid" style="background-image: url(${data["bookBeginAddr" + i]});"></div>
+													<div class="img-down" style="background-image: url(${data["bookBeginAddr" + i]});"></div>
+												</div>
+											</div>
+											<div class='course-card-content'>
+												<h3 class='course-card-name'>${data["bookBeginName" + i]}</h3>
+											</div>
+										</a>
+									</div>`;
+						}else{
+							str +=`<div class='index-card-container course-card-container contain'>
+									<a  class='course-card' href="javascript:void(0)" >
+										<div style="display:none">${data["bookBeginId" + i]}</div>
+										<div class='course-card-top hashadow'>
+											<img class="course-banner" src="${data["bookBeginAddr" + i]}">
+											<div class="course-label">
+												<label>${data["bookBeginMark" + i]}</label>
+											</div>
+										</div>
+										<div class='course-card-content'>
+											<h3 class='course-card-name'>${data["bookBeginName" + i]}</h3>
+										</div>
+									</a>
+								</div>`;
+						}
+					}
+					$typesContent.append(str);
+				};
+				/**
+				* data: 要渲染的数据
+				* $typesContent 要渲染哪一块的数据
+				* strFlag 标志表示 bookBegin bookSkill
+				*/
+				function forEach(data,$typesContent,strFlag){
+					var str = ``;
+					for(var i = 0; i< data[strFlag+"Count"]; i++){
+						str +=`<div class='index-card-container course-card-container contain'>
+								   <span style="display:none">${data[strFlag+"Id"+i]}</span>
+								  <a  class='course-card' href="javascript:void(0)" >`;
+						if((i === 4 || i === data.bookNewCount-3 || i===data.bookNewCount-4)&&strFlag==="bookNew")
+							str += `<div class="course-stat new">NEW</div>`;
+						else if((i === 1 || i===data.bookNewCount-2)&&strFlag==="bookSkill")
+							str += `<div class="course-stat new">HOT</div>`;
+						else 
+							str += `<div class="course-stat new"></div>`;
+						str +=`<div class='course-card-top hashadow'>
+										<img class="course-banner" src=${data[strFlag+"Addr"+i]} alt="">
+											<div class="course-label">
+												<label>${data[strFlag+"Mark"+i]}</label>
+											</div>
+										</div>
+										<div class='course-card-content'>
+											<h3 class='course-card-name'>${data[strFlag+"Name"+i]}</h3>
+										</div>
+									</a>
+								</div>`;						
+					}
+				 			$typesContent.append(str);
+				};
+			};
+			
+			$(function(){
+				function filterData(reciveData){
+					var arr = Object.keys( reciveData );
+					var reData = {};
+					arr = arr.filter( (current, index, reciveData) => {
+						if(current.startsWith("bookBegin") && !current.startsWith("bookBeginCount")){
+							return true;
+						}
+					})
+					
+					for( var key in reciveData){
+						if(arr.indexOf(key) > -1){
+							reData[key] = reciveData[key];
+						}
+					}
+					return reData;
+				}
+				
+				//sec 表示含有方向的，first表示含有书籍类别的
+				function secondFilter(direct, book) {
+					if(direct.bookCount > 5){
+						var second = {};
+						$.each(direct, (k, v) => {
+							var t = k.replace(/[^0-9]/ig,"");
+							if(t < 5){
+								second[k] = v;
+							}
+						})
+						direct = second;
+						second = null;
+					}
+					$.each(direct, (k, v) => {
+						var t = k.replace(/[^0-9]/ig,"");
+						var k1 = k;
+						if( t === "3" ){
+							k = k.replace(t, 5);
+							direct[k] = v;
+							delete direct[k1]
+						}else if( t ==="4" ){
+							k = k.replace(t, 7);
+							direct[k] = v;
+							delete direct[k1]
+						}
+					})
+					
+					$.each(book, (k, v) => {
+						var t = k.replace(/[^0-9]/ig,"");
+						var k1 = k;
+						if( t === "0" ){
+							k = k.replace(t, "8");
+							book[k] = v;
+						}else if( t ==="1" ){
+							k = k.replace(t, "4");
+							book[k] = v;
+						}else if( t ==="2" ){
+							k = k.replace(t, "6");
+							book[k] = v;
+						}else if( t ==="3" ){
+							
+						}else if( t ==="4" ){
+							k = k.replace(t, "9");
+							book[k] = v;
+						}
+					})
+					$.each(book, (k, v) => {
+						var t = k.replace(/[^0-9]/ig,"");
+						if(t === '0' || t === '1' || t === '2'){
+							delete book[k];
+						}
+					})
+					direct = Object.assign(direct, book);
+					direct.bookBeginCount = 10;
+					delete direct.bookCount;
+					return direct;
+				}
+				var fData = {};
+				$.ajax({
+					url : "FindBooksAction_findBook",
+					type : "post",
+					dataType : "json"
+				}).then( (data) => {
+					if(data.stats === "SUCCESS"){
+					   	xuanran(data, "bookNew", 1);
+						xuanran(data, "bookSkill", 3);
+						fData = filterData(data);
+					}else {
+						errorTip("请求失败 请稍后重试");
+					}
+				}, () => {
+						errorTip("请求失败 请稍后重试");
+				}).then( () => {
+					$.ajax({
+						type: "post",
+						url: "LearnPathAction_findType",
+						dataType : "json"
+					}).then( (res) => {
+						console.log(res.data)
+						if(res.code === 200 && res.msg ==="SUCCESS"){
+							let {
+								data: resData
+							} = res;
+							//resData 表示方向，filterData(data)表示五本入门书籍
+							var reData = secondFilter(resData, fData);
+							xuanran(reData, "bookBegin", 2);
+						}
+					}, () => {
+						errorTip("操作失败 请稍后重试");
+					}).then(function(){
+							//含有方向和书籍的第二块
+							var fixContent = $(".types-content").filter(":eq(2)").find(".index-card-container a");
+							$.each(fixContent, function(k, v){
+								$(this).on("click",function(){
+									if( k === 3 || k === 4 || k === 6 || k === 8){
+										var bookId = $(this).children("div:hidden").text();
+										var	documentUrl =  "booksInfor/booksInfo.html";
+										
+										if(isNaN(bookId) === false){
+											documentUrl = "booksInfor/booksInfo.html?bookId="+bookId;
+										}
+										document.location.href = documentUrl;
+									}else{
+										//方向跳转
+										var directID = $(this).children("div:hidden").text();
+										var	documentUrl =  "direct/direct.html";
+										
+										if(isNaN(directID) === false){
+											documentUrl = "direct/direct.html?directID="+directID;
+										}
+										document.location.href = documentUrl;
+									}
+								})
+							})
+					},function(){
+						
+					})
+				}, () => {
+					errorTip("网络异常 请稍后重试");
+				}).then( () => {
+					var $itemAjax = $(".menuContent").find(".item");
+					//菜单栏中的一次性业务。
+					$.each($itemAjax, (k, v) => {
+						$(v).one("mouseenter", () => {
+						    var dataId = $(v).find("span.group").attr("data-id");
+							$.ajax({
+								url: "FindBooksAction_getIndexPageBooks",
+								type: "post",
+								dataType : "json",
+								data: {
+									"dataId": dataId
+								}
+							}).then( (res) => {
+								if(res.code === 200){
+									var $recomentBox = $(".recomment-box:eq("+k+")").find(".banner-course-card");
+									$.each($recomentBox, (i, v) => {
+										 $(".recomment-box:eq("+k+")").find(".banner-course-card:eq("+i+")").append(`<span style="display:none">${res.data["bookId"+i]}</span>`);
+										$(v).find("img").attr("src",res.data["bookAddr"+i]);
+										$(v).find(".course-card").find(".course-card-name").text(res.data["bookName"+i]);
+										$(v).find(".course-card").find(".course-card-price").text(res.data["bookAuthor"+i]);
+										$(v).find(".course-card").find(".course-card-info").find(".icon-set_sns").text(res.data["bookVersion"+i]);
+									})
+								}
+							}, () => {
+								errorTip("请求失败 请稍后重试");
+							}).then( function() {
+								//菜单栏中每一项
+								var menuItem = $(".submenu .recomment-box .banner-course-card");
+								$.each(menuItem, function(k, v){
+									$(this).on("click",function(){
+										var bookId =  $(this).find("span:hidden").text();
+										var	documentUrl =  "booksInfor/booksInfo.html";
+										if(bookId !== undefined){
+											documentUrl = "booksInfor/booksInfo.html?bookId="+bookId;
+										}
+										document.location.href = documentUrl;
+									})
+								})
+							}, function() {
+								
+							})
+						})
+					})
+				}).then(function(){
+						var typeContent = $(".types-content").filter(":eq(1),:eq(3)");
+						$.each(typeContent, function(k, v){
+							$(this).find(".course-card").on("click",function(){
+								var bookId = $(this).prev().text().trim();
+								var	documentUrl =  "booksInfor/booksInfo.html";
+								if(bookId !== undefined){
+									documentUrl = "booksInfor/booksInfo.html?bookId="+bookId;
+								}
+								document.location.href = documentUrl;
+							})
+						})
+				}, function(){
+					
+				})
+			})
+			
+			
+			
+			$(function() {
+				var direcId = 0;
+				var $aElement = $("ul.dropdown-menu").find("li a");
+				$.each($aElement, (k, v) => {
+					$(v).on('click', () => {
+						if( $(v).attr("data-id") !== undefined)
+							direcId = $(v).attr("data-id");
+						else 
+							direcId = 0;
+					})
+				})
+				//将后台返回的数据格式化。
+				/**------------------工具类，规则化处理后台返回的数据-*/
+				function sortData(data) {
+					let arr = [];
+					let reData = {};
+					$.each(data, (k, v) => {
+						if( k !== "bookCount"){
+							var t = k.replace(/[^0-9]/ig,"");
+							if( arr.indexOf(t) < 0){
+								arr.push(t);
+							}
+						}
+					})
+					arr.sort( (a, b) => {
+						return a-b;
+					})
+					for(let i = 0; i < arr.length; i++){
+						$.each(data, (k, v) => {
+							let pushk = k.replace(/[^0-9]/ig,"");
+							if( pushk === arr[i]){
+								//如果相等，则匹配
+								k = k.replace(pushk,i);
+								reData[k] = v;
+							}
+						})
+					}
+					reData.bookCount = arr.length;
+					data = null;
+					return reData;
+				}
+				/*-----------------重复数据删除----------------*/
+				function fRepeat(data){
+					var arr = [];
+					var del = [];
+					$.each(data, function(k, v){
+						if(k.startsWith("bookId")){
+							if( arr.indexOf(v) < 0){
+								arr.push(v);
+							}else{
+								//记录k后面的数字，表示重复的，要删除。
+								var index = k.replace(/[^0-9]/ig,"");
+								del.push(index);	
+							}
+						}
+					})
+					for(var i = 0; i < del.length; i++){
+						$.each(data, function(k, v){
+								if(k.endsWith(del[i])){
+									delete data[k]
+								}
+						})
+					}
+					data["bookCount"] = data["bookCount"] - del.length;
+					return data;
+				}
+				
+				/**-----------搜索提示框数据请求ajax处理----------------*/
+				$(".form-group input").on("input", () => {
+					var $searchValue = $(".form-group input").val().trim(); 
+					 if( $(".form-group input").val().trim() !== ""){
+						 $.ajax({
+							url: 'FindBooksAction_findBooksBySearch',
+							type: 'post',
+							dataType : 'json',
+							data: {
+								'direcId': direcId,
+								'searchValue': $searchValue
+							}
+						}).then( (data) => {
+								if(data.code === 200){
+									//先规则化处理数据
+									data.data = sortData(data.data);
+									//删除重复数据
+									data.data = fRepeat(data.data);
+									//规则化处理数据
+									data.data = sortData(data.data);
+									if($("#nav-searchAjax").length > 0){
+										$("#nav-searchAjax").remove();
+									}
+									var bookstype = [];
+									//将类别的name压入bookstype数组中
+									$.each(data.data, (k, v) => {
+										if(k.startsWith("bookBtyName")){
+											bookstype.push(v);
+										}
+									})
+									//将类别的name排序
+									bookstype.sort(function(a,b){
+										if(a===b)
+											return 1;
+										else return -1;
+									});
+									//将书籍相同类别的进行分类[{bookstype:"Python",count:12},{bookstype:"操作系统",count:2},{bookstype:"人工智能",count:2}]
+									  var arr = [];
+									  for (var i = 0; i < bookstype.length;) {
+									     var count = 0;
+									    for (var j = i; j < bookstype.length; j++) {
+									      if (bookstype[i] === bookstype[j]) {
+									        count++;
+									      }
+									    }
+									    arr.push({
+									      bookstype: bookstype[i],
+									      count: count
+									    })
+									    i+=count;
+									  }
+									  //筛选出类别含有count数最多的那个。。（一个）
+									  var finalBookstype = [];
+									  finalBookstype[0] = arr.reduce(function(init,item){
+								           if( init.count >= item.count){
+								               init.count = init.count
+								           }else{
+								               init.count = item.count
+								           }
+								           return init
+								       });
+									//筛选出类别含有count数最多的那些。。（多个）
+									  arr.map(( current, index, arr) => {
+										  if(current.count === finalBookstype[0].count && finalBookstype[0].bookstype !== current.bookstype){
+											  finalBookstype.push(current);
+										  }
+									  })
+									  //将提示框渲染进dom树
+									var str = ``;
+								str += `<div id="nav-searchAjax" class="nav-flyout" style="position: absolute; top: 39.4px; left: 115.6px; width: 711px;">
+											<div id="suggestions-template">
+												<div id="suggestions">
+													<div id="issDiv0" class="s-suggestion">`;
+									str                 +=`<span class="s-heavy">${$searchValue}</span>
+														   <span class="s-heavy"></span>在 
+														   <span class="s-highlight-primary">全部分类</span> 中搜索
+													</div>`;
+													for(var j=0 ;j < finalBookstype.length; j++){
+								    str          +=`<div id="issDiv0" class="s-suggestion">
+														<span class="s-heavy">${$searchValue}</span>
+														<span class="s-heavy"></span> 在 <span class="s-highlight-primary">${finalBookstype[j].bookstype}分类</span>
+														 中搜索
+													</div>`;
+												} 
+									str          +=`<div id="s-separator">
+														<div class="s-separator"></div>
+													</div>`;
+													for(var i = 0; i<data.data.bookCount; i++){
+									str           +=`<div class="s-suggestion">
+														<span class="s-heavy" data-id=${data.data["bookId"+i]}>${data.data["bookName"+i]}</span>
+														<span class="s-heavy"></span>
+													</div>`;
+												}
+									str     += `</div>
+										  </div>
+									  </div>`;
+										$(".searchAjax").append( str );			
+								}else if(data.code === 404){
+									if($("#nav-searchAjax").length > 0 ){
+										 $("#nav-searchAjax").remove();
+									 }
+								}
+						}, () => {
+								errorTip("请求数据失败 请稍后重试");
+						}).then( () => {
+								var $suggDiv = $("#suggestions").find(".s-suggestion");
+								$suggDiv.each( (k, v) => {
+									$(v).hover( () => {
+										//注意this指向问题，在箭头函数中
+										//$(this)指向根元素HTMLDocument
+										$(v).addClass("activeDivSu");
+									}, () => {
+										$(v).removeClass("activeDivSu");
+									})
+								})
+								//如果点击提示面板的书籍，则跳转至所有书籍分类的界面
+							 	var $allSuggest = $("#nav-searchAjax").find(".s-suggestion");
+								//为每个suggestion绑定点击事件，当点击时，跳转在所有分类页面
+								$.each($allSuggest, function(k, v) {
+									$(v).on("click", function() {
+										var bookId = $(this).find("span:eq(0)").attr("data-id");
+										var documentUrl = "booksType/booksType.html";
+										if( bookId !== undefined ){
+											documentUrl = "booksInfor/booksInfo.html?bookId="+bookId;
+										}else{
+											var $matchVlaue = $(this).find("span.s-highlight-primary").text();
+											var $inputValue = $(".form-group input").val().trim();
+											
+											if($matchVlaue.endsWith("分类")){
+												$matchVlaue = $matchVlaue.split("分类")[0];
+											}
+											 localStorage.setItem('typeName', $matchVlaue);
+											 localStorage.setItem('inputValue', $inputValue);
+										}
+										document.location.href = documentUrl;
+									})
+								})
+						}, () => {
+							errorTip("请求数据渲染失败 请稍后重试");
+						}) 
+					 }else{
+						 if($("#nav-searchAjax").length > 0 ){
+							 $("#nav-searchAjax").remove();
+						 }
+					 }
+				});
+				/*------------------------搜索框ajax请求结束------------------------------*/
+			})
+			
+			$(".logoutApp").on("click",function(){
+				$.ajax({
+					url:"LoginGeneralAction_logout",
+					type: 'post',
+					dataType : 'json'
+				}).then( (res) => {
+					if(res.code === 200 && res.msg === "SUCCESS"){
+						localStorage.removeItem("dbID");
+						localStorage.removeItem("dbName");
+						localStorage.removeItem("dbProfile");
+						document.location.reload();
+					}
+				}, () => {
+					
+				})
+			})
+			
+			$(function(){
+				$.ajax({
+					url:"SaveDyShareAction_findDyShare",
+					type: 'post',
+					dataType : 'json',
+					data:{
+						"count": 7
+					}
+				}).then((res) => {
+					var arr =["0px;0px","390px;0px","780px;0px","780px;380px","390px;385px","0px;349px","0px;690px"];
+					if(res.code === 200 && res.msg ==="SUCCESS"){
+						var str =``;
+						for(var i = 0; i < res.data.length; i++ ){
+							 str += `<dd class="item" style="left: ${arr[i].split(";")[0]}; top: ${arr[i].split(";")[1]};">
+										<label class="article-label blue">
+											<i class="fa fa-share" aria-hidden="true"></i> 
+											${res.data[i].type}
+										</label>
+										<div class="clearfix article-tit">
+											<a href="javascript:void(0)" class="big-tit l hasimg">${res.data[i].title}</a>
+											<img class="r" src=${res.data[i].media.split(";")[0]}>
+										</div>
+										<div>`;
+								if( i === 5){
+									str += `<p class="article-content">${res.data[i].comment.substring(0,res.data[i].comment.length/2) + "..."}</p>`;
+								}else if(i === 6){
+									str += `<p class="article-content">${res.data[i].comment.substring(0,res.data[i].comment.length/2) + "..."}</p>`;
+								}else{
+									str += `<p class="article-content">${res.data[i].comment}</p>`;
+								}
+									str	+= 	`<div class="bottom-info clearfix">
+												<span>浏览 ${res.data[i].skimCount === "null" ? 0 : res.data[i].skimCount}</span>
+												<span>推荐 ${res.data[i].thumbCount}</span>
+												<a href="javascript:void(0)"  class="r blue">阅读全文
+													<i class="fa fa-arrow-right" aria-hidden="true"></i>
+												</a>
+											</div>
+										</div>
+									</dd>`
+								}
+							 $("dl.wonderful-list").html(str);
+					}
+					
+				}, () => {
+					
+				})
+			})
+			
+			$(function(){
+				var userID = localStorage.getItem("dbID");
+				if( userID !== null){
+					//协同过滤(用户已登录)
+					var param = {
+							url: "RecommenderAction_findItemRecommer",
+							data:{
+								"userID": userID
+							}
+						}
+					ajaxSend(param)
+						.then( (res) => {
+							if(res.code === 200 && res.msg === "SUCCESS"){
+								recommender(res);	
+								$(".container-types:eq(0)").find("span.tit-icon:eq(0)").after(`<em>与</em>／<em>您</em>／<em>浏</em>／<em>荐</em>／
+										<em>过</em>／<em>的</em>／<em>书</em>／<em>籍</em>／
+										<em>相</em>／<em>关</em>／<em>的</em>/<em>推</em>／
+										<em>荐</em>`);
+								$(".container-types:last").find("span.tit-icon:eq(0)").after(`<em>与</em>／<em>您</em>／<em>浏</em>／<em>荐</em>／
+										<em>过</em>／<em>的</em>／<em>书</em>／<em>籍</em>／
+										<em>相</em>／<em>关</em>／<em>的</em>/<em>推</em>／
+										<em>荐</em>`);
+									redirect( $(".container-types:eq(0)") );
+									redirectFooter( $(".container-types:last") );
+							}
+						}, () => {
+							
+						})
+				}else{
+					//用户没有登录，选取评分较高的
+					var param = {
+							url: "RecommenderAction_findTopNRecommer"
+						}
+					ajaxSend(param)
+						.then( (res) => {
+							if(res.code === 200 && res.msg === "SUCCESS"){
+								recommender(res);	
+								$(".container-types:eq(0)").find("span.tit-icon:eq(0)").after(`<em>为</em>／<em>您</em>／<em>推</em>／<em>荐</em>`);
+								$(".container-types:last").find("span.tit-icon:eq(0)").after(`<em>为</em>／<em>您</em>／<em>推</em>／<em>荐</em>`);
+								redirect($(".container-types:eq(0)"));
+								redirectFooter( $(".container-types:last") );
+							}else{
+								
+							}
+						}, () => {
+							
+						})
+				}
+				
+				//找路线，轮播图下侧的方向路线。
+				var params = {
+					url: "LearnPathAction_findType",
+					data:{
+						//给后台的标志，应该调用哪个方法。。
+						"topDirect": "flag"
+					}
+				}
+				ajaxSend(params)
+				.then( (res) => {
+					if( res.code === 200 && res.msg === "SUCCESS"){
+						let{
+							data,
+							data:{ bookCount: count}
+						} = res;
+						var str = ``;
+						var position = ["center,0px","center,-72px","center,-36px","center,-142px","center,-108px"];
+						for( var i = 0; i < count; i++){
+							str += `<a href="javascript:void(0)">
+										<span style="display:none">${data["bookBeginId" + i]}</span>
+										<i class="i-web" 
+											style="background-image:
+													url(${data["bookBeginAddr" + i]});
+															background-position:
+																${position[i].split(",")[0]} ${position[i].split(",")[1]}">
+										</i>
+										<p class="tit">${ data["bookBeginName" + i]}</p>
+										<p class="desc">${ data["bookBeginMark" + i]}</p>
+									</a>`;
+						}
+						$(".path-banner").html(str);
+						var path_a = $(".path-banner a");
+						$.each(path_a, function(k, v){
+							$(v).on("click",function(){
+								//方向跳转
+								var directID = $(this).children("span:hidden").text();
+								var	documentUrl =  "direct/direct.html";
+								
+								if(isNaN(directID) === false){
+									documentUrl = "direct/direct.html?directID="+directID;
+								}
+								document.location.href = documentUrl;
+							})
+						})
+					}
+				}, () => {
+					
+					
+				})
+				
+				function recommender(res){
+					let {
+						count,
+							data
+					} = res;
+					//底部书籍数量
+					var footerCount = count;
+					if(count === 10) count = 5;
+					var str = ``;
+					for(var i = 0; i < count; i++){
+						str += `<div class="index-card-container course-card-container contain">
+									<a class="course-card" href="javascript:void(0)">
+										<div class="course-card-top hashadow">
+											<img class="course-banner" src=${data[i].boImg}>
+											<div class="course-label">
+												<label style="display:none">${data[i].bookID}</label>
+												<label>${data[i].btyName}</label>
+											</div>
+										</div>
+										<div class="course-card-content">
+											<h3 class="course-card-name">${data[i].boName}</h3>
+										</div>
+									</a>
+								</div>`;
+					}
+					$(".types-content:eq(0)").html(str);
+					/******************底部书籍渲染********************/
+					if(footerCount === 10){
+						var footer = ``;
+						for(var i = footerCount - 5; i < footerCount; i++){
+							footer += `<a href="javascript:void(0)" class="lecturer-item">
+										<img class="lecturer-uimg" src=${data[i].boImg}>
+										<span class="lecturer-name">${data[i].boName}</span>
+										<span class="lecturer-title" style="display:none">${data[i].bookID}</span>
+										<span class="lecturer-p">
+											${data[i].content}
+										</span>
+									</a>`;
+						}
+						$(".lecturer-list").html(footer);
+					}
+				};
+				
+				//头部用户的推荐的跳转
+				function redirect( content ){
+					var arr = Array.from( content.find("a.course-card") );
+					arr.forEach( (v, k) => {
+						$(v).on("click", function(){
+							var bookId = $(this).find(".course-label").find("label:hidden").text();
+							var	documentUrl =  "booksInfor/booksInfo.html";
+							if(isNaN(bookId) === false){
+								documentUrl = "booksInfor/booksInfo.html?bookId="+bookId;
+							}
+							document.location.href = documentUrl;
+						})
+					})
+				}
+				
+				//底部用户的推荐跳转
+				function redirectFooter( content ){
+					var arr = Array.from( content.find(".lecturer-list a") );
+					arr.forEach( (v, k) => {
+						$(v).on("click", function(){
+							console.log(1)
+							var bookId = $(this).find("span:hidden").text();
+							var	documentUrl =  "booksInfor/booksInfo.html";
+							if(isNaN(bookId) === false){
+								documentUrl = "booksInfor/booksInfo.html?bookId="+bookId;
+							}
+							document.location.href = documentUrl;
+						})
+					})
+				}
+			});
+			function ajaxSend( params ){
+				const param = {
+					type: "post",
+					url: null,
+					dataType: "json",
+					async: true
+				};
+				$.extend(true, param, params );
+				return new Promise( (resolve, reject) => {
+					$.ajax({
+						type: param.type,
+			    	 	url: param.url,
+						dataType: param.dataType,
+			    		async: true,
+			    		data: param.data
+					}).then( (res) => {
+						resolve(res)
+					}, (res) => {
+						reject(res)
+					})
+				})
+			};
+		</script>
+	</body>
+</html>
+

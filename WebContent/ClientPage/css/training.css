@@ -1,0 +1,191 @@
+   
+   /*首页边框*/
+   .lightSunshine{
+ 		box-shadow: 0 0 2px #2188F1;
+ 		border-radius:4px; 
+	}
+	.noneBorder{
+		border:none;
+	}
+  	   		
+	.withBorder{
+		border-color:#ccc
+   }
+   ul.dropdown-menu li{
+			font-size: 18px;
+			margin-bottom:6px;
+			text-align:center;
+	}
+   
+   /**/
+   .header-unlogin .liFirst{
+      	float: left;
+		margin-left: 12px;
+		background: transparent;
+		line-height: 72px;
+		margin-right: 12px;
+   }
+   .liElement{
+   		width: auto;
+		padding: 0 12px;
+		color: #4D555D;
+   }
+   .header-unlogin .liSecond{
+	    float: left;
+		margin-left: 12px;
+		background: transparent;
+   }
+   .header-unlogin .liSecond a{
+	    display: inline-block;
+		width: auto;
+		padding: 0 12px;
+		color: #4D555D;line-height:72px
+   }
+
+						
+   
+    #vid-container {
+      width:100%;
+      height:100%;
+      width: 820px; 
+      height: 461.25px; 
+      float: none; 
+      clear: both; 
+      margin: 2px auto;
+   }
+
+    svg {
+     border-radius:3px;
+    }    
+    .node {
+        cursor: pointer;
+    }
+
+    .node circle {
+      fill: #fff;
+      stroke: #99ccff;;
+      stroke-width: 3px;
+    }
+
+    .node text {
+      font: 12px sans-serif;
+    }
+
+    .link {
+      fill: none;
+      stroke: #99ccff;
+      stroke-width: 2px;
+    }
+
+	.hyper {
+	    color: red;
+	    text-decoration: underline;
+	}
+	
+	.hyper:hover {
+	    color:yellow;
+	    text-decoration: none;
+	}   
+	.selected {
+	  font-weight:bold;
+	}
+	.not-selected {
+	  font-weight:normtal;
+	}
+	
+	ul.header-unlogin li.user-card-box{
+		position: relative;
+		float: left;
+		margin-right:20px;
+		margin-left:15px;
+	}
+	ul.header-unlogin li.user-card-box a#header-avator{
+		display: block;
+		height: 72px;
+		line-height: 72px;
+		width: 60px;
+		color: #787d82;
+		text-align: center;
+		-webkit-transition: background-color 0.2s;
+	    -moz-transition: background-color 0.2s;
+		transition: background-color 0.2s;
+	}
+	ul.header-unlogin li.user-card-box a#header-avator img{
+		width: 32px;
+		 height: 32px;
+		  border-color: #4d5559;
+		   margin-top: -5px;
+		    border-radius: 50%;
+		     display: inline-block;
+		 background: url(/static/img/menu_icon.png) no-repeat;
+	}
+	ul.header-unlogin li.user-card-box div.g-user-card{
+		position: absolute;
+	 	right: 0;
+	 	 top: 100%;
+	  	 width: 306px;
+	    visibility: hidden;
+	     box-shadow: 0 8px 16px 0 rgba(7, 17, 27, .2);
+	 	z-index: 1000;
+	}
+	ul.header-unlogin li.user-card-box div.g-user-card div.card-inner{
+		background-color: #fff;
+		 padding: 24px;
+		  box-sizing: border-box;
+		   border-bottom-right-radius: 8px;
+		 border-bottom-left-radius: 8px;
+	
+	}
+	li.user-card-box div.g-user-card div.card-inner div.card-top{
+		color: #93999f;
+		 position: relative;
+	}
+	div.g-user-card div.card-inner div.card-top a{
+		color: #93999f;
+		 display: inline-block;
+	}
+	div.g-user-card div.card-inner div.card-top a img{
+		float: left;
+		 width: 72px;
+		  height: 72px;
+		   border-radius: 50%;
+		 border: 2px solid #fff;
+		  margin-right: 12px;" 
+	}
+	div.g-user-card div.card-inner div.card-top div.card-top-right-box {
+		margin-top: 14px;
+		 float: left;
+	}
+	div.g-user-card div.card-inner div.card-top div.card-top-right-box a span.text-ellipsis{
+		display: inline-block;
+		font-size: 16px;
+		color: #07111b;
+		width: 170px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	div.g-user-card div.card-inner div.card-sets{
+		margin-top: 25px;
+		 font-size: 12px;
+		  line-height: 12px;
+     }
+     div.g-user-card div.card-inner div.user-center-box{
+     
+     margin-top: 16px;
+      margin-bottom: 14px;
+     }
+     div.g-user-card div.card-inner div.user-center-box ul li.lispace{
+     		position: relative;
+			width: 124px;
+			text-align:center;
+			height: 36px;
+			background: #F8FAFC;
+			border-radius: 2px;
+			line-height: 36px;
+			color: #4d555d;
+			font-size: 12px;
+			margin-right: 4px;
+			margin-bottom: 4px;
+			box-sizing: border-box;
+			float:left;
+     }

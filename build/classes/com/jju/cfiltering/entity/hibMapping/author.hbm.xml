@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.jju.cfiltering.entity">
+	<class name="Author" table="author">
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<!-- 非主键映射 -->
+		<property name="name" column="name" length="20"/>
+		<property name="nationality" column="nationality" length="30"/>
+		
+		<set name="books" cascade="save-update" inverse="true" table="books">
+			<key column="author_id"></key>
+			<one-to-many class="Books"/>
+		</set>
+	</class>
+</hibernate-mapping>

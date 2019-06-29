@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>CFiltering后台管理系统后台管理系统</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<!-- <link rel="stylesheet" href="assets/css/ace-skins.min.css" /> -->
+		<link type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css"  rel="stylesheet" />
+		<script src="assets/js/ace-extra.min.js"></script>
+	</head>
+
+	<body>
+		<div class="navbar navbar-default" id="navbar">
+			<script type="text/javascript">
+				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+			</script>
+
+			<div class="navbar-container" id="navbar-container">
+				<div class="navbar-header pull-left">
+					<a href="#" class="navbar-brand">
+						<small>
+							<i class="icon-leaf"></i>
+							CFiltering后台管理系统
+						</small>
+					</a>
+				</div>
+
+				<div class="navbar-header pull-right" role="navigation">
+					<ul class="nav ace-nav">
+						<li class="grey">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<i class="icon-tasks"></i>
+								<span class="badge badge-grey">4</span>
+							</a>
+
+							<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+								<li class="dropdown-header">
+									<i class="icon-ok"></i>
+									4个任务需要完成
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">软件更新</span>
+											<span class="pull-right">65%</span>
+										</div>
+
+										<div class="progress progress-mini ">
+											<div style="width:65%" class="progress-bar "></div>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">硬件升级</span>
+											<span class="pull-right">35%</span>
+										</div>
+
+										<div class="progress progress-mini ">
+											<div style="width:35%" class="progress-bar progress-bar-danger"></div>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">测试</span>
+											<span class="pull-right">15%</span>
+										</div>
+
+										<div class="progress progress-mini ">
+											<div style="width:15%" class="progress-bar progress-bar-warning"></div>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">Bug修复</span>
+											<span class="pull-right">90%</span>
+										</div>
+
+										<div class="progress progress-mini progress-striped active">
+											<div style="width:90%" class="progress-bar progress-bar-success"></div>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										详情
+										<i class="icon-arrow-right"></i>
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="purple">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<i class="icon-bell-alt icon-animated-bell"></i>
+								<span class="badge badge-important">8</span>
+							</a>
+
+							<ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
+								<li class="dropdown-header">
+									<i class="icon-warning-sign"></i>
+									8条通知
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">
+												<i class="btn btn-xs no-hover btn-pink icon-comment"></i>
+												消息
+											</span>
+											<span class="pull-right badge badge-info">+12</span>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="btn btn-xs btn-primary icon-user"></i>
+										Bob just signed up as an editor ...
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">
+												<i class="btn btn-xs no-hover btn-success icon-shopping-cart"></i>
+												New Orders
+											</span>
+											<span class="pull-right badge badge-success">+8</span>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">
+												<i class="btn btn-xs no-hover btn-info icon-twitter"></i>
+												Followers
+											</span>
+											<span class="pull-right badge badge-info">+11</span>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										查看全部通知
+										<i class="icon-arrow-right"></i>
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="green">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<i class="icon-envelope icon-animated-vertical"></i>
+								<span class="badge badge-success">5</span>
+							</a>
+
+							<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+								<li class="dropdown-header">
+									<i class="icon-envelope-alt"></i>
+									5条消息
+								</li>
+
+								<li>
+									<a href="#">
+										<img src="assets/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+										<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Alex:</span>
+												Ciao sociis natoque penatibus et auctor ...
+											</span>
+
+											<span class="msg-time">
+												<i class="icon-time"></i>
+												<span>a moment ago</span>
+											</span>
+										</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<img src="assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+										<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Susan:</span>
+												Vestibulum id ligula porta felis euismod ...
+											</span>
+
+											<span class="msg-time">
+												<i class="icon-time"></i>
+												<span>20分钟前</span>
+											</span>
+										</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<img src="assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+										<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Bob:</span>
+												Nullam quis risus eget urna mollis ornare ...
+											</span>
+
+											<span class="msg-time">
+												<i class="icon-time"></i>
+												<span>3:15 pm</span>
+											</span>
+										</span>
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="light-blue">
+							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+								<img class="nav-user-photo" src="assets/avatars/user.jpg" alt="青a's Photo" />
+								<span class="user-info">
+									<small>欢迎</small>
+									青a
+								</span>
+
+								<i class="icon-caret-down"></i>
+							</a>
+
+							<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+								<li>
+									<a href="#">
+										<i class="icon-cog"></i>
+										设置
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="icon-user"></i>
+										简介
+									</a>
+								</li>
+
+								<li class="divider"></li>
+
+								<li>
+									<a href="#">
+										<i class="icon-off"></i>
+										退出
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div><!-- /.container -->
+		</div>
+
+		<div class="main-container" id="main-container">
+			<script type="text/javascript">
+				try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+			</script>
+
+			<div class="main-container-inner">
+				<a class="menu-toggler" id="menu-toggler" href="#">
+					<span class="menu-text"></span>
+				</a>
+
+				<div class="sidebar" id="sidebar">
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+					</script>
+
+					<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+						<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+							<button class="btn btn-success">
+								<i class="icon-signal"></i>
+							</button>
+
+							<button class="btn btn-info">
+								<i class="icon-pencil"></i>
+							</button>
+
+							<button class="btn btn-warning">
+								<i class="icon-group"></i>
+							</button>
+
+							<button class="btn btn-danger">
+								<i class="icon-cogs"></i>
+							</button>
+						</div>
+
+						<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+							<span class="btn btn-success"></span>
+
+							<span class="btn btn-info"></span>
+
+							<span class="btn btn-warning"></span>
+
+							<span class="btn btn-danger"></span>
+						</div>
+					</div><!-- #sidebar-shortcuts -->
+
+					<ul class="nav nav-list">
+						<li>
+							<a href="index.html">
+								<i  class="fa fa-ravelry fa-lg" aria-hidden="true"></i>
+								<span class="menu-text"> 控制台 </span>
+							</a>
+						</li>
+
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="fa fa-telegram fa-lg" aria-hidden="true"></i>
+								<span class="menu-text">用户学习路线管理</span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul class="submenu">
+								<li>
+									<a href="user_learnpath.html">
+										<i class="icon-double-angle-right"></i>
+										学习路线信息
+									</a>
+								</li>
+								<li>
+									<a href="op_user_learnpath.html">
+										<i class="icon-double-angle-right"></i>
+										学习路线操作
+									</a>
+								</li>
+							</ul>
+						</li>
+						
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="fa fa-leanpub fa-lg" aria-hidden="true"></i>
+								<span class="menu-text"> 书籍库管理 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul class="submenu ul-lesson-list">
+								<li>
+									<a href="#" class="dropdown-toggle">
+										<i class="icon-double-angle-right"></i>
+
+										经典课程
+										<b class="arrow icon-angle-down"></b>
+									</a>
+
+									<ul class="submenu">
+										<li>
+											<a href="general_show_book.html?target=os&typeId=63">
+												<i class="icon-leaf"></i>
+												高级语言
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=os&typeId=64">
+												<i class="icon-leaf"></i>
+												汇编语言
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=os&typeId=47">
+												<i class="icon-leaf"></i>
+												操作系统 
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=ds&typeId=44">
+												<i class="icon-leaf"></i>
+												数据结构 
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=zu&typeId=45">
+												<i class="icon-leaf"></i>
+												 计算机原理 
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=wl&typeId=43">
+												<i class="icon-leaf"></i>
+												网络原理 
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=cs&typeId=49">
+												<i class="icon-leaf"></i>
+												计算机系统结构
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=complie&typeId=46">
+												<i class="icon-leaf"></i>
+												编译原理 
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=microCompu&typeId=62">
+												<i class="icon-leaf"></i>
+												微型计算机技术
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#" class="dropdown-toggle">
+										<i class="icon-double-angle-right"></i>
+
+										前端开发
+										<b class="arrow icon-angle-down"></b>
+									</a>
+
+									<ul class="submenu">
+										<li>
+											<a href="general_show_book.html?target=hts&typeId=1">
+												<i class="icon-leaf"></i>
+												HTML/CSS
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=javascript&typeId=2">
+												<i class="icon-leaf"></i>
+												JavaScript
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=vue&typeId=3">
+												<i class="icon-leaf"></i>
+												Vue.js
+											</a>
+										</li>
+
+										<li>
+											<a href="general_show_book.html?target=reactJs&typeId=4">
+												<i class="icon-leaf"></i>
+												React.js
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=AngularJs&typeId=59">
+												<i class="icon-leaf"></i>
+												Angular.js
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=nodeJs&typeId=6">
+												<i class="icon-leaf"></i>
+												Node.js
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=jquery&typeId=7">
+												<i class="icon-leaf"></i>
+												JQuery
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=bootStrap&typeId=8">
+												<i class="icon-leaf"></i>
+												Bootstrap
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=sassLess&typeId=9">
+												<i class="icon-leaf"></i>
+												Sass/Less
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=webapp&typeId=10">
+												<i class="icon-leaf"></i>
+												WebApp
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=noseTools&typeId=60">
+												<i class="icon-leaf"></i>
+												前端工具
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#" class="dropdown-toggle">
+										<i class="icon-double-angle-right"></i>
+
+										后端开发
+										<b class="arrow icon-angle-down"></b>
+									</a>
+
+									<ul class="submenu">
+										<li>
+											<a href="general_show_book.html?target=java&typeId=12">
+												<i class="icon-leaf"></i>
+												JAVA
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=sringBoot&typeId=50">
+												<i class="icon-leaf"></i>
+												SpringBoot
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=python&typeId=13">
+												<i class="icon-leaf"></i>
+												Python
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=pc&typeId=14">
+												<i class="icon-leaf"></i>
+												爬虫
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=cpp&typeId=18">
+												<i class="icon-leaf"></i>
+												C++
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=php&typeId=16">
+												<i class="icon-leaf"></i>
+												PHP
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=cSharp&typeId=19">
+												<i class="icon-leaf"></i>
+												C#
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=c&typeId=17">
+												<i class="icon-leaf"></i>
+												C
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=Spring&typeId=51">
+												<i class="icon-leaf"></i>
+												Spring
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=Ruby&typeId=20">
+												<i class="icon-leaf"></i>
+												Ruby
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=oop&typeId=58">
+												<i class="icon-leaf"></i>
+												面向对象编程
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#" class="dropdown-toggle">
+										<i class="icon-double-angle-right"></i>
+										移动开发
+										<b class="arrow icon-angle-down"></b>
+									</a>
+
+									<ul class="submenu">
+										<li>
+											<a href="general_show_book.html?target=android&typeId=21">
+												<i class="icon-leaf"></i>
+												Android
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=ios&typeId=22">
+												<i class="icon-leaf"></i>
+												IOS
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=react&typeId=23">
+												<i class="icon-leaf"></i>
+												React Native
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=weex&typeId=24">
+												<i class="icon-leaf"></i>
+												WEEX
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#" class="dropdown-toggle">
+										<i class="icon-double-angle-right"></i>
+
+										前沿技术
+										<b class="arrow icon-angle-down"></b>
+									</a>
+
+									<ul class="submenu">
+										<li>
+											<a href="general_show_book.html?target=ws&typeId=52">
+												<i class="icon-leaf"></i>
+												微服务
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=bit&typeId=53">
+												<i class="icon-leaf"></i>
+												区块链
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=ether&typeId=54">
+												<i class="icon-leaf"></i>
+												以太坊
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=iq&typeId=55">
+												<i class="icon-leaf"></i>
+												人工智能
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=deeps&typeId=56">
+												<i class="icon-leaf"></i>
+												深度学习
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=data&typeId=11">
+												<i class="icon-leaf"></i>
+												数据分析&amp;挖掘
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#" class="dropdown-toggle">
+										<i class="icon-double-angle-right"></i>
+										运维
+										<b class="arrow icon-angle-down"></b>
+									</a>
+
+									<ul class="submenu">
+										<li>
+											<a href="general_show_book.html?target=yunw&typeId=25">
+												<i class="icon-leaf"></i>
+												运维
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=autoyw&typeId=26">
+												<i class="icon-leaf"></i>
+												自动化运维
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=ywtools&typeId=27">
+												<i class="icon-leaf"></i>
+												运维工具
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=linux&typeId=28">
+												<i class="icon-leaf"></i>
+												Linux
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#" class="dropdown-toggle">
+										<i class="icon-double-angle-right"></i>
+
+										数据库
+										<b class="arrow icon-angle-down"></b>
+									</a>
+
+									<ul class="submenu">
+										<li>
+											<a href="general_show_book.html?target=mysql&typeId=29">
+												<i class="icon-leaf"></i>
+												MySQL
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=redis&typeId=30">
+												<i class="icon-leaf"></i>
+												Redis
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=mogodb&typeId=31">
+												<i class="icon-leaf"></i>
+												MongoDB
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=oracle&typeId=32">
+												<i class="icon-leaf"></i>
+												Oracle
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=nosql&typeId=33">
+												<i class="icon-leaf"></i>
+												NoSql
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#" class="dropdown-toggle">
+										<i class="icon-double-angle-right"></i>
+
+										UI设计
+										<b class="arrow icon-angle-down"></b>
+									</a>
+
+									<ul class="submenu">
+										<li>
+											<a href="general_show_book.html?target=tools&typeId=37">
+												<i class="icon-leaf"></i>
+												设计工具
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=base&typeId=36">
+												<i class="icon-leaf"></i>
+												设计基础
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=model&typeId=34">
+												<i class="icon-leaf"></i>
+												模型设计
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=appd&typeId=38">
+												<i class="icon-leaf"></i>
+												APPUI设计
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=dydh&typeId=35">
+												<i class="icon-leaf"></i>
+												动效动画
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#" class="dropdown-toggle">
+										<i class="icon-double-angle-right"></i>
+
+										算法&amp;数学
+										<b class="arrow icon-angle-down"></b>
+									</a>
+
+									<ul class="submenu">
+										<li>
+											<a href="general_show_book.html?target=algori&typeId=61">
+												<i class="icon-leaf"></i>
+												算法
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=math&typeId=42">
+												<i class="icon-leaf"></i>
+												数学
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=alstr&typeId=5">
+												<i class="icon-leaf"></i>
+												算法与数据结构
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#" class="dropdown-toggle">
+										<i class="icon-double-angle-right"></i>
+
+										3D游戏
+										<b class="arrow icon-angle-down"></b>
+									</a>
+
+									<ul class="submenu">
+										<li>
+											<a href="general_show_book.html?target=unity&typeId=39">
+												<i class="icon-leaf"></i>
+													Unity&nbsp;3D 
+											</a>
+										</li>
+										<li>
+											<a href="general_show_book.html?target=cocos&typeId=40">
+												<i class="icon-leaf"></i>
+													Cocos2d-x
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#" class="dropdown-toggle">
+										<i class="icon-double-angle-right"></i>
+
+										专业英语
+										<b class="arrow icon-angle-down"></b>
+									</a>
+
+									<ul class="submenu">
+										<li>
+											<a href="general_show_book.html?target=penglish&typeId=66">
+												<i class="icon-leaf"></i>
+												计算机英语
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="addBooksOperator.html">
+										<span class="menu-text">添加书籍</span>
+									</a>
+								</li>
+							</ul>
+						</li>
+	
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="fa fa-user fa-lg" aria-hidden="true"></i>
+								<span class="menu-text"> 用户信息管理 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul class="submenu">
+								<li>
+									<a href="userInfoManager.html">
+										<i class="icon-double-angle-right"></i>
+										用户信息
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="fa fa-share-square fa-lg" aria-hidden="true"></i>
+								<span class="menu-text"> 动态分享管理</span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul class="submenu">
+								<li>
+									<a href="dynamic_share_check.html">
+										<i class="icon-double-angle-right"></i>
+										动态分享审核
+									</a>
+								</li>
+
+								<li>
+									<a href="edit.html">
+										<i class="icon-double-angle-right"></i>
+										编辑器
+									</a>
+								</li>
+							</ul>
+						</li>
+
+
+						<li class="active">
+							<a href="gallery.html">
+								<i class="fa fa-ravelry fa-lg" aria-hidden="true"></i> 
+								<span class="menu-text"> 相册 </span>
+							</a>
+						</li>
+					</ul><!-- /.nav-list -->
+
+					<div class="sidebar-collapse" id="sidebar-collapse">
+						<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+					</div>
+
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+					</script>
+				</div>
+
+				<div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="#">Home</a>
+							</li>
+							<li class="active">Gallery</li>
+						</ul><!-- .breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<i class="icon-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- #nav-search -->
+					</div>
+
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								Gallery
+								<small>
+									<i class="icon-double-angle-right"></i>
+									responsive photo gallery using colorbox
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+								<div class="row-fluid">
+									<ul class="ace-thumbnails">
+										<li>
+											<a href="assets/images/gallery/image-1.jpg" title="Photo Title" data-rel="colorbox">
+												<img alt="150x150" src="assets/images/gallery/thumb-1.jpg" />
+												<div class="tags">
+													<span class="label-holder">
+														<span class="label label-info">breakfast</span>
+													</span>
+
+													<span class="label-holder">
+														<span class="label label-danger">fruits</span>
+													</span>
+
+													<span class="label-holder">
+														<span class="label label-success">toast</span>
+													</span>
+
+													<span class="label-holder">
+														<span class="label label-warning arrowed-in">diet</span>
+													</span>
+												</div>
+											</a>
+
+											<div class="tools">
+												<a href="#">
+													<i class="icon-link"></i>
+												</a>
+
+												<a href="#">
+													<i class="icon-paper-clip"></i>
+												</a>
+
+												<a href="#">
+													<i class="icon-pencil"></i>
+												</a>
+
+												<a href="#">
+													<i class="icon-remove red"></i>
+												</a>
+											</div>
+										</li>
+
+										<li>
+											<a href="assets/images/gallery/image-2.jpg" data-rel="colorbox">
+												<img alt="150x150" src="assets/images/gallery/thumb-2.jpg" />
+												<div class="text">
+													<div class="inner">Sample Caption on Hover</div>
+												</div>
+											</a>
+										</li>
+
+										<li>
+											<a href="assets/images/gallery/image-3.jpg" data-rel="colorbox">
+												<img alt="150x150" src="assets/images/gallery/thumb-3.jpg" />
+												<div class="text">
+													<div class="inner">Sample Caption on Hover</div>
+												</div>
+											</a>
+
+											<div class="tools tools-bottom">
+												<a href="#">
+													<i class="icon-link"></i>
+												</a>
+
+												<a href="#">
+													<i class="icon-paper-clip"></i>
+												</a>
+
+												<a href="#">
+													<i class="icon-pencil"></i>
+												</a>
+
+												<a href="#">
+													<i class="icon-remove red"></i>
+												</a>
+											</div>
+										</li>
+
+										<li>
+											<a href="assets/images/gallery/image-4.jpg" data-rel="colorbox">
+												<img alt="150x150" src="assets/images/gallery/thumb-4.jpg" />
+												<div class="tags">
+													<span class="label-holder">
+														<span class="label label-info arrowed">fountain</span>
+													</span>
+
+													<span class="label-holder">
+														<span class="label label-danger">recreation</span>
+													</span>
+												</div>
+											</a>
+
+											<div class="tools tools-top">
+												<a href="#">
+													<i class="icon-link"></i>
+												</a>
+
+												<a href="#">
+													<i class="icon-paper-clip"></i>
+												</a>
+
+												<a href="#">
+													<i class="icon-pencil"></i>
+												</a>
+
+												<a href="#">
+													<i class="icon-remove red"></i>
+												</a>
+											</div>
+										</li>
+
+										<li>
+											<div>
+												<img alt="150x150" src="assets/images/gallery/thumb-5.jpg" />
+												<div class="text">
+													<div class="inner">
+														<span>Some Title!</span>
+
+														<br />
+														<a href="assets/images/gallery/image-5.jpg" data-rel="colorbox">
+															<i class="icon-zoom-in"></i>
+														</a>
+
+														<a href="#">
+															<i class="icon-user"></i>
+														</a>
+
+														<a href="#">
+															<i class="icon-share-alt"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+										</li>
+
+										<li>
+											<a href="assets/images/gallery/image-6.jpg" data-rel="colorbox">
+												<img alt="150x150" src="assets/images/gallery/thumb-6.jpg" />
+											</a>
+
+											<div class="tools tools-right">
+												<a href="#">
+													<i class="icon-link"></i>
+												</a>
+
+												<a href="#">
+													<i class="icon-paper-clip"></i>
+												</a>
+
+												<a href="#">
+													<i class="icon-pencil"></i>
+												</a>
+
+												<a href="#">
+													<i class="icon-remove red"></i>
+												</a>
+											</div>
+										</li>
+
+										<li>
+											<a href="assets/images/gallery/image-1.jpg" data-rel="colorbox">
+												<img alt="150x150" src="assets/images/gallery/thumb-1.jpg" />
+											</a>
+
+											<div class="tools">
+												<a href="#">
+													<i class="icon-link"></i>
+												</a>
+
+												<a href="#">
+													<i class="icon-paper-clip"></i>
+												</a>
+
+												<a href="#">
+													<i class="icon-pencil"></i>
+												</a>
+
+												<a href="#">
+													<i class="icon-remove red"></i>
+												</a>
+											</div>
+										</li>
+
+										<li>
+											<a href="assets/images/gallery/image-2.jpg" data-rel="colorbox">
+												<img alt="150x150" src="assets/images/gallery/thumb-2.jpg" />
+											</a>
+
+											<div class="tools tools-top">
+												<a href="#">
+													<i class="icon-link"></i>
+												</a>
+
+												<a href="#">
+													<i class="icon-paper-clip"></i>
+												</a>
+
+												<a href="#">
+													<i class="icon-pencil"></i>
+												</a>
+
+												<a href="#">
+													<i class="icon-remove red"></i>
+												</a>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div><!-- /.page-content -->
+				</div><!-- /.main-content -->
+
+				<div class="ace-settings-container" id="ace-settings-container">
+					<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+						<i class="icon-cog bigger-150"></i>
+					</div>
+
+					<div class="ace-settings-box" id="ace-settings-box">
+						<div>
+							<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
+							<label class="lbl" for="ace-settings-navbar">固定导航</label>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
+							<label class="lbl" for="ace-settings-sidebar">固定目录</label>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs" />
+							<label class="lbl" for="ace-settings-breadcrumbs">固定面包屑</label>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" />
+							<label class="lbl" for="ace-settings-rtl">赚屏</label>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
+							<label class="lbl" for="ace-settings-add-container">
+								<b>内屏</b>
+							</label>
+						</div>
+					</div>
+				</div><!-- /#ace-settings-container -->
+			</div><!-- /.main-container-inner -->
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<script src="js/jquery.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+	</body>
+</html>

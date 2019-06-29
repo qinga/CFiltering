@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>推荐系统</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="fontawesome-free-5.2.0/css/all.css" type="text/css" />
+		<!-- 主页样式文件 -->
+		<link rel="stylesheet" href="css/main.css" type="text/css" />
+		<link href="css/training.css" rel="stylesheet" />
+		<!-- d3插件库 -->
+		<script src="js/d3.js"></script>
+	</head>
+	<body id="index">
+		<div id="header">
+			<div class="page-container" id="nav" style="background-color: #fff !important;">
+				<div id="logo" class="logo">
+					<a href="index.html" target="_self" title="首页">
+						<img title="推荐系统" src="login/images/logo.png">
+					</a>
+				</div>
+				<div id="login-area">
+					<ul class="header-unlogin clearfix ">
+						<li class="liFirst">
+							<a href="#" class="liElement">猿分享</a>
+		                </li>
+						<li class="shop-cart" id="shop-cart">
+							<a href="javascript:void(0)" class="shop-cart-icon" target="">
+								<span class="fas fa-shopping-cart"></span>
+								<span>我的收藏</span>
+								<span class="shopping_icon js-cart-num" style="display: none">0</span>
+							</a>
+							<div class="my-cart" id="js-my-cart"></div>
+						</li>
+						<li class="liSecond" style="">
+		                    <a href="login/login.html" id="js-signin-btn" style="">登录</a> /
+		                     <a href="register/register.html" id="js-signup-btn" style="">注册</a>
+		                </li>
+						<li class="set_btn user-card-box" id="header-user-card" style="display:none">
+							<a id="header-avator" href="#" class="user-card-item js-header-avator">
+								<img src="images/myphoto.jpg" width="40" height="40">
+								<i class="myspace_remind" style=""></i>
+								<span style="display: none;">动态提醒</span>
+							</a>
+							<div class="g-user-card">
+								<div class="card-inner">
+									<div class="card-top clearfix">
+										<a href="#">
+											<img src="images/myphoto.jpg" alt="weixin_青a_0"/>
+										</a>
+										<div class="card-top-right-box">
+											<a href="#">
+												<span class="text-ellipsis">weixin_青a_0</span>
+											</a>
+										</div>
+									</div>
+									<div class="user-center-box">
+										<ul class="clearfix">
+											<li class="lispace">
+												<a href="#">
+													<span>我的课程</span>
+												</a>
+											</li>
+											<li class="lispace">
+												<a href="#">
+													<span>订单中心</span>
+												</a>
+											</li>
+											<li class="lispace">
+												<a href="#">
+													<span>积分商城</span>
+												</a>
+											</li>
+											<li class="lispace">
+												<a href="#">
+													<span>个人设置</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+									<div class="card-sets clearfix">
+										<a href="#" class="l">安全退出</a>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-5 col-sm-6  col-md-7  col-lg-7 search-warp">
+				  	<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon selectBox" style="width:100px;cursor:pointer;font-weight:bold;color:black">全部分类
+								<i class="fa fa-caret-down" aria-hidden="true" style="margin-left:4px"></i>
+							</div>
+							<input type="text" class="form-control" style="height:40px;box-shadow:none;border-color:#ccc;font-weight:bold;">
+							<div class="input-group-addon" style="background-color:#EFEFEF">
+								<i class="fas fa-search"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			 </div>
+		</div>
+		<div id="main">
+			<div>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="left:213px;top:59px;">
+				    <li><a href="javascript:void(0)">全部分类</a></li>
+				    <li><a href="javascript:void(0)">经典课程</a></li>
+				    <li><a href="javascript:void(0)">前端开发</a></li>
+				    <li><a href="javascript:void(0)">后端开发</a></li>
+				    <li role="separator" class="divider"></li>
+				    <li><a href="javascript:void(0)">移动开发</a></li>
+				    <li><a href="javascript:void(0)">前沿技术</a></li>
+				    <li><a href="javascript:void(0)">数据库</a></li>
+				    <li><a href="javascript:void(0)">UI设计</a></li>
+				    <li role="separator" class="divider"></li>
+				    <li><a href="javascript:void(0)">算法&amp;数学</a></li>
+				    <li><a href="javascript:void(0)">3D游戏</a></li>
+				    <li><a href="javascript:void(0)">专业英语</a></li>
+				    <li><a href="javascript:void(0)">运维</a></li>
+				    <li role="separator" class="divider"></li>
+				    <li><a href="javascript:void(0)"></a></li>
+				    <li><a href="javascript:void(0)"></a></li>
+				    <li><a href="javascript:void(0)"></a></li>
+				</ul>
+			</div>
+			<div class="bk">
+			</div>
+			<!--
+	            	作者：594176850@qq.com
+	            	时间：2018-08-06
+	            	描述：头部轮播部分和导航部分
+	            -->
+			<div class="bgfff banner-box">
+				<div class="g-banner pr">
+					<!--
+	                    	作者：594176850@qq.com
+	                    	时间：2018-08-06
+	                    	描述：相应导航部分内容，相应导航部分内容，
+	                    	相应导航部分内容，相应导航部分内容，，
+	                    -->
+					<div class="submenu a hide">
+						<div class='content'>
+							<div class="">
+								<div class="">
+									<span id='tree'></span>
+								</div>
+							</div>
+						</div>
+						<script src='js/training-data.js'></script>
+						<script src='js/training.js'></script>
+					</div>
+					<div class="submenu b hide" data-id="b">
+						<div class="innerBox clearfix">
+							<div class="subinnerBox">
+								<div class="cates-box">
+									<div class="fe-base-box clearfix">
+										<div class="banner-line">
+											<span class="bold mr10 l small-title">经典课程</span>
+										</div>
+										<div class="tag-box l">
+											<a target="" href="javascript:void(0)">网络原理</a>
+											<a target="" href="javascript:void(0)">操作系统</a>
+											<a target="" href="javascript:void(0)">编译原理</a>
+											<a target="" href="javascript:void(0)">计算机原理</a>
+											<a target="" href="javascript:void(0)">计算机系统结构</a>
+											<a target="" href="javascript:void(0)">数据结构</a>
+											<a target="" href="javascript:void(0)">微型计算机技术</a>
+											<a target="" href="javascript:void(0)">汇编语言</a>
+											<a target="" href="javascript:void(0)">高级语言</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="recomment-box">
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)" target="" title="深度卷积网络 :原理与实战" class="clearfix">
+									<img src="img/index/5836c00a0001916906000338.jpg" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'>深度卷积网络 &#58;原理与实战</h3>
+										<div class='course-card-price l'>彭博</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											主编
+										</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns">2018年4月第3版</i>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)" target="" title="MATLAB神经网络原理与实例精解" class="clearfix">
+									<img src="img/index/a.jpg" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'>MATLAB神经网络原理与实例精解</h3>
+										<div class='course-card-price l'>陈明</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											主编
+										</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns">2018年8月第4版</i>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)" target="" title="图解数据结构(使用Python)" class="clearfix">
+									<img src="img/index/5a9dfab40001bf1005400300.jpg" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'>图解数据结构(使用Python)</h3>
+										<div class='course-card-price l'>吴灿铭</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>主编</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns">2017年5月第4版</i>
+										</div>
+	
+									</div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)" target="_blank" title="现代操作系统(原书第3版)" class="clearfix">
+									<img src="img/index/595067d5000132a105400300.jpg" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'>现代操作系统(原书第3版)</h3>
+										<div class='course-card-price l'>陈向群</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>主编</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns">2018年3月第2版</i>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="submenu c hide" >
+						<div class="innerBox clearfix">
+							<div class="subinnerBox">
+								<div class="cates-box">
+									<div class="fe-base-box clearfix">
+										<div class="banner-line">
+											<span class="bold mr10 l small-title">前端开发</span>
+										</div>
+										<div class="tag-box l">
+											<a target="" href="javascript:void(0)">HTML/CSS</a>
+											<a target="" href="javascript:void(0)">JavaScript</a>
+											<a target="" href="javascript:void(0)">Vue.js</a>
+											<a target="" href="javascript:void(0)">React.JS</a>
+											<a target="" href="javascript:void(0)">Angular</a>
+											<a target="" href="javascript:void(0)">Node.js</a>
+											<a target="" href="javascript:void(0)">jQuery</a>
+											<a target="" href="javascript:void(0)">Bootstrap</a>
+											<a target="" href="javascript:void(0)">Sass/Less</a>
+											<a target="" href="javascript:void(0)">WebApp</a>
+											<a target="" href="javascript:void(0)">前端工具</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="recomment-box">
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)" target="" title="HTML5 Canvas核心技术:图形、动画与游戏开发" class="clearfix">
+									<img src="img/index/5836c00a0001916906000338.jpg" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'>HTML5 Canvas核心技术:图形、动画与游戏开发</h3>
+										<div class='course-card-price l'>长安</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											主编
+										</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns">2014年5月第8版</i>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)" target="" title="前端工程化:体系设计与实践" class="clearfix">
+									<img src="img/index/a.jpg" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'>前端工程化:体系设计与实践</h3>
+										<div class='course-card-price l'>长安</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											主编
+										</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns">2018年3月第3版</i>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)" target="" title="深入React技术栈" class="clearfix">
+									<img src="img/index/5a9dfab40001bf1005400300.jpg" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'>深入React技术栈</h3>
+										<div class='course-card-price l'>长安</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>主编</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns">2015年3月第1版</i>
+										</div>
+	
+									</div>
+								</a>
+							</div>
+							<div class="l banner-course-card">
+								<a href="javascript:void(0)" target="" title="现代前端技术解析" class="clearfix">
+									<img src="img/index/595067d5000132a105400300.jpg" class="l">
+									<div class="l course-card">
+										<h3 class='course-card-name'>现代前端技术解析</h3>
+										<div class='course-card-price l'>张成文</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>主编</div>
+										<div class="course-card-dot l">
+											<i class="imv2-dot_samll"></i>
+										</div>
+										<div class='course-card-info l'>
+											<i class="icon-set_sns">2018年2月第3版</i>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="submenu d hide" >
+						 <div class="innerBox clearfix">
+				            <div class="subinnerBox">
+				                <div class="cates-box">
+                                   <div class="fe-base-box clearfix">
+					                   <div class="banner-line">
+					                        <span class="bold mr10 l small-title">后端开发</span>
+					                   </div>
+					                   <div class="tag-box l">
+                                           <a target="_blank" href="#">Java</a>
+                                           <a target="_blank" href="#">Python</a>
+                                           <a target="_blank" href="#">爬虫</a>
+                                           <a target="_blank" href="#">Django</a>
+                                           <a target="_blank" href="#">Go</a>
+                                           <a target="_blank" href="#">PHP</a>
+                                           <a target="_blank" href="#">C</a>
+                                           <a target="_blank" href="#">C++</a>
+                                           <a target="_blank" href="#">C#</a>
+                                           <a target="_blank" href="#">Ruby</a>
+                                       </div>
+					               </div>
+					               <div class="fe-base-box clearfix">
+					                    <div class="banner-line">
+					                         <span class="bold mr10 l small-title">数据库</span>
+					                    </div>
+                   					    <div class="tag-box l">
+                                            <a target="_blank" href="#">MySQL</a>
+                                            <a target="_blank" href="#">Redis</a>
+                                            <a target="_blank" href="#">MongoDB</a>
+                                            <a target="_blank" href="#">Oracle</a>
+                                            <a target="_blank" href="#">NoSql</a>
+                                        </div>
+                				   </div>
+                               </div>
+				            </div>
+				       	 </div>
+				        <div class="recomment-box">
+                            <div class="l banner-course-card">
+								<a href="#" target="_blank" title="Java编程思想" class="clearfix">
+								    <img src="img/index/58f57d200001461105400300.jpg" class="l">
+								    <div class="l course-card">
+								        <h3 class="course-card-name">Java编程思想</h3>
+										<div class="course-card-price l">长安</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l">主编</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l"><i class="icon-set_sns"></i>2015年3月第1版</div>
+								    </div>
+								</a>
+							</div>
+                           	<div class="l banner-course-card">
+                           		<a href="#" target="_blank" title="Java编程的逻辑 (Java核心技术系列)" class="clearfix">
+								    <img src="img/index/58f57d200001461105400300.jpg" class="l">
+								    <div class="l course-card">
+								        <h3 class="course-card-name">Java编程的逻辑 (Java核心技术系列)</h3>
+										<div class="course-card-price l">长安</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l">主编</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l"><i class="icon-set_sns"></i>2015年3月第1版</div>
+								    </div>
+								</a>
+							</div>
+                           	<div class="l banner-course-card">
+                           		<a href="#" target="_blank" title="Effective Modern C++(中文版)" class="clearfix">
+								    <img src="img/index/58f57d200001461105400300.jpg" class="l">
+								    <div class="l course-card">
+								        <h3 class="course-card-name">Effective Modern C++(中文版)</h3>
+										<div class="course-card-price l">长安</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l">主编</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l"><i class="icon-set_sns"></i>2019年2月第2版</div>
+								    </div>
+								</a>
+							</div>
+                           	<div class="l banner-course-card">
+                           		<a href="#" target="_blank" title="Spring微服务实战" class="clearfix">
+								    <img src="img/index/58f57d200001461105400300.jpg" class="l">
+								    <div class="l course-card">
+								        <h3 class="course-card-name">Spring微服务实战</h3>
+										<div class="course-card-price l">长安</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l">主编</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l"><i class="icon-set_sns"></i>2017年3月第3版</div>
+								    </div>
+								</a>
+							</div>
+                        </div>
+					</div>
+					<div class="submenu e hide" >
+						  <div class="innerBox clearfix">
+				            <div class="subinnerBox">
+				                <div class="cates-box">
+                                    <div class="fe-base-box clearfix">
+				                        <div class="banner-line">
+				                             <span class="bold mr10 l small-title">移动开发</span>
+				                        </div>
+				                        <div class="tag-box l">
+                                            <a target="_blank" href="#">Android</a>
+                                            <a target="_blank" href="#">iOS</a>
+                                            <a target="_blank" href="#">React native</a>
+                                            <a target="_blank" href="#">WEEX</a>
+                                        </div>
+				                    </div>
+				               </div>
+				            </div>
+				          </div>
+        				  <div class="recomment-box">
+                              <div class="l banner-course-card">
+								<a href="#" target="_blank" title="React Native移动开发实战" class="clearfix">
+								    <img src="img/index/5b5d88e5000151ec06000338-240-135.jpg" class="l">
+								    <div class="l course-card">
+								        	<h3 class="course-card-name">React Native移动开发实战</h3>
+											<div class="course-card-price l">长安</div>
+											<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+											<div class="course-card-info l">主编</div>
+											<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+											<div class="course-card-info l"><i class="icon-set_sns"></i>2018年2月第2版</div>
+								    </div>
+								</a>
+							  </div>
+							  <div class="l banner-course-card">
+								<a href="#" target="_blank" title="React Native移动开发实战" class="clearfix">
+								    <img src="img/index/5b5d88e5000151ec06000338-240-135.jpg" class="l">
+								    <div class="l course-card">
+								        	<h3 class="course-card-name">React Native移动开发实战</h3>
+											<div class="course-card-price l">长安</div>
+											<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+											<div class="course-card-info l">主编</div>
+											<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+											<div class="course-card-info l"><i class="icon-set_sns"></i>2018年2月第2版</div>
+								    </div>
+								</a>
+							  </div>
+							  <div class="l banner-course-card">
+								<a href="#" target="_blank" title="React Native移动开发实战" class="clearfix">
+								    <img src="img/index/5b5d88e5000151ec06000338-240-135.jpg" class="l">
+								    <div class="l course-card">
+								        	<h3 class="course-card-name">React Native移动开发实战</h3>
+											<div class="course-card-price l">长安</div>
+											<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+											<div class="course-card-info l">主编</div>
+											<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+											<div class="course-card-info l"><i class="icon-set_sns"></i>2018年2月第2版</div>
+								    </div>
+								</a>
+							  </div>
+							  <div class="l banner-course-card">
+								<a href="#" target="_blank" title="React Native移动开发实战" class="clearfix">
+								    <img src="img/index/5b5d88e5000151ec06000338-240-135.jpg" class="l">
+								    <div class="l course-card">
+								        	<h3 class="course-card-name">React Native移动开发实战</h3>
+											<div class="course-card-price l">长安</div>
+											<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+											<div class="course-card-info l">主编</div>
+											<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+											<div class="course-card-info l"><i class="icon-set_sns"></i>2018年2月第2版</div>
+								    </div>
+								</a>
+							  </div>
+                          </div>
+					</div>
+					<div class="submenu f hide" >
+						 <div class="innerBox clearfix">
+				            <div class="subinnerBox">
+				                <div class="cates-box">
+				                	<div class="fe-base-box clearfix">
+					                    <div class="banner-line">
+					                         <span class="bold mr10 l small-title">算法&amp;数学</span>
+					                    </div>
+						                <div class="tag-box l">
+                                            <a target="_blank" href="#">码农&middot;算法</a>
+                                            <a target="_blank" href="#">数学</a>
+                                        </div>
+						            </div>
+                                    <div class="fe-base-box clearfix">
+					                    <div class="banner-line">
+					                         <span class="bold mr10 l small-title">运维&amp;测试</span>
+					                    </div>
+						                <div class="tag-box l">
+                                            <a target="_blank" href="#">运维</a>
+                                            <a target="_blank" href="#">自动化运维</a>
+                                            <a target="_blank" href="#">运维工具</a>
+                                            <a target="_blank" href="#">Linux</a>
+                                        </div>
+						            </div>
+                                 </div>
+				            </div>
+				        </div>
+				        <div class="recomment-box">
+                           <div class="l banner-course-card">
+								<a href="#" target="_blank" title="Linux内核完全注释" class="clearfix">
+								    <img src="img/index/5b55b3f400017b9906000338-240-135.jpg" class="l">
+								    <div class="l course-card">
+								        <h3 class="course-card-name">Linux内核完全注释</h3>
+										<div class="course-card-price l">长安</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l">主编</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l"><i class="icon-set_sns"></i>2017年3月第3版</div>
+								    </div>
+								</a>
+							</div>
+							 <div class="l banner-course-card">
+								<a href="#" target="_blank" title="Linux内核完全注释" class="clearfix">
+								    <img src="img/index/5b55b3f400017b9906000338-240-135.jpg" class="l">
+								    <div class="l course-card">
+								        <h3 class="course-card-name">Linux内核完全注释</h3>
+										<div class="course-card-price l">长安</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l">主编</div>
+										<div class="course-card-dot l"><i class="imv2-dot_samll"></i></div>
+										<div class="course-card-info l"><i class="icon-set_sns"></i>2017年3月第3版</div>
+								    </div>
+								</a>
+							</div>
+                        </div>
+					</div>
+					<div class="submenu g hide" >
+						<div class="innerBox clearfix">
+				            <div class="subinnerBox">
+				                <div class="cates-box">
+				                   	<div class="fe-base-box clearfix">
+									<div class="banner-line">
+										<span class="bold mr10 l small-title">UI设计</span>
+									</div>
+									<div class="tag-box l">
+										<a target="_blank" href="#">动效动画</a>
+										<a target="_blank" href="#">模型制作</a> 
+										<a target="_blank" href="#"> 设计基础</a>
+										<a target="_blank" href="#">设计工具</a> 
+									    <a target="_blank" href="#"> APPUI设计</a> 
+									    <a target="_blank" href="#"> 产品交互</a>
+									</div>
+								</div>
+				                    <div class="fe-base-box clearfix">
+				                        <div class="banner-line">
+				                             <span class="bold mr10 l small-title">游戏</span>
+				                        </div>
+				                        <div class="tag-box l">
+                                            <a target="_blank" href="#">Unity&nbsp;3D</a>
+                                            <a target="_blank" href="#">Cocos2d-x</a>
+                                        </div>
+				                    </div>
+				                 </div>
+				            </div>
+				        </div>
+					<div class="recomment-box">
+						<div class="l banner-course-card">
+							<a href="#" target="#" title="移动应用UI设计模式（第2版） (图灵交互设计丛书)" class="clearfix">
+							 <img src="images/pic.jpg" class="l">
+								<div class="l course-card">
+									<h3 class="course-card-name">移动应用UI设计模式（第2版） (图灵交互设计丛书)</h3>
+									<div class="course-card-price l">长安</div>
+									<div class="course-card-dot l">
+										<i class="imv2-dot_samll">主编</i>
+									</div>
+									
+									<div class="course-card-info l">
+										<i class="icon-set_sns">2015年3月第3版</i>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="l banner-course-card">
+							<a href="#" target="#" title="移动应用UI设计模式（第2版） (图灵交互设计丛书)" class="clearfix">
+							 <img src="images/pic.jpg" class="l">
+								<div class="l course-card">
+									<h3 class="course-card-name">移动应用UI设计模式（第2版） (图灵交互设计丛书)</h3>
+									<div class="course-card-price l">长安</div>
+									<div class="course-card-dot l">
+										<i class="imv2-dot_samll">主编</i>
+									</div>
+									
+									<div class="course-card-info l">
+										<i class="icon-set_sns">2015年3月第3版</i>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="l banner-course-card">
+							<a href="#" target="#" title="移动应用UI设计模式（第2版） (图灵交互设计丛书)" class="clearfix">
+							 <img src="images/pic.jpg" class="l">
+								<div class="l course-card">
+									<h3 class="course-card-name">移动应用UI设计模式（第2版） (图灵交互设计丛书)</h3>
+									<div class="course-card-price l">长安</div>
+									<div class="course-card-dot l">
+										<i class="imv2-dot_samll">主编</i>
+									</div>
+									
+									<div class="course-card-info l">
+										<i class="icon-set_sns">2015年3月第3版</i>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="l banner-course-card">
+							<a href="#" target="#" title="移动应用UI设计模式（第2版） (图灵交互设计丛书)" class="clearfix">
+							 <img src="images/pic.jpg" class="l">
+								<div class="l course-card">
+									<h3 class="course-card-name">移动应用UI设计模式（第2版） (图灵交互设计丛书)</h3>
+									<div class="course-card-price l">长安</div>
+									<div class="course-card-dot l">
+										<i class="imv2-dot_samll">主编</i>
+									</div>
+									
+									<div class="course-card-info l">
+										<i class="icon-set_sns">2015年3月第3版</i>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+	
+					<!--
+	                    	作者：594176850@qq.com
+	                    	时间：2018-08-06
+	                    	描述：左侧导航部分，左侧导航部分，左侧导航部分，
+	                    -->
+					<div class="menuContent">
+						<div class="item" data-id="a" style="display:block">
+							<a href="javascript:void(0)">
+								<span class="group"> 课 程 大 纲 预 览 </span>
+								<i class="fas fa-caret-right"></i>
+							</a>
+						</div>
+						<div class="item" data-id="d" >
+							<a href="javascript:void(0)">
+								<span class="group">经典课程 / 网络/ 英语 </span>
+								<i class="fas fa-caret-right"></i>
+							</a>
+						</div>
+						<div class="item" data-id="f">
+							<a href="javascript:void(0)">
+								<span class="group">前端 / HTML5 / JS</span>
+								<i class="fas fa-caret-right"></i>
+							</a>
+						</div>
+						<div class="item" data-id="b">
+							<a href="javascript:void(0)">
+								<span class="group">后端 / JAVA / C++</span>
+								<i class="fas fa-caret-right"></i>
+							</a>
+						</div>
+						<div class="item" data-id="c">
+							<a href="javascript:void(0)">
+								<span class="group">移动 / Android / IOS</span>
+								<i class="fas fa-caret-right"></i>
+							</a>
+						</div>
+						<div class="item" data-id="g">
+							<a href="javascript:void(0)">
+								<span class="group">算法数学 / 数据库 / 运维</span>
+								<i class="fas fa-caret-right"></i>
+							</a>
+						</div>
+						<div class="item" data-id="e">
+							<a href="javascript:void(0)">
+								<span class="group">UI设计 / 动画 / 游戏</span>
+								<i class="fas fa-caret-right"></i>
+							</a>
+						</div>
+					</div>
+					<!--
+	                    	作者：594176850@qq.com
+	                    	时间：2018-08-06
+	                    	描述：轮播图部分，轮播图部分
+	                    	轮播图部分，轮播图部分，轮播图部分，
+	                    -->
+					<div class="g-banner-content">
+						<!--轮播图-->
+						<div class="g-banner-box">
+							<a target="" href="javascript:void(0)" class="click-help">
+								<div class="banner-slide">
+									<img class="lazyone" data-original="img/6.jpg" src="img/6.jpg" />
+								</div>
+							</a>
+							<a target="" href="javascript:void(0)" class="click-help">
+								<div class="banner-slide">
+									<img class="lazyone" data-original="img/1.jpg" src="img/1.jpg" />
+								</div>
+							</a>
+							<a target="" href="javascript:void(0)" class="click-help">
+								<div class="banner-slide">
+									<img class="lazyone" data-original="img/3.jpg" src="img/3.jpg" />
+								</div>
+							</a>
+							<a target="" href="javascript:void(0)" class="click-help">
+								<div class="banner-slide">
+									<img class="lazyone" data-original="img/2.jpg" src="img/2.jpg" />
+								</div>
+							</a>
+							<a target="" href="javascript:void(0)" class="click-help">
+								<div class="banner-slide">
+									<img class="lazyone" data-original="img/4.jpg" src="img/4.jpg" />
+								</div>
+							</a>
+							<a target="" href="javascript:void(0)" class="click-help">
+								<div class="banner-slide">
+									<img class="lazyone" data-original="img/5.jpg" src="img/5.jpg" />
+								</div>
+							</a>
+							<div class="banner-dots">
+								<span class="active"></span>
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
+							<a href="javascript:;" class="banner-anchor prev icon-left2">
+								<i class="fas fa-angle-left" style="margin-left:-5px;"></i>
+							</a>
+							<a href="javascript:;" class="banner-anchor next icon-right2">
+								<i class="fas fa-angle-right" style="margin-right:-5px;"></i>
+							</a>
+						</div>
+						<!--轮播底部部分-->
+						<div class='path-banner clearfix'>
+							<a href='javascript:void(0)' target="" >
+								<i class="i-web"></i>
+								<p class="tit">数据结构</p>
+								<p class="desc">数据结构</p>
+							</a>
+							<a href='javascript:void(0)' target="" >
+								<i class="i-java"></i>
+								<p class="tit">网络原理</p>
+								<p class="desc">网络原理</p>
+							</a>
+							<a href='javascript:void(0)' target="" >
+								<i class="i-android"></i>
+								<p class="tit">c++面向对象程序设计</p>
+								<p class="desc">c++面向对象程序设计</p>
+							</a>
+							<a href='javascript:void(0)' target="" >
+								<i class="i-php"></i>
+								<p class="tit">编译原理</p>
+								<p class="desc">编译原理</p>
+							</a>
+							<a href='javascript:void(0)' target="" >
+								<i class="i-ios"></i>
+								<p class="tit">操作系统</p>
+								<p class="desc">操作系统</p>
+							</a>
+						</div>
+					</div>
+					<!--
+	                    	轮播图结束部分
+	                    -->
+				</div>
+			</div>
+			<!--
+	            	作者：594176850@qq.com
+	            	时间：2018-08-06
+	            	描述：为您推荐部分，为您推荐部分，
+	            	为您推荐部分，为您推荐部分，
+	            -->
+			<div class="bgfff">
+				<div class='container-types clearfix'>
+					<h3 class='types-title'>
+						<span class="tit-icon icon-shizhan-l tit-icon-l"></span>
+						<em>与</em>／<em>您</em>／<em>浏</em>／<em>荐</em>／
+						<em>过</em>／<em>的</em>／<em>书</em>／<em>籍</em>／
+						<em>相</em>／<em>关</em>／<em>的</em>/<em>推</em>／
+						<em>荐</em>
+						<span class="tit-icon icon-shizhan-r tit-icon-r"></span>
+					</h3>
+					<div class='clearfix types-content'>
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="img/index/5ac2dfe100014a9005400300.jpg">
+									<div class="course-label">
+										<label>Vue.js</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'> Vue2.5</h3>
+								</div>
+							</a>
+						</div>
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="img/index/59b8a486000107fb05400300.jpg">
+									<div class="course-label">
+										<label>Python</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'>全网最热Python3入门+进阶 更快上手实际开发</h3>
+								</div>
+							</a>
+						</div>
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class="course-stat hot">HOT</div>
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="img/index/5b4c817f0001945605400300.jpg">
+									<div class="course-label">
+										<label>微服务</label>
+										<label>Spring Cloud</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'>Spring Boot 2.0深度实践之核心技术篇</h3>
+								</div>
+							</a>
+						</div>
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="img/index/5b165c2b0001e24a05400300.jpg">
+									<div class="course-label">
+										<label>Java</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'>Java读源码之Netty深入剖析</h3>
+								</div>
+							</a>
+						</div>
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class="course-stat hot">HOT</div>
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="img/index/5a9ca4e80001786305400300.jpg">
+									<div class="course-label">
+										<label>微服务</label>
+										<label>Spring Cloud</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'>Spring Cloud微服务实战</h3>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--
+	            	作者：594176850@qq.com
+	            	时间：2018-08-06
+	            	描述：新上书籍，新上书籍，
+	            	新上书籍，新上书籍，新上书籍，
+	            -->
+			<div class="bg000">
+				<div class='container-types clearfix'>
+					<h3 class='types-title'>
+						<span class="tit-icon icon-new-l tit-icon-l"></span>
+						<em>新</em>／<em>上</em>／<em>线</em>／<em>书</em>／<em>籍</em>
+						<span class="tit-icon icon-new-r tit-icon-r"></span>
+					</h3>
+					<div class='clearfix types-content'>
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class="course-stat new">NEW</div>
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>Java</label>
+										<label>SpringBoot</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+								</div>
+							</a>
+						</div>
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>Java</label>
+										<label>SpringBoot</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+								</div>
+							</a>
+						</div>
+	
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class="course-stat new">NEW</div>
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>Go</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+								</div>
+							</a>
+						</div>
+	
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>JavaScript</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+								</div>
+							</a>
+						</div>
+	
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class="course-stat new">NEW</div>
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>Node.js</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+								</div>
+							</a>
+						</div>
+	
+	
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class="course-stat new">
+									NEW
+								</div>
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>SpringBoot</label>
+										<label>Hbase</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+							
+								</div>
+							</a>
+						</div>
+	
+	
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class="course-stat new">
+									NEW
+								</div>
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>机器学习</label>
+										<label>算法与数据结构</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+								
+								</div>
+							</a>
+						</div>
+	
+	
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class="course-stat new">
+									NEW
+								</div>
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>Java</label>
+										<label>SpringBoot</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+								</div>
+							</a>
+						</div>
+	
+	
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>React.JS</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+								</div>
+							</a>
+						</div>
+	
+	
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class="course-stat new">
+									NEW
+								</div>
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>深度学习</label>
+										<label>计算机视觉</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--
+	            	作者：594176850@qq.com
+	            	时间：2018-08-06
+	            	描述：新手入门，新手入门
+	            	新手入门，新手入门
+	            -->
+			<div class="bgfff">
+				<div class='container-types clearfix'>
+					<h3 class='types-title'>
+						<span class="tit-icon icon-job-l tit-icon-l"></span>
+						<em>新</em>／<em>手</em>／<em>入</em>／
+						<em>门</em>／<em>指</em>／<em>导</em>
+						<span class="tit-icon icon-job-r tit-icon-r"></span>
+					</h3>
+					<div class='clearfix types-content'>
+						<div class="adsense-box l" style="background: url(img/index/sectionheader.jpg) no-repeat center center;background-size: 100%;">
+							<a href="javascript:void(0)" target="">
+								<h3 class="ellipsis">Web前端入门到精通，最全学习路线</h3>
+								<p class="ellipsis">零基础入门Web前端开发的必备课程</p>
+							</a>
+						</div>
+						<div class="adsense-box l" style="background: url(img/index/sectionheader.jpg) no-repeat center center;background-size: 100%;">
+							<a href="javascript:void(0)"  target="">
+								<h3 class="ellipsis">求职旺季，如何避开面试官套路？</h3>
+								<p class="ellipsis">技能+技巧，心水Offer尽收囊中！</p>
+							</a>
+						</div>
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class='course-card-top '>
+									<div class="course-banner">
+										<div class="img-up" style="background-image: url(img/index/a.jpg);">
+											<div class="course-label">
+												<label>Web前端攻城狮培养计划</label>
+											</div>
+										</div>
+										<div class="img-mid" style="background-image: url(img/index/a.jpg);"></div>
+										<div class="img-down" style="background-image: url(img/index/a.jpg);"></div>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'>前端小白入门系列课程</h3>
+								</div>
+							</a>
+						</div>
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class='course-card-top '>
+									<div class="course-banner">
+										<div class="img-up" style="background-image: url(img/index/a.jpg);">
+											<div class="course-label">
+												<label>JAVA攻城狮培养计划</label>
+											</div>
+										</div>
+										<div class="img-mid" style="background-image: url(img/index/a.jpg);"></div>
+										<div class="img-down" style="background-image: url(img/index/a.jpg);"></div>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'>Java零基础入门</h3>
+								</div>
+							</a>
+						</div>
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class='course-card-top '>
+									<div class="course-banner">
+										<div class="img-up" style="background-image: url(img/index/a.jpg);">
+											<div class="course-label">
+												<label>Android攻城狮培养计划</label>
+											</div>
+										</div>
+										<div class="img-mid" style="background-image: url(img/index/a.jpg);"></div>
+										<div class="img-down" style="background-image: url(img/index/a.jpg);"></div>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'>零基础入门Android语法与界面</h3>
+								</div>
+							</a>
+						</div>
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)">
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="img/index/5ae3e5b80001818c06000338-240-135.jpg">
+									<div class="course-label">
+										<label>区块链</label>
+										<label>以太坊</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'>区块链技术核心概念与原理讲解</h3>
+								</div>
+							</a>
+						</div>
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class="course-stat new">
+									NEW
+								</div>
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="img/index/5b5835a60001907e05400300.jpg">
+									<div class="course-label">
+										<label>算法</label>
+										<label>数学</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'>专为程序员设计的线性代数课程</h3>
+								</div>
+							</a>
+						</div>
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class='course-card-top '>
+									<div class="course-banner">
+										<div class="img-up" style="background-image: url(img/index/a.jpg);">
+											<div class="course-label">
+												<label>JAVA攻城狮培养计划</label>
+											</div>
+										</div>
+										<div class="img-mid" style="background-image: url(img/index/a.jpg);"></div>
+										<div class="img-down" style="background-image: url(img/index/a.jpg);"></div>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'>Java Web强化：SSM框架整合</h3>
+								</div>
+							</a>
+						</div>
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="img/index/a.jpg">
+									<div class="course-label">
+										<label>Python</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'>Python入门</h3>
+								</div>
+							</a>
+						</div>
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class='course-card-top '>
+									<div class="course-banner">
+										<div class="img-up" style="background-image: url(img/index/a.jpg);">
+											<div class="course-label">
+												<label>C++攻城狮培养计划</label>
+											</div>
+										</div>
+										<div class="img-mid" style="background-image: url(img/index/a.jpg);"></div>
+										<div class="img-down" style="background-image: url(img/index/a.jpg);"></div>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'>C++零基础入门 热门编程语言 二级考试必备</h3>
+								</div>
+							</a>
+						</div>
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="img/index/5aaf5f370001c40306000338-240-135.jpg">
+									<div class="course-label">
+										<label>Go</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'>GO语言语法入门篇</h3>
+								</div>
+							</a>
+						</div>
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class="course-stat hot">
+									HOT
+								</div>
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="img/index/583e42fb0001e04f05400300.1.jpg">
+									<div class="course-label">
+										<label>Html5</label>
+										<label>小程序</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'>微信小程序入门与实战 常用组件API开发技巧项目实战</h3>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--
+	            	作者：594176850@qq.com
+	            	时间：2018-08-06
+	            	描述：技能提升，技能提升
+	            	技能提升，技能提升
+	            	技能提升，技能提升
+	            	技能提升，技能提升
+	            -->
+			<div class="bg000">
+				<div class='container-types clearfix'>
+					<h3 class='types-title'>
+						<span class="tit-icon icon-skill-l tit-icon-l"></span>
+						<em>技</em>／
+						<em>能</em>／
+						<em>提</em>／
+						<em>升</em>
+						<span class="tit-icon icon-skill-r tit-icon-r"></span>
+					</h3>
+					<div class='clearfix types-content'>
+						<div class="adsense-box l" style="background: url(img/index/sectionheader.jpg) no-repeat center center;background-size: 100%;">
+							<a href="javascript:void(0)"  target="">
+								<h3 class="ellipsis">用最短的时间高效地学习Python全指导</h3>
+								<p class="ellipsis">从菜鸟到Pythoner，最新最全的学习路线，让你更专业！</p>
+							</a>
+						</div>
+						<div class="adsense-box l" style="background: url(img/index/sectionheader.jpg) no-repeat center center;background-size: 100%;">
+							<a href="javascript:void(0)" target="">
+								 <h3 class="ellipsis">进入React JS世界，从入门到实战无障碍升级</h3>
+								<p class="ellipsis">贯穿案例与项目实战，快速上手企业开发</p>
+							</a>
+						</div>
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>微服务</label>
+										<label>Spring Cloud</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+								</div>
+							</a>
+						</div>
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>Linux</label>
+										<label>SSM</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+								</div>
+							</a>
+						</div>
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class="course-stat new">
+									NEW
+								</div>
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>MongoDB</label>
+										<label>NoSql</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+								</div>
+							</a>
+						</div>
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>Android</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+								</div>
+							</a>
+						</div>
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>Go</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+								</div>
+							</a>
+						</div>
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class="course-stat new">
+									NEW
+								</div>
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>iOS</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+									<!-- <div class=''>
+										<div class='course-card-info'>
+											<span>高级</span>
+											<span>
+												<i class="icon-set_sns"></i>464</span>
+										</div>
+									</div> -->
+								</div>
+							</a>
+						</div>
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class="course-stat hot">
+									HOT
+								</div>
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>JavaScript</label>
+										<label>小程序</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+								</div>
+							</a>
+						</div>
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>Go</label>
+										<label>区块链</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+								</div>
+							</a>
+						</div>
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)">
+								<div class="course-stat hot">
+									HOT
+								</div>
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>React.JS</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+								</div>
+							</a>
+						</div>
+	
+						<div class='index-card-container course-card-container contain'>
+							<a target="" class='course-card' href="javascript:void(0)" >
+								<div class='course-card-top hashadow'>
+									<img class="course-banner" src="" alt="">
+									<div class="course-label">
+										<label>Hadoop</label>
+										<label>Hbase</label>
+									</div>
+								</div>
+								<div class='course-card-content'>
+									<h3 class='course-card-name'></h3>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 学识动态分享 -->
+			<div class="bgfff">
+				<div class="container-types">
+					<h3 class="types-title">
+						<span class="tit-icon icon-art-l tit-icon-l"></span>
+						<em>学</em>／<em>识</em>／<em>动</em>／
+						<em>态</em>／<em>分</em>／<em>享</em>／
+						<span class="tit-icon icon-art-r tit-icon-r"></span>
+					</h3>
+					<dl class="wonderful-list js-wonderful-list types-content" style="height: 960px;">
+						<dd class="item" style="left: 0px; top: 0px;">
+							<label class="topic-label">热门话题</label>
+							<div class="clearfix topic-period">
+								<a href="javascript:void(0)" target="" class="big-tit l">#【内推第2波】#
+									<br> 打工奋斗7万落京户VS自主创业牧马城市，如何抉择？</a>
+								<img class="r" src="img/index/5abc43e500012ec805120512.jpg">
+							</div>
+							<p class="topic-content">毕业求职？跳槽加薪？纠结滋润加班还是苦练x年自主创业？速速提问互撩，你在撩的极有可能就是你的Boss！激不激动？惊不惊喜？Offer已在这里！你的简历在哪里？Scott老师邮箱：wolf18387@qq.comJeson老师邮箱：jeson@imoocc.com</p>
+							<div class="bottom-info clearfix">
+								<a href="javascript:void(0)" target="" class="r green">了解详情
+									<i class="icon-right"></i>
+								</a>
+							</div>
+							<div class="tit-line">
+								<span>往期回顾</span>
+							</div>
+							<div class="review-topic">
+								<div class="clearfix topic-period">
+									<a href="javascript:void(0)" target="" class="big-tit l"> #【获奖名单戳查看更多】#
+										<br> 当我们谈论Java时，我们都谈些什么？ </a>
+									<img class="r" src="img/index/5abc43e500012ec805120512.jpg">
+								</div>
+								<div class="clearfix topic-period">
+									<a href="javascript:void(0)" target="" class="big-tit l"> #【内推第1波】#
+										<br> 直击BAT面试机会！行业大佬在线答疑 </a>
+									<img class="r" src="img/index/5abc43e500012ec805120512.jpg"> 
+								</div>
+								<div class="clearfix topic-period">
+									<a href="javascript:void(0)" target="" class="big-tit l"> #【花式填坑】第23期#
+										<br> 运维进化篇：成为Python DevOps工程师有哪些必备条件？ </a>
+									<img class="r" src="img/index/5abc43e500012ec805120512.jpg"> 
+								</div>
+							</div>
+							<div class="bottom-info clearfix">
+								<a href="javascript:void(0)" target="" class="r green">更多往期话题
+									<i class="icon-right"></i>
+								</a>
+							</div>
+						</dd>
+						<dd class="item" style="left: 390px; top: 0px;">
+							<label class="article-label blue">
+								<i class="icon-blog"></i>手记文章</label>
+							<div class="clearfix article-tit">
+								<a href="javascript:void(0)" target="" class="big-tit l hasimg">有奖征文007期 | 大家都见过/写过哪些让你虎躯一震的代码？</a>
+								<img class="r" src="img/index/5abc43e500012ec805120512.jpg"> </div>
+							<div>
+								<p class="article-content">如题。大家都见过/写过哪些让你虎躯一震的代码？就是看到就啧啧称赞厉害的不要不要的，或者让你瞬间怀疑人生的那种……近期发生的产品经理要求实现「根据用户手机壳颜色变换APP皮肤主题」功能和程序员大打出手的事件火爆技术群，想必大家无人不知了。有人说需求很奇葩，有人说完全可实现，小慕就不站队了，怕挨打，（逃……前几天在头条和一位粉丝互动，我开玩笑说“好吧，我要五彩斑斓的黑”，于是我收到了这张图：确实是五彩...</p>
+								<div class="bottom-info clearfix">
+									<span>浏览 513</span>
+									<span>推荐 6</span>
+									<a href="javascript:void(0)" target="" class="r blue">阅读全文
+										<i class="icon-right"></i>
+									</a>
+								</div>
+							</div>
+						</dd>
+						<dd class="item" style="left: 780px; top: 0px;">
+							<label class="article-label blue">
+								<i class="icon-blog"></i>手记文章</label>
+							<div class="clearfix article-tit">
+								<a href="javascript:void(0)" target="" class="big-tit l hasimg">SSM框架快速整合搭建(无maven版)</a>
+								<img class="r" src="img/index/5abc43e500012ec805120512.jpg" >
+							</div>
+							<div>
+								<p class="article-content">&nbsp;&nbsp;&nbsp;&nbsp;Java开发中，最为常见的当属web端开发，其中SSM框架又是应用最为广泛的，因其轻量级、速度快、效率高的特点，在项目相对较小时颇受青睐。下面将对SSM框架的快速整合搭建进行通俗易懂的说明，尽量让大家掌握搭建的流程和基本的概念。&nbsp;&nbsp;&nbsp;&nbsp;一、SSM的基本概念&nbsp;&nbsp;&nbsp;&nbsp;所谓SS...</p>
+								<div class="bottom-info clearfix">
+									<span>浏览 433</span>
+									<span>推荐 10</span>
+									<a href="javascript:void(0)" target="" class="r blue">阅读全文
+										<i class="icon-right"></i>
+									</a>
+								</div>
+							</div>
+						</dd>
+						<dd class="item" style="left: 780px; top: 313px;">
+							<label class="article-label blue">
+								<i class="icon-blog"></i>手记文章</label>
+							<div class="clearfix article-tit">
+								<a href="javascript:void(0)" target="" class="big-tit l hasimg">Android 打造一个丝滑的自动轮播控件</a>
+							</div>
+							<div>
+								<p class="article-content">现在很多的 App 都有自动轮播的 banner 界面，用于展示广告图片或者显示当前比较热门的一些活动，除了具备比较酷炫的效果之外，通过轮播的方式来减少对界面的占用，也是很赞的一个设计点。本文主要是总结自动轮播控件的实现过程，以及对这类控件的一些优化的技巧。
+									一、如何实现 在开始进行我们的代码编程之前，我们先要思考一下，在 Google 提供的官方 Api 里面，有没有类似的控件实现了相似的功能，...</p>
+								<div class="bottom-info clearfix">
+									<span>浏览 216</span>
+									<span>推荐 4</span>
+									<a href="javascript:void(0)" target="" class="r blue">阅读全文
+										<i class="icon-right"></i>
+									</a>
+								</div>
+							</div>
+						</dd>
+						<dd class="item" style="left: 390px; top: 385px;">
+							<label class="article-label blue">
+								<i class="icon-blog"></i>手记文章</label>
+							<div class="clearfix article-tit">
+								<a href="javascript:void(0)" target="" class="big-tit l hasimg">最最最常见的Java面试题总结-第一周</a>
+								<img class="r" src="img/index/5abc43e500012ec805120512.jpg" >
+							</div>
+							<div>
+								<p class="article-content">这里会分享一些出现频率极其极其高的面试题，初定周更一篇，什么时候更完什么时候停止。 Github地址：https://github.com/Snailclimb/Java-Guide/blob/master/面试必备/最最最常见的Java面试题总结/第一周（2018-8-7）.md
+									一 Java中的值传递和引用传递（非常重要） 首先要明确的是：“对象传递（数组、类、接口）是引用传递，原...</p>
+								<div class="bottom-info clearfix">
+									<span>浏览 320</span>
+									<span>推荐 5</span>
+									<a href="javascript:void(0)" target="" class="r blue">阅读全文
+										<i class="icon-right"></i>
+									</a>
+								</div>
+							</div>
+						</dd>
+						<dd class="item" style="left: 0px; top: 683px;">
+							<label class="article-label blue">
+								<i class="icon-blog"></i>手记文章</label>
+							<div class="clearfix article-tit">
+								<a href="javascript:void(0)" target="" class="big-tit l hasimg">手把手教你在centos7环境配置keepalived+nginx高可</a>
+								<img class="r" src="img/index/5abc43e500012ec805120512.jpg"/>
+							</div>
+							<div>
+								<p class="article-content">环境准备两台虚拟机，centos7主nginx负载均衡器：192.168.5.129&nbsp;（通过keepalived配置了VIP：192.168.5.100供外使用）副nginx负载均衡器：192.168.5.130（通过keepalived配置了VIP：192.168.5.100供外使用）1.安装
+									keepalived-1.4.1&nbsp;tar&nbsp;xf&nbsp;keepali...</p>
+								<div class="bottom-info clearfix">
+									<span>浏览 332</span>
+									<span>推荐 6</span>
+									<a href="javascript:void(0)" target="" class="r blue">阅读全文
+										<i class="icon-right"></i>
+									</a>
+								</div>
+							</div>
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<!-- 查看个性推荐 -->
+			<!-- 查看个性推荐 -->
+			<!-- 查看个性推荐 -->
+			<!-- 查看个性推荐 -->
+			<div class="elite-bg">
+				<div class='container-types container-teacher-types clearfix'>
+					<h3 class='types-title'>
+						<span class="tit-icon icon-teacher-l tit-icon-l"></span>
+							<em>您</em>／<em>最</em>／<em>近</em>／<em>查</em>／
+							<em>的</em>/<em>书</em>／<em>籍</em>／<em>和</em>／
+							<em>相</em>／<em>关</em>/<em>推</em>/<em>荐</em>
+						<span class="tit-icon icon-teacher-r tit-icon-r"></span>
+					<!--	<a href='javascript:void(0)' class='types-title-more' target="">
+							<span>查看更多</span>
+							<i class='imv2-arrow2_r'></i>
+						</a>-->
+					</h3>
+					<div class="lecturer-container js-lecturer-container">
+						<div class="swiper-wrapper js-swiper-wrap">
+							<div class='lecturer-list clearfix swiper-slide'>
+								<a target="" href='javascript:void(0)' class='lecturer-item' >
+									<img class='lecturer-uimg' src="img/index/5abe468b0001664107390741-100-100.jpg" title='DellLee' />
+									<span class='lecturer-name'>javaScript原型</span>
+									<span class='lecturer-title'>Web前端工程师</span>
+									<span class='lecturer-p' title='原型'>知乎链号接</span>
+								</a>
+								<a target="" href='javascript:void(0)' class='lecturer-item' >
+									<img class='lecturer-uimg' src="img/index/5abe468b0001664107390741-100-100.jpg" title='DellLee' />
+									<span class='lecturer-name'>javaScript原型</span>
+									<span class='lecturer-title'>Web前端工程师</span>
+									<span class='lecturer-p' title='原型'>知乎链号接</span>
+								</a>
+								<a target="" href='javascript:void(0)' class='lecturer-item' >
+									<img class='lecturer-uimg' src="img/index/5abe468b0001664107390741-100-100.jpg" title='DellLee' />
+									<span class='lecturer-name'>javaScript原型</span>
+									<span class='lecturer-title'>Web前端工程师</span>
+									<span class='lecturer-p' title='原型'>知乎链号接</span>
+								</a>
+								<a target="" href='javascript:void(0)' class='lecturer-item' >
+									<img class='lecturer-uimg' src="img/index/5abe468b0001664107390741-100-100.jpg" title='DellLee' />
+									<span class='lecturer-name'>javaScript原型</span>
+									<span class='lecturer-title'>Web前端工程师</span>
+									<span class='lecturer-p' title='原型'>知乎链号接</span>
+								</a>
+								<a target="" href='javascript:void(0)' class='lecturer-item' >
+									<img class='lecturer-uimg' src="img/index/5abe468b0001664107390741-100-100.jpg" title='DellLee' />
+									<span class='lecturer-name'>javaScript原型</span>
+									<span class='lecturer-title'>Web前端工程师</span>
+									<span class='lecturer-p' title='原型'>知乎链号接</span>
+								</a>
+							</div>
+						</div>
+						<div class="slider-prev icon-left2">
+							<i class="fas fa-angle-left" style="font-size:35px;margin-left:5px;"></i>
+						</div>
+						<div class="slider-next icon-right2">
+							<i class="fas fa-angle-right" style="font-size: 35px;margin-right:8px;"></i>
+						</div>
+						<div class="slider-pagination"></div>
+					</div>
+				</div>
+			</div>
+			<!-- 查看个性推荐 -->
+		</div>
+		<!--底部·-->
+		<!--底部·-->
+		<!--底部·-->
+		<!--底部·-->
+		<!--底部·-->
+		<!--底部#F5F5C6·-->
+		
+		<footer class="site-foot" style="background-color: #D0EFB5;padding: 55px 0;font-size:18px;">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-sm-6 col-xs-12">
+							<ul class="footer-links" style="margin-bottom:40px;">
+								<li style="float: left;margin-right: 20px;">
+									<a href="javascript:void(0)">关于我们</a>
+								</li>
+								<li style="float: left;margin-right: 20px;">
+									<a href="javascript:void(0)">推荐网站</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-8 col-sm-6 col-xs-12">
+							<p class="copyright-text">
+								Programmer is powered by innovate.
+							</p>
+						</div>
+					</div>
+				</div>
+			</footer>
+		<!--右边浮动-->
+		<div id="J_GotoTop" class="elevator" style="display: none;">
+			<a href="javascript:void(0)" class="elevator-msg">
+				<i class="fa fa-angle-up" aria-hidden="true"></i>
+				<span class="">返回顶部</span>
+			</a>
+		</div>
+		<!-- option遮罩层 -->
+		<div id="backmask" style="position:fixed;top:0;left:0;right:0;bottom:0;background:transparent;z-index:100;display:none;"></div>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<!-- bootstrap.js库 -->
+		<script src="js/bootstrap.js"></script>
+		<!-- 懒加载库 -->
+		<script src="js/lazyload.min.js"></script>
+		<!-- 主页js脚本 -->
+		<script type="module" src="js/index/backToTop.js" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				 $.ajax({
+					url : "FindBooksAction_findBook",
+					type : "post",
+					dataType : "json",
+					beforeSend : function(){
+					}
+				}).done(function(data){
+					console.log(data)
+					if(data.stats === "SUCCESS"){
+						var $typesContent =  $(".types-content").filter(":eq(1),:eq(3)");
+						var types_content =  Array.prototype.slice.call($typesContent);
+	
+						//循环遍历两次 新上线 技能提升
+						$.each( $(types_content[0]),function(k,v){
+							//所有卡片
+							var $itemCard = $(v).children(".index-card-container ");
+							//每个卡片下的img
+							$.each($itemCard,function(k,v){
+								$(v).find("img").attr("src",data["bookAddrNew"+k]);
+								$(v).find("img").attr("title",data["bookNameNew"+k]);
+								$(v).find(".course-card-name").text(data["bookNameNew"+k]);
+							})
+						});
+						$.each( $(types_content[1]),function(k,v){
+							//所有卡片
+							var $itemCard = $(v).children(".index-card-container ");
+							//每个卡片下的img
+							$.each($itemCard,function(k,v){
+								$(v).find("img").attr("src",data["bookAddrSkill"+k]);
+								$(v).find("img").attr("title",data["bookNameSkill"+k]);
+								$(v).find(".course-card-name").text(data["bookNameSkill"+k]);
+							});
+						})
+					}else {
+						alert(data.stats);
+					}
+				}).fail(function(){
+					
+				}).done(function(){
+					
+				})
+			})
+		</script>
+	</body>
+</html>
+

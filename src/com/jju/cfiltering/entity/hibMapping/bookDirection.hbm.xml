@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.jju.cfiltering.entity">
+	<class name="BookDirection" table="book_direction">
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="name" length="50"></property>
+		<property name="title" column="title" length="60"></property>
+		
+		<!-- 与书籍类型表达一对多的关系 -->
+		<set name="booksType" cascade="save-update" inverse="true" table="books_type">
+			<key column="book_direction"></key>
+			<one-to-many class="BooksType"/>
+		</set>
+	</class>
+</hibernate-mapping>

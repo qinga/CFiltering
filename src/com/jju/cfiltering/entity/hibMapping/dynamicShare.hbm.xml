@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.jju.cfiltering.entity">
+	<class name="DynamicShare" table="dynamic_share">
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="title" column="title" length="128"></property>
+		<property name="contents" column="contents" length="2048"></property>
+		<property name="publishTime" column="publish_time"></property>
+		<property name="lastEditTime" column="last_edit_time"></property>
+		<property name="checkStats" column="check_stats"></property>
+		<property name="imageAddr" column="image_addr" length="2048"></property>
+		<property name="articleType" column="article_type"></property>
+		<property name="skimCount" column="skim_count"></property>
+		<!-- 与用户表达多对一的关系 用户动态分享 -->
+		<many-to-one name="user" class="User" column="user_id"></many-to-one>
+		
+		<!-- 与用户动态分享评价表达一对多的关系 -->
+		<set name="userDynamicShareMap" inverse="true" cascade="save-update" table="user_dynamic_share_map">
+			<key column="dynamicshare_id"></key>
+			<one-to-many class="UserDynamicShareMap"/>
+		</set>
+	</class>
+</hibernate-mapping>

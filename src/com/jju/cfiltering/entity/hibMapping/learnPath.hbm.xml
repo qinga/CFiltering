@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.jju.cfiltering.entity">
+	<class name="LearnPath" table="learnPath">
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="name"></property>
+		<property name="beginnerBookFlag" column="beginner_book_flag"></property>
+		<property name="learnPathDetail" column="learn_path_detail" length="2048"></property>
+		<property name="videoPath" column="video_path" length="1024"></property>
+		<property name="pathImg" column="path_img"></property>
+		<property name="markDirect" column="mark_direct"></property>
+		<property name="useCount" column="use_count"></property>
+		<!-- 与用户学习路线表达一对多的关系  -->
+		<set name="userLearnPath" cascade="save-update" inverse="true" table="user_learnpath">
+			<key column="learnpath_id"></key>
+			<one-to-many class="UserLearnPath"/>
+		</set>
+	</class>
+</hibernate-mapping>

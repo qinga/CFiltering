@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>CFiltering后台管理</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		<!-- ace基本样式 -->
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/dropzone.css" type="text/css" />
+		<link rel="stylesheet" href="assets/css/pagination.css">
+		<!-- layui.css插件 -->
+		<link rel= "stylesheet" href="./layui/css/layui.css"/>
+		<link type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css"  rel="stylesheet" />
+		<!-- 自动选择 -->
+		<link href="assets/css/bootstrap-select.recreate.min.css" type="text/css" rel="stylesheet" />
+	
+		<script src="assets/js/ace-extra.min.js"></script>
+		<style>
+			.modal-body table tbody tr td input {
+				border: none;
+				width: 100%;
+				height: 100%;
+				background: transparent;
+				border-radius:6px;
+			}
+			.modal-dialog{
+				width:720px;
+			}
+			.layui-input:hover{
+				border-color: #D2D2D2 !important;
+			}
+			.search-layui-inline div:nth-child(3){
+				overflow:visible;
+				padding-left:12px;
+				float:left;
+			}
+			.search-layui-inline div{
+				padding-left:12px;
+				float:left;
+			}
+			.search-layui-inline div label {
+				float: left;
+				line-height: 38px;
+			
+			}
+			.search-layui-input{
+				float: left;
+			    display: block;
+			    width: 75%;
+			    padding-left: 10px;
+			    height: 38px;
+			    line-height: 1.3;
+			    border-width: 1px;
+			    border-style: solid;
+			    background-color: #fff;
+			    border-radius: 2px;
+			}
+			.layui-btn{
+				font-style: inherit;
+				vertical-align: middle;
+				font-weight: inherit;
+				outline: 0;
+				-webkit-appearance: none;
+				transition: all .3s;
+				-webkit-transition: all .3s;
+				box-sizing: border-box;
+				display: inline-block;
+				height: 38px;
+				line-height: 38px;
+				padding: 0 18px;
+				background-color: #009688;
+				color: #fff;
+				white-space: nowrap;
+				text-align: center;
+				font-size: 14px;
+				border: none;
+				border-radius: 2px;
+				cursor: pointer;
+			}
+			.layui-btn:hover {
+			    opacity: .8;
+			    filter: alpha(opacity=80);
+			    color: #fff;
+			}
+			select{
+			 	appearance: none;
+			    -moz-appearance: none;
+			    -webkit-appearance: none;
+			    -ms-appearance:none;
+			    -webkit-outline:none;
+			    -webkit-outline:none !important; blr:expression(this.onFocus=this.blur());
+	   		 }
+	   		 @media screen and (max-width:1500px) {
+				div label {
+					display: none
+				}
+			}
+			.layui-form-label{
+				width:88px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="navbar navbar-default" id="navbar">
+			<script type="text/javascript">
+				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+			</script>
+
+			<div class="navbar-container" id="navbar-container">
+				<div class="navbar-header pull-left">
+					<a href="#" class="navbar-brand">
+						<small>
+							<i class="icon-leaf"></i>
+							CFiltering后台管理
+						</small>
+					</a>
+				</div>
+
+				<div class="navbar-header pull-right" role="navigation">
+					<ul class="nav ace-nav">
+						<li class="grey">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<i class="icon-tasks"></i>
+								<span class="badge badge-grey">4</span>
+							</a>
+
+							<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+								<li class="dropdown-header">
+									<i class="icon-ok"></i>
+									还有4个任务完成
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">软件更新</span>
+											<span class="pull-right">65%</span>
+										</div>
+
+										<div class="progress progress-mini ">
+											<div style="width:65%" class="progress-bar "></div>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">硬件更新</span>
+											<span class="pull-right">35%</span>
+										</div>
+
+										<div class="progress progress-mini ">
+											<div style="width:35%" class="progress-bar progress-bar-danger"></div>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">单元测试</span>
+											<span class="pull-right">15%</span>
+										</div>
+
+										<div class="progress progress-mini ">
+											<div style="width:15%" class="progress-bar progress-bar-warning"></div>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">错误修复</span>
+											<span class="pull-right">90%</span>
+										</div>
+
+										<div class="progress progress-mini progress-striped active">
+											<div style="width:90%" class="progress-bar progress-bar-success"></div>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										查看任务详情
+										<i class="icon-arrow-right"></i>
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="purple">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<i class="icon-bell-alt icon-animated-bell"></i>
+								<span class="badge badge-important">8</span>
+							</a>
+
+							<ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
+								<li class="dropdown-header">
+									<i class="icon-warning-sign"></i>
+									8条通知
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">
+												<i class="btn btn-xs no-hover btn-pink icon-comment"></i>
+												新闻评论
+											</span>
+											<span class="pull-right badge badge-info">+12</span>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="btn btn-xs btn-primary icon-user"></i>
+										切换为编辑登录..
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">
+												<i class="btn btn-xs no-hover btn-success icon-shopping-cart"></i>
+												新订单
+											</span>
+											<span class="pull-right badge badge-success">+8</span>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">
+												<i class="btn btn-xs no-hover btn-info icon-twitter"></i>
+												粉丝
+											</span>
+											<span class="pull-right badge badge-info">+11</span>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										查看所有通知
+										<i class="icon-arrow-right"></i>
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="green">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<i class="icon-envelope icon-animated-vertical"></i>
+								<span class="badge badge-success">5</span>
+							</a>
+
+							<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+								<li class="dropdown-header">
+									<i class="icon-envelope-alt"></i>
+									5条消息
+								</li>
+
+								<li>
+									<a href="#">
+										<img src="assets/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+										<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Alex:</span>
+												不知道写啥 ...
+											</span>
+
+											<span class="msg-time">
+												<i class="icon-time"></i>
+												<span>1分钟以前</span>
+											</span>
+										</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<img src="assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+										<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Susan:</span>
+												不知道翻译...
+											</span>
+
+											<span class="msg-time">
+												<i class="icon-time"></i>
+												<span>20分钟以前</span>
+											</span>
+										</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<img src="assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+										<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Bob:</span>
+												到底是不是英文 ...
+											</span>
+
+											<span class="msg-time">
+												<i class="icon-time"></i>
+												<span>下午3:15</span>
+											</span>
+										</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="inbox.html">
+										查看所有消息
+										<i class="icon-arrow-right"></i>
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="light-blue">
+							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+								<img class="nav-user-photo" src="assets/avatars/user.jpg" alt="青a's Photo" />
+								<span class="user-info">
+									<small>欢迎光临,</small>
+									青a
+								</span>
+
+								<i class="icon-caret-down"></i>
+							</a>
+
+							<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+								<li>
+									<a href="#">
+										<i class="icon-cog"></i>
+										设置
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="icon-user"></i>
+										个人资料
+									</a>
+								</li>
+
+								<li class="divider"></li>
+
+								<li>
+									<a href="#">
+										<i class="icon-off"></i>
+										退出
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="main-container" id="main-container">
+			<script type="text/javascript">
+				try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+			</script>
+
+			<div class="main-container-inner">
+				<a class="menu-toggler" id="menu-toggler" href="#">
+					<span class="menu-text"></span>
+				</a>
+
+				<div class="sidebar" id="sidebar">
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+					</script>
+
+					<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+						<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+							<button class="btn btn-success">
+								<i class="icon-signal"></i>
+							</button>
+
+							<button class="btn btn-info">
+								<i class="icon-pencil"></i>
+							</button>
+
+							<button class="btn btn-warning">
+								<i class="icon-group"></i>
+							</button>
+
+							<button class="btn btn-danger">
+								<i class="icon-cogs"></i>
+							</button>
+						</div>
+
+						<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+							<span class="btn btn-success"></span>
+
+							<span class="btn btn-info"></span>
+
+							<span class="btn btn-warning"></span>
+
+							<span class="btn btn-danger"></span>
+						</div>
+					</div><!-- #sidebar-shortcuts -->
+
+					<div id="menu_list">
+						<ul class="nav nav-list">
+							<li>
+								<a href="index.html">
+									<i  class="fa fa-ravelry fa-lg" aria-hidden="true"></i>
+									<span class="menu-text"> 控制台 </span>
+								</a>
+							</li>
+	
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="fa fa-telegram fa-lg" aria-hidden="true"></i>
+								<span class="menu-text">用户学习路线管理</span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul class="submenu">
+								<li>
+									<a href="user_learnpath.html">
+										<i class="icon-double-angle-right"></i>
+										学习路线信息
+									</a>
+								</li>
+								<li>
+									<a href="op_user_learnpath.html">
+										<i class="icon-double-angle-right"></i>
+										学习路线操作
+									</a>
+								</li>
+							</ul>
+						</li>
+	
+							<li>
+								<a href="#" class="dropdown-toggle">
+									<i class="fa fa-leanpub fa-lg" aria-hidden="true"></i>
+									<span class="menu-text"> 书籍库管理 </span>
+	
+									<b class="arrow icon-angle-down"></b>
+								</a>
+	
+								<ul class="submenu ul-lesson-list">
+									<li>
+										<a href="#" class="dropdown-toggle">
+											<i class="icon-double-angle-right"></i>
+											经典课程
+											<b class="arrow icon-angle-down"></b>
+										</a>
+	
+										<ul class="submenu">
+											<li>
+												<a href="general_show_book.html?target=os&typeId=63">
+													<i class="icon-leaf"></i>
+													高级语言
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=os&typeId=64">
+													<i class="icon-leaf"></i>
+													汇编语言
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=os&typeId=47">
+													<i class="icon-leaf"></i>
+													操作系统 
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=ds&typeId=44">
+													<i class="icon-leaf"></i>
+													数据结构 
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=zu&typeId=45">
+													<i class="icon-leaf"></i>
+													 计算机原理 
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=wl&typeId=43">
+													<i class="icon-leaf"></i>
+													网络原理 
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=cs&typeId=49">
+													<i class="icon-leaf"></i>
+													计算机系统结构
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=complie&typeId=46">
+													<i class="icon-leaf"></i>
+													编译原理 
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=microCompu&typeId=62">
+													<i class="icon-leaf"></i>
+													微型计算机技术
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle">
+											<i class="icon-double-angle-right"></i>
+	
+											前端开发
+											<b class="arrow icon-angle-down"></b>
+										</a>
+	
+										<ul class="submenu">
+											<li>
+												<a href="general_show_book.html?target=hts&typeId=1">
+													<i class="icon-leaf"></i>
+													HTML/CSS
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=javascript&typeId=2">
+													<i class="icon-leaf"></i>
+													JavaScript
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=vue&typeId=3">
+													<i class="icon-leaf"></i>
+													Vue.js
+												</a>
+											</li>
+	
+											<li>
+												<a href="general_show_book.html?target=reactJs&typeId=4">
+													<i class="icon-leaf"></i>
+													React.js
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=AngularJs&typeId=59">
+													<i class="icon-leaf"></i>
+													Angular.js
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=nodeJs&typeId=6">
+													<i class="icon-leaf"></i>
+													Node.js
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=jquery&typeId=7">
+													<i class="icon-leaf"></i>
+													JQuery
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=bootStrap&typeId=8">
+													<i class="icon-leaf"></i>
+													Bootstrap
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=sassLess&typeId=9">
+													<i class="icon-leaf"></i>
+													Sass/Less
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=webapp&typeId=10">
+													<i class="icon-leaf"></i>
+													WebApp
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=noseTools&typeId=60">
+													<i class="icon-leaf"></i>
+													前端工具
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle">
+											<i class="icon-double-angle-right"></i>
+											后端开发
+											<b class="arrow icon-angle-down"></b>
+										</a>
+	
+										<ul class="submenu">
+											<li>
+												<a href="general_show_book.html?target=java&typeId=12">
+													<i class="icon-leaf"></i>
+													JAVA
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=sringBoot&typeId=50">
+													<i class="icon-leaf"></i>
+													SpringBoot
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=python&typeId=13">
+													<i class="icon-leaf"></i>
+													Python
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=pc&typeId=14">
+													<i class="icon-leaf"></i>
+													爬虫
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=cpp&typeId=18">
+													<i class="icon-leaf"></i>
+													C++
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=php&typeId=16">
+													<i class="icon-leaf"></i>
+													PHP
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=cSharp&typeId=19">
+													<i class="icon-leaf"></i>
+													C#
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=c&typeId=17">
+													<i class="icon-leaf"></i>
+													C
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=Spring&typeId=51">
+													<i class="icon-leaf"></i>
+													Spring
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=Ruby&typeId=20">
+													<i class="icon-leaf"></i>
+													Ruby
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=oop&typeId=58">
+													<i class="icon-leaf"></i>
+													面向对象编程
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle">
+											<i class="icon-double-angle-right"></i>
+											移动开发
+											<b class="arrow icon-angle-down"></b>
+										</a>
+	
+										<ul class="submenu">
+											<li>
+												<a href="general_show_book.html?target=android&typeId=21">
+													<i class="icon-leaf"></i>
+													Android
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=ios&typeId=22">
+													<i class="icon-leaf"></i>
+													IOS
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=react&typeId=23">
+													<i class="icon-leaf"></i>
+													React Native
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=weex&typeId=24">
+													<i class="icon-leaf"></i>
+													WEEX
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle">
+											<i class="icon-double-angle-right"></i>
+											前沿技术
+											<b class="arrow icon-angle-down"></b>
+										</a>
+	
+										<ul class="submenu">
+											<li>
+												<a href="general_show_book.html?target=ws&typeId=52">
+													<i class="icon-leaf"></i>
+													微服务
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=bit&typeId=53">
+													<i class="icon-leaf"></i>
+													区块链
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=ether&typeId=54">
+													<i class="icon-leaf"></i>
+													以太坊
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=iq&typeId=55">
+													<i class="icon-leaf"></i>
+													人工智能
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=deeps&typeId=56">
+													<i class="icon-leaf"></i>
+													深度学习
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=data&typeId=11">
+													<i class="icon-leaf"></i>
+													数据分析&amp;挖掘
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle">
+											<i class="icon-double-angle-right"></i>
+											运维
+											<b class="arrow icon-angle-down"></b>
+										</a>
+	
+										<ul class="submenu">
+											<li>
+												<a href="general_show_book.html?target=yunw&typeId=25">
+													<i class="icon-leaf"></i>
+													运维
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=autoyw&typeId=26">
+													<i class="icon-leaf"></i>
+													自动化运维
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=ywtools&typeId=27">
+													<i class="icon-leaf"></i>
+													运维工具
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=linux&typeId=28">
+													<i class="icon-leaf"></i>
+													Linux
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle">
+											<i class="icon-double-angle-right"></i>
+	
+											数据库
+											<b class="arrow icon-angle-down"></b>
+										</a>
+	
+										<ul class="submenu">
+											<li>
+												<a href="general_show_book.html?target=mysql&typeId=29">
+													<i class="icon-leaf"></i>
+													MySQL
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=redis&typeId=30">
+													<i class="icon-leaf"></i>
+													Redis
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=mogodb&typeId=31">
+													<i class="icon-leaf"></i>
+													MongoDB
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=oracle&typeId=32">
+													<i class="icon-leaf"></i>
+													Oracle
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=nosql&typeId=33">
+													<i class="icon-leaf"></i>
+													NoSql
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle">
+											<i class="icon-double-angle-right"></i>
+	
+											UI设计
+											<b class="arrow icon-angle-down"></b>
+										</a>
+	
+										<ul class="submenu">
+											<li>
+												<a href="general_show_book.html?target=tools&typeId=37">
+													<i class="icon-leaf"></i>
+													设计工具
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=base&typeId=36">
+													<i class="icon-leaf"></i>
+													设计基础
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=model&typeId=34">
+													<i class="icon-leaf"></i>
+													模型设计
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=appd&typeId=38">
+													<i class="icon-leaf"></i>
+													APPUI设计
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=dydh&typeId=35">
+													<i class="icon-leaf"></i>
+													动效动画
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle">
+											<i class="icon-double-angle-right"></i>
+	
+											算法&amp;数学
+											<b class="arrow icon-angle-down"></b>
+										</a>
+	
+										<ul class="submenu">
+											<li>
+												<a href="general_show_book.html?target=algori&typeId=61">
+													<i class="icon-leaf"></i>
+													算法
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=math&typeId=42">
+													<i class="icon-leaf"></i>
+													数学
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=alstr&typeId=5">
+													<i class="icon-leaf"></i>
+													算法与数据结构
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle">
+											<i class="icon-double-angle-right"></i>
+	
+											3D游戏
+											<b class="arrow icon-angle-down"></b>
+										</a>
+	
+										<ul class="submenu">
+											<li>
+												<a href="general_show_book.html?target=unity&typeId=39">
+													<i class="icon-leaf"></i>
+														Unity&nbsp;3D 
+												</a>
+											</li>
+											<li>
+												<a href="general_show_book.html?target=cocos&typeId=40">
+													<i class="icon-leaf"></i>
+														Cocos2d-x
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle">
+											<i class="icon-double-angle-right"></i>
+	
+											专业英语
+											<b class="arrow icon-angle-down"></b>
+										</a>
+	
+										<ul class="submenu">
+											<li>
+												<a href="general_show_book.html?target=penglish&typeId=66">
+													<i class="icon-leaf"></i>
+													计算机英语
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="addBooksOperator.html">
+											<span class="menu-text">添加书籍</span>
+										</a>
+									</li>
+								</ul>
+							</li>
+	
+							<li>
+								<a href="#" class="dropdown-toggle">
+									<i class="fa fa-user fa-lg" aria-hidden="true"></i>
+									<span class="menu-text"> 用户信息管理 </span>
+	
+									<b class="arrow icon-angle-down"></b>
+								</a>
+	
+								<ul class="submenu">
+									<li>
+										<a href="userInfoManager.html">
+											<i class="icon-double-angle-right"></i>
+											用户信息
+										</a>
+									</li>
+								</ul>
+							</li>
+	
+							<li>
+								<a href="#" class="dropdown-toggle">
+									<i class="fa fa-share-square fa-lg" aria-hidden="true"></i>
+									<span class="menu-text"> 动态分享管理 </span>
+	
+									<b class="arrow icon-angle-down"></b>
+								</a>
+	
+								<ul class="submenu">
+	
+									<li>
+										<a href="dynamic_share_check.html">
+											<i class="icon-double-angle-right"></i>
+											动态分享审核
+										</a>
+									</li>
+	
+									<li>
+										<a href="edit.html">
+											<i class="icon-double-angle-right"></i>
+											编辑器
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="gallery.html">
+									<i class="fa fa-ravelry fa-lg" aria-hidden="true"></i>
+									<span class="menu-text"> 相册 </span>
+								</a>
+							</li>
+						</ul>
+						
+					</div>
+					
+					<div class="sidebar-collapse" id="sidebar-collapse">
+						<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+					</div>
+
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+					</script>
+				</div>
+
+				<div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="#" style="font-weight: bold;font-size: 16px;">首页</a>
+							</li>
+							<li class="active">书籍库管理</li>
+						</ul>
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<i class="icon-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div>
+					</div>
+
+					<div class="page-content">
+						<div class="page-header">
+							<h1 style="font-size:18px">
+								书籍库管理
+								<small>
+									<i class="icon-double-angle-right"></i>
+									 查看
+								</small>
+							</h1>
+						</div>
+						<div class="demoTable col-xs-12" style="padding-bottom: 6px;">
+							<div style="min-width:1080px;">
+							  <div class="search-layui-inline">
+								  <div class="col-md-3">
+								  		<label>书籍名称：</label>
+								    	<input class="search-layui-input" name="bookName"  autocomplete="off">
+								  </div>
+								  <div class="col-md-3">
+							  		<label>作者：</label>
+							    	<input class="search-layui-input" name="authorName"  autocomplete="off" style="width:82%;">
+								  </div>
+								  <div class="col-md-2">
+									<select name="publishName" class=" selectpicker show-tick" data-live-search="true" style="height:38px;border-radius:2px;">
+								  	  <option>出版社</option>
+								  	  <option>清华大学出版社</option>
+									  <option>电子工业出版社</option>
+									  <option>北京邮电出版社</option>
+									  <option>人民邮电出版社</option>
+									  <option>科学出版社</option>
+									  <option>机械工业出版社</option>
+									  <option>中国林业出版社</option>
+									  <option>化学工业出版社</option>
+									  <option>人民教育出版社</option>
+									  <option>湖南科学技术出版社</option>
+									  <option>教育科学出版社</option>
+									  <option>中国电力出版社</option>
+									  <option>高等教育出版社 </option>
+									  <option>商务印书馆</option>
+									  <option>北京师范大学出版社</option>
+									  <option>北京大学出版社</option>
+									  <option>中国人民大学出版社</option>
+									  <option>华东师范大学出版社会</option>
+									  <option>浙江大学出版社</option>
+									  <option>华中科技大学出版社</option>
+									  <option>武汉大学出版社</option>
+									  <option>西安交通大学出版社</option>
+									  <option>北京师范大学出版社</option>
+									  <option>中南大学出版社</option>
+									  <option>华中师范大学出版社</option>
+									  <option>厦门大学出版社</option>
+									  <option>复旦大学出版社</option>
+									  <option>人民交通出版社</option>
+									  <option>南京大学出版社</option>
+									  <option>东南大学出版社</option>
+									  <option>电子科技大学出版社</option>
+									  <option>西安电子科技大学出版社</option>
+									</select>
+								</div>
+								 <div class="col-md-3">
+								  	<label>书籍标志：</label>
+								  	<div style="position:relative">
+										<select name="bookFlag" style="height:38px;border-radius:4px;width:145px;">
+									  	  <option>请选择</option>
+									  	  <option value="1">新上线书籍</option>
+										  <option value="2">技能提升书籍</option>
+										  <option value="3">小白入门书籍</option>
+										  <option value="4">普通书籍</option>
+										</select>
+										<i class="fa fa-sort-desc" aria-hidden="true" style="position: absolute;top: 10px;left: 137px;"></i>
+									</div>
+								</div>
+							  	<button class="layui-btn" >搜索</button>
+							  </div>
+							</div>
+						</div> 
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="table-responsive">
+									<table id="resultDataTable" class="resultDataTable table table-striped table-bordered table-hover">
+										<thead>
+											<tr>
+												<th class="center">
+													<label>
+														<input type="checkbox" class="ace" />
+														<span class="lbl"></span>
+													</label>
+												</th>
+												<th>编号</th>
+												<th>书籍名称</th>
+												<th class="hidden-480">作者</th>
+												<th>
+													<i class="icon-time bigger-110 hidden-480"></i>
+													出版社
+												</th>
+												<th>书籍版本</th>
+												<th>书籍标志</th>
+												<th>书籍描述/封面</th>
+												<th class="hidden-480">录入时间</th>
+												<th class="hidden-480">最后编辑时间</th>
+												<th>编辑</th>
+											</tr>
+										</thead>
+										<tbody>
+										
+										</tbody>
+									</table>
+									<div class="nav-box">
+										<ul class="pagination" id="pagination" style="float:right"></ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="ace-settings-container" id="ace-settings-container">
+					<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+						<i class="icon-cog bigger-150"></i>
+					</div>
+
+					<div class="ace-settings-box" id="ace-settings-box">
+						<div>
+							<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
+							<label class="lbl" for="ace-settings-navbar"> 固定导航条</label>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
+							<label class="lbl" for="ace-settings-sidebar"> 固定滑动条</label>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs" />
+							<label class="lbl" for="ace-settings-breadcrumbs">固定面包屑</label>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" />
+							<label class="lbl" for="ace-settings-rtl">切换到左边</label>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
+							<label class="lbl" for="ace-settings-add-container">
+								切换窄屏
+								<b></b>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		</div>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/pagination.min.js"></script>
+		<script src="assets/js/bootstrap-select.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+		<script src="./layui/layui.js"></script>
+		<script src="./assets/js/dropzone.min.js"></script>
+		<script type="text/javascript">
+			  $(function () {
+				  var strTable = "";
+				  function writeDataToTable(oneBookInfo) {
+					  strTable = "<div class=\"loadBooksInfo\" style=\"\">"+
+					  "						    <div class=\"layui-form\">"+
+					  "						  <div class=\"layui-form-item\">"+
+					  "						    <label class=\"layui-form-label\">书籍名称</label>"+
+					  "						    <div class=\"layui-input-block\">"+
+					  "						      <input type=\"text\" value='"+oneBookInfo.name+"' name=\"\" required  lay-verify=\"required\" autocomplete=\"off\" class=\"layui-input\">"+
+					  "						    </div>"+
+					  "						  </div>"+
+					  "						  <div class=\"layui-form-item\">"+
+					  "						    <label class=\"layui-form-label\">作者</label>"+
+					  "						    <div class=\"layui-input-block\">"+
+					  "						      <input type=\"text\" name=\"\" value='"+oneBookInfo.author+"' required lay-verify=\"required\" autocomplete=\"off\" class=\"layui-input\">"+
+					  "						    </div>"+
+					  "						  </div>"+
+					  "						  <div class=\"layui-form-item\">"+
+					  "						    <label class=\"layui-form-label\">出版社</label>"+
+					  "						    <div class=\"layui-input-block\">"+
+					  "						      <select name=\"city\" lay-verify=\"required\" lay-search>"+
+					  "						      	  <option></option>"+
+					  "						          <option>清华大学出版社</option>"+
+					  "								  <option>电子工业出版社</option>"+
+					  "								  <option>北京邮电出版社</option>"+
+					  "								  <option>人民邮电出版社</option>"+
+					  "								  <option>科学出版社</option>"+
+					  "								  <option>机械工业出版社</option>"+
+					  "								  <option>中国林业出版社</option>"+
+					  "								  <option>化学工业出版社</option>"+
+					  "								  <option>人民教育出版社</option>"+
+					  "								  <option>湖南科学技术出版社</option>"+
+					  "								  <option>教育科学出版社</option>"+
+					  "								  <option>中国电力出版社</option>"+
+					  "								  <option>高等教育出版社 </option>"+
+					  "								  <option>商务印书馆</option>"+
+					  "								  <option>北京师范大学出版社</option>"+
+					  "								  <option>北京大学出版社</option>"+
+					  "								  <option>中国人民大学出版社</option>"+
+					  "								  <option>华东师范大学出版社会</option>"+
+					  "								  <option>浙江大学出版社</option>"+
+					  "								  <option>华中科技大学出版社</option>"+
+					  "								  <option>武汉大学出版社</option>"+
+					  "								  <option>西安交通大学出版社</option>"+
+					  "								  <option>北京师范大学出版社</option>"+
+					  "								  <option>中南大学出版社</option>"+
+					  "								  <option>华中师范大学出版社</option>"+
+					  "								  <option>厦门大学出版社</option>"+
+					  "								  <option>复旦大学出版社</option>"+
+					  "								  <option>人民交通出版社</option>"+
+					  "								  <option>南京大学出版社</option>"+
+					  "								  <option>东南大学出版社</option>"+
+					  "								  <option>电子科技大学出版社</option>"+
+					  "								  <option>西安电子科技大学出版社</option>"+
+					  "						      </select>"+
+					  "						    </div>"+
+					  "						  </div>"+
+					  "						  <div class=\"layui-form-item\">"+
+					  "						    <label class=\"layui-form-label\">书籍标志</label>"+
+					  "						    <div class=\"layui-input-block\">"+
+					  "						      <select name=\"bookFLag\" lay-verify=\"required\" lay-search>"+
+					  "						      	  <option>普通书籍</option>"+
+					  "						          <option>新上线书籍</option>"+
+					  "								  <option>技能提升书籍</option>"+
+					  "								  <option>小白入门书籍</option>"+
+					  "						      </select>"+
+					  "						    </div>"+
+					  "						  </div>"+
+					  "						  <div class=\"layui-form-item\">"+
+					  "						    <label class=\"layui-form-label\">书籍版本</label>"+
+					  "						    <div class=\"layui-input-block\">"+
+					  "						      <input type=\"text\"  value='"+oneBookInfo.bookVersion+"'   required lay-verify=\"required\"  autocomplete=\"off\" class=\"layui-input\">"+
+					  "						    </div>"+
+					  "						  </div>"+
+					  "						  <div class=\"layui-form-item\">"+
+					  "						    <label class=\"layui-form-label\">最近编辑</label>"+
+					  "						    <div class=\"layui-input-block\">"+
+					  "						      <input type=\"text\"  value='"+oneBookInfo.lastEditTime+"' required lay-verify=\"required\"  autocomplete=\"off\" class=\"layui-input\" disabled=\"disabled\" style=\"background-color:transparent\">"+
+					  "						    </div>"+
+					  "						  </div>"+
+					  "						  <div class=\"layui-form-item layui-form-text\">"+
+					  "						    <label class=\"layui-form-label\">书籍概述</label>"+
+					  "						    <div class=\"layui-input-block\">"+
+					  "						      <textarea name=\"desc\" placeholder=\"请输入内容\" class=\"layui-textarea\">'"+oneBookInfo.bookDesc+"'</textarea>"+
+					  "						    </div>"+
+					  "						  </div>"+
+					  "						  <div class=\"layui-upload\">"+
+					  "							  <blockquote class=\"layui-elem-quote layui-quote-nm\" style=\"margin-top: 10px;\">"+
+					  "							    预览图：(双击可移除)"+
+					  "							    <div class=\"layui-upload-list\" id=\"prePictureDiv\"></div>"+
+					  "							 </blockquote>"+
+					  "						  </div>"+
+					  "						  <div class=\"layui-form-item\">"+
+					  "						    <div class=\"layui-input-block\">"+
+					  "						      <button class=\"layui-btn layui-btn-subm\"  lay-filter=\"formDemo\">提交编辑</button>"+
+					  "						      <button type=\"reset\" class=\"layui-btn layui-btn-primary\">重置</button>"+
+					  "							 <button type=\"button\" class=\"layui-btn testlay\" id=\"editPicButton\" style=\"float:right;\">编辑图片</button> "+
+					  "						    </div>"+
+					  "						  </div>"+
+					  "						</div>"+
+					  "					</div>"+
+					  "\'";
+					var _publish = oneBookInfo.publish;
+					var bookFlagStr = null;
+					strTable = strTable.replace("<option>"+_publish+"</option>", "<option selected>"+_publish+"</option>");
+					
+					if(oneBookInfo.beginBookFlag === 1 )
+						bookFlagStr = "小白入门书籍";
+					else if(oneBookInfo.newBookFlag === 1)
+						bookFlagStr = "新上线书籍";
+					else if( oneBookInfo.skillBoostFlag === 1)
+						bookFlagStr = "技能提升书籍";
+					else
+						bookFlagStr = "普通书籍";
+					strTable = strTable.replace("<option>"+bookFlagStr+"</option>", "<option selected>"+bookFlagStr+"</option>");
+				  }
+				  //当前url添加样式
+				  $(".ul-lesson-list li a").each(function() {
+					  var pathname = document.location.pathname.substr(
+							  document.location.pathname.lastIndexOf('/')+1) + document.location.search;
+					　　var href = $(this).attr("href");
+					　　if(pathname ===  href){
+					　　　　$(this).parents("ul").parent("li").addClass("active open");
+					　　　　$(this).parent("li").addClass("active");
+					　　}
+					});
+				  //当前url的typeId 
+				  const typeId = document.location.search.split("&")[1].split("=")[1];
+				  //书籍在数据库的ID;
+				  var BOOK_DESC = [];
+				  var BOOK_IMAGE = [];
+				 
+				  function deleteData() {
+					//获取页面数据后，如果执行删除数据。。
+		        		 var $deleteButton = $(".action-buttons").find("a:eq(1)");
+						  $deleteButton.each(function (k, v) {
+							  $(v).on("click",function() {
+								  //勾选并且点击删除按钮
+								  var $selectFlag = $(".resultDataTable tbody tr td input[type = 'checkbox']").eq(k).is(":checked");
+								  var $bookId = $(v).closest("tr").find("td:hidden").text();
+								  console.log($bookId)
+								  if($selectFlag) {
+									  layui.use('layer', function(){
+					    				  var layer = layui.layer;
+					    				  var index = layer.confirm('确认删除这条书籍记录嘛？', function(){
+												  layer.close(index);
+												  $.ajax({
+														 url: "GetBooksAllInfoAction_removeOneBook",
+														 type: "post",
+														 data: {
+															 "bookId":  $bookId
+														 }
+													 }).done(function(resData) {
+														 if(resData.stats === "SUCCESS") {
+															 layui.use('layer', function(){
+																 var layer = layui.layer;
+																 layer.msg('成功移除该书籍');
+															 })
+														 }else{
+															 layui.use('layer', function(){
+																 var layer = layui.layer;
+																 layer.msg('删除书籍失败&nbsp;请联系管理员');
+															 })
+														 }
+													 }).fail(function() {
+														 alert("ajax删除数据请求失败！！！");
+													 })
+											}); 
+					    				});
+									       
+								  }else{
+									  layui.use('layer', function(){
+					    				  var layer = layui.layer;
+					    				  layer.open({
+					    					  title: '选中&nbsp;&nbsp;<font style=\"color:red;\">0</font>&nbsp;&nbsp;条',
+					    					  content: '亲 请勾选选择按钮呦 ',
+					    					  time: 1500,
+					    					  shadeClose: true
+					    					});    
+					    				});
+								  }
+							  })
+						  })
+				  }
+				  
+				  function mergeDataTable(dataResultData) {
+					//删除因为没有显示的图标
+					  $("span.glyphicon.glyphicon-ok.check-mark").remove();
+						//生成DOM节点之前，将原先生成的DOM节点置空
+		        		$(".resultDataTable tbody").html("");
+						//清空上次请求所保留的书籍描述，图片，数据库id等；
+		        		BOOK_DESC.splice(0, BOOK_DESC.length);
+		        		BOOK_IMAGE.splice(0, BOOK_IMAGE.length);
+			       		for(var i =0; i< dataResultData.bookInforData.length; i++) {
+			       				//记录书籍在数据库中的ID
+			       				BOOK_DESC.push(dataResultData.bookInforData[i].bookDesc);
+			       				if(dataResultData.bookInforData[i].imageAddr.length === 1){
+			       					BOOK_IMAGE.push(dataResultData.bookInforData[i].imageAddr[0]);
+			       				}else{
+			       					BOOK_IMAGE.push(dataResultData.bookInforData[i].imageAddr);
+			       				}
+			       				//拼接生成的书籍的DOM节点
+			       				var str = ``;
+			       			    str +=  `<tr>
+			        						<td class="center">
+												<label>
+													<input type="checkbox" class="ace" />
+													<span class="lbl"></span>
+												</label>
+											</td>
+										`;
+								str += `<td style="display:none;" class="displayBookId">${dataResultData.bookInforData[i].bookId }</td>`;		
+			        			str += `<td>${ i+1 }</td>`;
+			        			str += `<td>${dataResultData.bookInforData[i].name}</td>`;
+			        			str += `<td>${dataResultData.bookInforData[i].author}</td>`;
+			        			str += `<td>${dataResultData.bookInforData[i].publish}</td>`;
+			        			str += `<td>${dataResultData.bookInforData[i].bookVersion}</td>`;
+			        			if(dataResultData.bookInforData[i].newBookFlag === 1) {
+			        				str += `<td>新上线书籍</td>`;
+				       			 }else if(dataResultData.bookInforData[i].skillBoostFlag === 1) {
+				       				str += `<td>技能提升书籍</td>`;
+				       			 }else if(dataResultData.bookInforData[i].beginBookFlag === 1) {
+				       				str += `<td>小白入门书籍</td>`;
+				       			 }else{
+				       				str += `<td>普通书籍</td>`;
+				       			 }
+			        			str += `<td class="hidden-480" style="position:relative;"><a href="javascript:void(0)" role="button" class="blue"  id="tooltip1">详情</a></td>`;
+			        			str += `<td>${dataResultData.bookInforData[i].createTime}</td>`;
+			        			str += `<td>${dataResultData.bookInforData[i].lastEditTime}</td>`;
+			        			str += `<td>
+										<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+											<a href="javascript:void(0)" role="button" class="green editBookBtn">
+												<i class="icon-pencil bigger-130"></i>
+											</a>
+											<a class="red deleteBookBtn" href="javascript:void(0)" >
+												<i class="icon-trash bigger-130"></i>
+											</a>
+										</div>
+									</td>
+								</tr>`;
+							 //生成DOM节点
+			       			$(".resultDataTable tbody").append(str);
+						 }
+			       		
+			       			//书籍框全部选中
+						    //头顶框  
+						  $(".resultDataTable thead th input[type='checkbox']").on("click", function () {
+							  var allSelect = this.checked;
+							  $(".resultDataTable tbody tr td input[type = 'checkbox']").each(function() {
+								  this.checked = allSelect;
+							  })
+						  });
+							//全选框不选
+							//有框时选中时。
+				       	 $(".resultDataTable tbody tr td input[type = 'checkbox']").each(function(k,v) {
+				       		var $all = $(".resultDataTable thead th input[type='checkbox']");
+							  $(v).on("click", function() {
+								  $all.attr("checked",false);
+							  })
+						  });
+				  }
+				  
+				  function showBookDescPic() {
+					  /*书籍缩略图和书籍概述显示开始*********************************************/
+					    function showTooltip(html_desc, html_image) {
+					            var strHTML = `
+					            	<div>
+          							<h2 style="font-size:17px;text-align:center;margin-top:10px;font-size:18px;">书籍描述</h2>
+          							<div style="padding:5px;text-indent:20px;border:none;">${ html_desc }</div>
+          							<h2 style="font-size:17px;text-align:center;margin-top:10px;font-size:18px;">书籍章节缩略图</h2>
+          							<div id="layer-photos">
+					            `;
+					            if( $.type(html_image) === "array") {
+					            	for(var i = 0; i< html_image.length; i++){
+					            		strHTML += `<img src=${html_image[i]}  style="width: 75px;max-height:120px;margin-right: 10px;margin-bottom:10px;margin-left:10px;"/>`;
+					            	}
+					            }else{
+					            	strHTML += `<img src=${html_image}  style="width: 75px;max-height:120px;margin-right: 10px;margin-bottom:10px;margin-left:10px;"/>`;
+					            }
+					            	strHTML += `</div>
+					            		 </div>
+					            	`;
+					            	layui.use('upload', function(){
+											  
+					            	});
+				            	layui.use(['layer','laypage'], function(){
+			        				 var layer = layui.layer;
+			        				 var laypage = layui.laypage;
+			        				 var $ = layui.jquery;
+			        				 layer.open({
+			        					 type: 1,
+			        					 area: '500px',
+			        					 skin: 'layui-layer-lan',
+			        					 maxHeight: 700,
+			        					 scrollbar: false,
+			        					 title: "书籍图片&amp;概述",
+			        					 shadeClose: true,
+			        					 content: strHTML
+			        				 });
+			        				 layer.photos({
+			        					  photos: '#layer-photos',
+			        					  //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+			        					  shift: 5 
+			        				}); 
+			        			}); 
+					    }
+					    var $t1Elements = $("a.blue").parent();
+					    $.each($t1Elements, function(k, v) {
+					    	$(v).on("click", function() {
+					    		showTooltip( BOOK_DESC[k], BOOK_IMAGE[k] );
+					    	})
+					    })
+				  }
+				 function editCurrentBook() {
+					//编辑书籍
+		        		var $aeditBtn = $(".action-buttons").children("a.editBookBtn");
+		        		$.each($aeditBtn,function(k, v) {
+		        			$(v).on("click", function(){
+		        				var $bookId = $(v).closest("tr").find("td:hidden").text();
+		        				$.ajax({
+		        					  url: "GetBooksAllInfoAction_getOneBook",
+									  type: "post",
+									  data: {
+										  "bookDatabaseId": $bookId
+									  }
+		        				}).then(function(oneBookInfo) {
+		        					var $inputElement= $(".loadBooksInfo").find(".layui-form-item").find("input");
+		        					if(oneBookInfo.stats === "SUCCESS") {
+		        						//将数据库读出的数据，塞进表格。。
+		        						writeDataToTable(oneBookInfo);
+		        					}else{
+		        						alert("获取数据失败");
+		        					}
+		        				},function() {
+		        					//ajax获取单个书籍失败
+		        					alert(ajax获取单个书籍失败);
+		        				}).then(function() {
+			        				layui.use(['layer','form','laypage','upload'], function(){
+				        				 var layer = layui.layer;
+				        				 var form = layui.form;
+				        				 var laypage = layui.laypage;
+				        				 var upload = layui.upload;
+				        				 layer.open({
+				        					 type: 1,
+				        					 area: '500px',
+				        					 maxHeight: 700,
+				        					 scrollbar: false,
+				        					 title: "编辑当前书籍",
+				        					 content: strTable
+				        				 });
+				        				 form.render();
+			        					  //执行实例
+			        					  var uploadInst = upload.render({
+			        					    elem: '.testlay', //绑定元素
+			        					    url: '/upload/', //上传接口
+			        					    auto: false,
+			        					    bindAction: ".layui-btn-subm",
+			        					    multiple: true,
+			        					    choose: function(obj){
+			        					        //将每次选择的文件追加到文件队列
+			        					        var file = obj.pushFile();
+			        					        //预读本地文件示例，不支持ie8
+			        					        obj.preview(function(index, file, result){
+			        					         	$(".layui-layer-content").find('#prePictureDiv').append("<img src='"+result+"' alt=\"file.name\" class=\"layui-upload-img\" style=\"width:70px;height:auto;\"/>");
+				        					        var $uploadImg = $(".layui-upload-img");
+				        					        $.each($uploadImg, function(k,v) {
+				        					        	$(v).on("click", function() {
+				        					        		$(this).remove();
+				        					        	})
+				        					        })
+			        					        });
+			        					    },
+			        					    done: function(res){
+			        					      //上传完毕回调
+			        					    },
+			        					    error: function(){
+			        					      //请求异常回调
+			        					    }
+			        					 });
+				        		   }); 
+		        				}, function() {
+		        					
+		        				})
+			        		})
+		        		})
+				 }
+				  
+				  $("button.layui-btn").on("click",function() {
+						var bookName = $("input[name='bookName']").val();
+						var authorName = $("input[name='authorName']").val();
+						var publishName = $("select[name='publishName'] option:selected").val();
+						var bookFlag = $("select[name='bookFlag'] option:selected").val();
+						if(bookFlag.length >= 3) {
+							bookFlag = "500";
+						}
+						$('#pagination').pagination({
+						     dataSource: function(done) {
+						    	 $.ajax({
+									  url: "GetBooksAllInfoAction_getBookByCondit",
+									  type: "post",
+									  data: {
+										  "bookName": bookName,
+										  "authorName": authorName,
+										  "publishName": publishName,
+										  "bookFlag": bookFlag,
+										  "typeId": typeId
+									  },
+									  beforeSend: function(){
+										  //调用原来的查询方法
+										  if(bookName === '' && authorName === '' && publishName.length <= 3 && bookFlag.length >= 3) {
+											  ajaxReqPagination();
+											  return false;
+										  }
+										  return true;
+									  }
+						    	 }).done(function(dataResult){
+						    		 if(dataResult.stats === "EMPTY"){
+						    			 $(".resultDataTable tbody").html("");
+						    			 layui.use('layer', function(){
+						    				  var layer = layui.layer;
+						    				  layer.open({
+						    					  title: '查询结果&nbsp;&nbsp;<font style=\"color:red;\">0</font>&nbsp;&nbsp;条',
+						    					  content: '亲 查看您的查询条件是否正确呦 ',
+						    					  time: 1500,
+						    					  shadeClose: true
+						    					});    
+						    				}); 
+						    		 }else{
+						    		 	done(dataResult.bookInforData);
+						    		 }
+						    	 }).fail(function(dataResult){
+						    		 
+						    	 })
+						      },
+					        pageSize: 11,
+					        className: 'paginationjs-theme-blue',
+					        showGoInput: true,
+							showGoButton: true,
+					        callback: function(data, pagination) {
+					        	$.ajax({
+					        		url: "GetBooksAllInfoAction_getOnePageBook",
+					        		type: "post",
+					        		dataType: "json",
+					        		data: {
+				        		        "pageNumber": pagination.pageNumber,
+				        		        "pageSize": pagination.pageSize,
+				        		        "bookName": bookName,
+										"authorName": authorName,
+										"publishName": publishName,
+										"bookFlag": bookFlag,
+										"typeId": typeId,
+										"conditFlag": "conditFlag"
+					        		},
+					        		beforeSend: function() {
+					        		}
+					        	}).then(function (dataResultData) {
+					        		//成功后拼装表格数据
+					        		mergeDataTable(dataResultData);
+					        	},function () {
+					        		//请求数据失败
+					        		alert("请求数据失败，请稍后重试！！");
+					        	}).then(function(){
+					        		showBookDescPic();
+					        	}, function() {
+					        		alert("显示书籍图片和详情这里出错啦！！");
+					        	}).then(function() {
+					        		editCurrentBook();
+					        	},function(){
+					        		alert("编辑当前书籍失败，请稍后重试！！");
+					        	}).then(function() {
+					        		deleteData();
+					        	},function() {
+					        		//请求失败
+					        		alert("请求删除数据失败，请稍后充实！！");
+					        	})
+				        	}
+						});
+				  })
+				  
+				  ajaxReqPagination();
+				  function ajaxReqPagination() {
+					  $('#pagination').pagination({
+						     dataSource: function(done) {
+						    	 $.ajax({
+									  url: "GetBooksAllInfoAction_getAllBooks",
+									  type: "post",
+									  data: {
+										  "typeId": typeId
+									  },
+									  beforeSend: function(){
+										  
+									  }
+						    	 }).done(function(dataResult){
+						    		 if(dataResult.stats === "EMPTY"){
+						    			 $(".resultDataTable tbody").html("");
+						    			 
+						    			 layui.use('layer', function(){
+						    				  var layer = layui.layer;
+						    				  layer.open({
+						    					  title: '查询结果&nbsp;&nbsp;<font style=\"color:red;\">0</font>&nbsp;&nbsp;条',
+						    					  content: '亲 查看您的查询条件是否正确呦 ',
+						    					  time: 1500,
+						    					  shadeClose: true
+						    					});    
+						    				});              
+						    		 }else{
+						    		 	done(dataResult.bookInforData);
+						    		 }
+						    	 }).fail(function(dataResult){
+						    		 
+						    	 })
+						      },
+					        pageSize: 11,
+					        showGoInput: true,
+							showGoButton: true,
+							 formatGoInput: '到第<%= input %>页',
+					        className: 'paginationjs-theme-blue',
+					        callback: function(data, pagination) {
+						        	$.ajax({
+						        		url: "GetBooksAllInfoAction_getOnePageBook",
+						        		type: "post",
+						        		dataType: "json",
+						        		data: {
+					        		        "pageNumber": pagination.pageNumber,
+					        		        "pageSize": pagination.pageSize,
+					        		        "typeId": typeId
+						        		}
+						        	}).then(function (dataResultData) {
+						        		//成功后拼装表格数据
+						        		mergeDataTable(dataResultData);
+						        	},function () {
+						        		//请求失败
+						        		alert("请求数据失败，请稍后重试！！");
+						        	}).then(function(){
+						        		showBookDescPic();
+						        	}, function() {
+						        		//显示书籍详情和图片
+						        		alert("显示书籍详情和图片这里出错啦！！");
+						        	}).then(function() {
+						        		editCurrentBook();
+						        	}, function() {
+						        		alert("编辑当前书籍失败，请稍后重试！");
+						        	}).then(function() {
+						        		//删除某条数据
+						        		deleteData();
+						        	},function() {
+						        		//删除数据失败
+						        		alert("请求删除数据失败，请稍后重试！！");
+						        	})
+					        }
+					    });
+				  }
+			  });
+		</script>
+	</body>
+</html>
+
+						       
+

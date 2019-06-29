@@ -1,0 +1,217 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>推荐系统</title>
+		<link href="css/header.css" rel="stylesheet">
+			<!--记住我的登录状态的图标-->
+		<link rel="stylesheet" type="text/css" href="./verify/verify.css"/>
+		<link rel="stylesheet" type="text/css" href="css/login-cleaned.css" >
+			<!--其它图标-->
+		
+		<link rel="stylesheet" type="text/css" href="./css/success-cleaned.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/load.css"/>
+		
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+			<!--背景3D图 -->
+		<script type="text/javascript" src="js/background3D.js"></script>
+			<!--滑动验证码-->
+		<script type="text/javascript" src="./verify/verify.js"></script>
+			<!--记住用户名和密码-->
+		<script type="module" src="./js/login.js" charset="gbk"></script>
+			<!--表单校验-->
+		<script type="text/javascript" src="../register/js/validate.js"></script>
+		<script type="text/javascript" src="../register/js/messages_zh.js"></script>
+		<link rel="stylesheet" type="text/css" href="../fontawesome-free-5.2.0/css/all.css"/>
+		<link href="../font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	</head>
+	<body class="sticky-nav transparent-nav">
+		<div id="main_panel" class="main_panel">
+			<header class="site-header">
+				<nav class="site-navigation animated" id="header_nav">
+					<div class="container">
+						<div class="pull-left">
+							<div class="logo">
+								<a class="logo-default" href="../index.html"><img src="images/logob.png" alt="logo"></a>
+								<a class="logo-transparent" href="../index.html"><img src="images/logoa.png" alt="logo"></a>
+							</div>
+							<ul class="nav-menu">
+								<li><a class="" href="../index.html">首页</a></li>
+								<li><a class="" href="javascript:void(0)">推荐</a></li>
+							</ul>
+						</div>
+						<!--搜索的图标-->
+						<div class="pull-right">
+							<a class="btn-navbar search-opener" href="javascript:void(0)" id="wow-search-btn">
+								<i class="fa fa-search"></i>
+							</a>
+							<div class="dropdown user-account">
+								<a class="dropdown-toggle header-toggle" onclick="window.location = '../register/register.html'">
+									<button class="btn btn-sm waves-effect">注册</button>
+								</a>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</header>
+			<div class="main-wrap ">
+				<div class="container login_container">
+					<canvas id="constellation"></canvas>
+					<div class="row">
+						<div class="login_page">
+							<div class="col-md-12 login-block">
+								<form method="POST" id="loginForm" action="#">
+									<header>
+										<h1 class="text-center page_header">欢迎回来</h1>
+									</header>
+									<div id="owl-login">
+										<div class="hand"></div>
+										<div class="hand hand-r"></div>
+										<div class="arms">
+											<div class="arm"></div>
+											<div class="arm arm-r"></div>
+										</div>
+									</div>
+									<div class="login-form-filed" style="position: relative;">
+										
+										<div class="login-input ">
+											<input type="email" name="email" placeholder="邮箱" value="" autocomplete="off"/>
+										</div>
+										<div class="login-input">
+											<input type="password" name="password" placeholder="密码" id="password"/>
+										</div>
+										<div class="form-group" >
+											<select class="form-control ajaxPower">
+												<option selected="selected" data-value="0">用户</option>
+												<option data-value="1">管理员</option>
+											</select>
+											<span class="fa fa-chevron-down"></span>
+										</div>
+										<div class="smart-form">
+											<div class="row">
+												<section class="col col-md-12 col-xs-12">
+													<div id="geetest-captcha" style="display: none;">
+														<div class="geetest_holder geetest_wind geetest_radar_success" style="width: 100%;">
+															<div class="geetest_btn">
+																<div class="geetest_ghost_success geetest_success_animate">
+																	<div class="geetest_success_btn" style="width: 100%;">
+																		<div class="geetest_success_box">
+																			<div class="geetest_success_show">
+																				<div class="geetest_success_pie"></div>
+																				<div class="geetest_success_filter"></div>
+																				<div class="geetest_success_mask"></div>
+																			</div>
+																			<div class="geetest_success_correct">
+																				<div class="geetest_success_icon"></div>
+																			</div>
+																		</div>
+																		<div class="geetest_success_radar_tip">
+																			<span class="geetest_success_radar_tip_content">验证成功</span>
+																			<span class="geetest_success_radar_tip_timeinfo"></span>
+																		</div>
+																		<a class="geetest_success_logo" href="javascript:void(0)"></a>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="geetest-captcha">
+														<div class="geetest_holder geetest_wind geetest_detect" style="width: 100%;">
+															<div class="geetest_btn">
+																<div class="geetest_radar_btn">
+																	<div class="container checkpanel">
+																		<i class="faClose" title="关闭" style="background-image: url(./images/closeBt.png);width:25px;height:25px;"></i>
+																		<div class="geetest_check" style="padding-top:31px">
+																		</div>
+																		<div class="pointer"></div>
+																	</div>
+																	<div class="geetest_radar">
+																		<div class="geetest_ring">
+																			<div class="geetest_small"></div>
+																		</div>
+																		<div class="geetest_sector" style="transform: rotate(0deg);">
+																			<div class="geetest_small"></div>
+																		</div>
+																		<div class="geetest_dot"></div>
+																	</div>
+																	<div class="geetest_radar_tip" tabindex="0"  style="outline-width: 0px;">
+																		<span class="geetest_radar_tip_content">点击按钮进行验证</span>
+																	</div>
+																	<a class="geetest_logo" href="javascript:void(0)"></a>
+																</div>
+															</div>
+														</div>
+													</div>													
+													
+													<div class="smart-form">
+														<div class="row">
+															<section class="col col-6 remberme text-left">
+																<label class="checkbox">
+							                                        <input type="checkbox" name="remember">
+							                                        <i></i>
+							                                       	保持我的登录状态
+							                                    </label>
+															</section>
+															<section class="col col-6 text-right">
+																<a href="javascript:void(0)">忘记密码?</a>
+															</section>
+														</div>
+													</div>
+													<button type="submit" class="btn btn-block btn-login waves-effect ladda-button"  disabled="disabled" id="submitLoginForm">
+			                           					<span class="ladda-button-label">登录</span>
+			                      					</button>
+			                      				</section>	
+											</div>
+											<div class="divider">或使用以下第三方登录</div>
+											<div class="text-center">
+												<a class="btn btn-circular btn-sm btn-dark" href="LoginAction" title="github授权登录">
+													<i class="fab fa-github"></i>
+												</a>
+												<a class="btn btn-circular btn-sm btn-success mr-4" href="javascript:void(0)">
+													<i class="fab fa-weixin"></i>
+												</a>
+												<a class="btn btn-circular btn-sm btn-danger mr-4" href="javascript:void(0)">
+													<i class="fab fa-weibo"></i>
+												</a>
+											</div>
+											<hr class="w-30">
+											<p class="text-center text-muted fs-13 mt-20">还没有账户？
+												<a href="#r">注册一个</a>
+											</p>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>	
+				</div>	
+			</div>
+			<footer class="site-foot">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-sm-6 col-xs-12">
+							<ul class="footer-links">
+								<li>
+									<a href="javascript:void(0)">关于我们</a>
+								</li>
+								<li>
+									<a href="javascript:void(0)">推荐网站</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-8 col-sm-6 col-xs-12">
+							<p class="copyright-text">
+								Programmer is powered by innovate.
+							</p>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	<!-- 	<div id="bkmask"></div> -->
+	</body>
+</html>
+

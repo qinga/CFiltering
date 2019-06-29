@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>空间</title>
+		<link rel="stylesheet" href="../perManage/perManage.css" type="text/css">
+		<link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css" type="text/css"/>
+		<!-- layui.css样式 -->
+		<link rel="stylesheet" href="../../Admin/layui/css/layui.css" type="text/css" />
+		<style>
+			#pagenation li{
+				display: inline-block;
+			}
+			
+			#pagenation li.activePage a{
+				background: #4d555d;
+				color: #fff;
+			}
+			#pagenation .first, #pagenation .prev, #pagenation .next, #pagenation .last {
+			    line-height: 32px;
+			    margin: 0 15px;
+			 }
+			 #pagenation li.disabled a {
+			    color: #c8cdd2;
+			 }
+			 .activeDivSu{
+				background:#c8cdd2;
+			}
+			.u-container>p{
+				color: #b5b9bc;
+				font-size: 18px;
+				line-height: 420px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="header">
+			<div class="page-container clearfix" id="nav">
+				<div id="logo" class="logo">
+					<a href="../index.html"  title="首页" style="text-align:center;">
+						<img title="推荐系统" src="../booksInfor/img/logo.png" style="height:72px;">
+					</a>
+				</div>
+				<ul class="nav-item">
+					<li>
+						<a href="./myHouseArticle.html" class="active">我的收藏</a>
+					</li>
+					<li>
+						<a href="../booksType/booksType.html">书海</a>
+					</li>
+					<li>
+						<a href="../shareDynaticLink/index.html">猿分享</a>
+					</li>
+				</ul>
+				<div id="login-area">
+					<ul class="clearfix logined">
+						<li class="set_btn user-card-box" id="header-user-card">
+							<a  class="user-card-item js-header-avator">
+								<img src="" width="40" height="40">
+							</a>
+							<!--退出-->
+							<div class="g-user-card">
+								<div class="card-inner">
+									<div class="card-top clearfix">
+										<a href="javascript:void(0)" class="l">
+											<img src="" alt="">
+										</a>
+										<div class="card-top-right-box l">
+											<a href="javaScript:void(0)">
+												<span class="name text-ellipsis"></span>
+											</a>
+										</div>
+									</div>
+									<div class="card-sets clearfix logoutApp">
+										<a href="javascript:void(0)" class="l">安全退出</a>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="search-warp clearfix" style="min-width: 32px; height: 72px;">
+					<div class="pa searchTags">
+						<a href="#" target="_blank">小程序</a>
+						<a href="#" target="_blank">JAVA入门</a>
+					</div>
+					<div class="search-area">
+						<input class="search-input"  type="text" autocomplete="off">
+						<input type="hidden" class="btn_search">
+						<ul class="search-area-result">
+						</ul>
+					</div>
+					<div class="showhide-search">
+						<i class="fa fa-search" aria-hidden="true"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="main">
+			<div class="bg-other user-head-info">
+				<div class="user-info clearfix">
+					<div class="user-pic">
+						<div class="user-pic-bg">
+							<img class="img" src="" alt="">
+						</div>
+					</div>
+					<div class="user-info-right">
+						<h3 class="user-name clearfix">
+							<span></span>
+						</h3>
+					</div>
+					<div class="study-info clearfix">
+						<div class="item follows">
+							<div class="u-info-learn" title="学习时长430小时11分" style="cursor:pointer;">
+								<em>4h</em>
+								<span>学习时长 </span>
+							</div>
+						</div>
+						<div class="item follows">
+							<a href="#">
+								<em>1</em>
+							</a>
+							<span>经验</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="slider">
+					<ul>
+						<li>
+							<a href="../shareDynaticLink/index.html">
+								<i class="fa fa-share-square" aria-hidden="true"></i>
+								<span>动态圈</span>
+								<b class="icon-drop_right"></b>
+							</a>
+						</li>
+						<li>
+							<a href="../perManage/perManage.html">
+								<i class="fa fa-book" aria-hidden="true"></i>
+								<span>我的课程</span>
+								<b class="icon-drop_right"></b>
+							</a>
+						</li>
+						<li>
+							<a href="../myShareArticleAndHouse/myShareArticle.html">
+								<i class="fa fa-share" aria-hidden="true"></i>
+								<span>我的分享</span>
+								<b class="icon-drop_right"></b>
+							</a>
+						</li>
+						<li>
+							<a href="../myShareArticleAndHouse/myHouseArticle.html" class="active">
+								<i class="fa fa-square" aria-hidden="true"></i>
+								<span>我的收藏</span>
+								<b class="icon-drop_right"></b>
+							</a>
+						</li>
+						<li>
+							<a href="../myShareArticleAndHouse/myLearnPath.html">
+								<i class="fa fa-leanpub" aria-hidden="true"></i>
+								<span>我的学习路线</span>
+								<b class="icon-drop_right"></b>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="u-container">
+					<div class="c-tab clearfix">
+						<div class="tool-left l">
+							<a href="./myHouseArticle.html" class="sort-item active">查看书籍</a>
+						</div>
+						<div class="tool-left l">
+							<a href="./myShareArticle.html" class="sort-item">我的分享</a>
+						</div>
+					</div>
+					<div class="js-course-list my-space-course study-tl">
+						<!-- Js脚本控制收藏内容 -->
+					</div>
+					<div style="text-align: center;" class="outerPagenation">
+						<div id="pagenation" style="display: inline-block;">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+		</div>
+		<div id="J_GotoTop" class="elevator">
+			<a href="#" class="elevator-msg" target="_blank">
+				<i class="fa fa-weixin" aria-hidden="true"></i>
+				<span class="">分享至微信</span>
+			</a>
+			<a href="#" class="elevator-faq" target="_blank">
+				<i class="fa fa-qq" aria-hidden="true"></i>
+				<span class="">分享至QQ</span>
+			</a>
+			<a href="javascript:void(0)" class="elevator-top no-goto"  id="backTop">
+				<i class="fa fa-chevron-circle-up" aria-hidden="true"></i>
+				<span class="">返回顶部</span>
+			</a>
+		</div>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../booksType/js/jqpaginator.min.js"></script>
+		<script type="text/javascript" src="./js/myHouseArticleLogin.js"></script>
+		<!-- layui.js -->
+		<script src="../../Admin/layui/layui.js"></script>
+	<script type="text/javascript">
+		(function(){
+			function errorTip(str){
+				layui.use('layer', function(){
+					  var layer = layui.layer;
+					  layer.open({
+						  title: '信息提示',
+						  content: str || '亲 请稍后重试呦,请求出错',
+						  shadeClose: true
+						});    
+					}); 
+			}
+			 var pageSize = 20;
+			 var  totalCounts = 1;
+			 $('#pagenation').jqPaginator({
+				   totalCounts: totalCounts,
+				   pageSize:pageSize,
+				   visiblePages: 10,
+				   activeClass: 'activePage',
+				   first: '<li class="first"><a href="javascript:void(0);">首页</a></li>',
+				   prev: '<li class="prev"><a href="javascript:void(0);">上一页</a></li>',
+				   next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
+				   last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
+				   page: '<li class="page"><a href="javascript:void(0);">{{page}}</a></li>',
+				   onPageChange: function (num, type) {
+					   var param = {
+								url: "UserHouseBookAction_findHouseBook",
+								data: {
+									//用户id
+									"dbID": localStorage.getItem("dbID"),
+									"start" : num,
+									"size" : pageSize,
+									"type" : type
+								}
+						}
+						ajaxSend(param)
+							.then( (res) => {
+								if(res.code === 200 && res.msg === "SUCCESS"){
+									if(type === "init"){
+										if(res.count <= pageSize){
+											 $('#pagenation').css("display","none");
+										}
+										 $('#pagenation').jqPaginator('option', {totalCounts: res.count});
+									}
+									 //渲染收藏的书籍
+									 res.data = filterData(res.data);
+									 console.log(res.data)
+									 xuanran(res);
+									 
+								}else{
+										 $('#pagenation').css("display","none");
+								}
+							}, () => {
+								
+								
+							}).then( () => {
+								var show_btn = $(".course-one").find(".show-btn");
+								
+								//出现取消收藏的按钮的出现
+								$.each(show_btn, function(k, v){
+									$(v).on("mouseenter",function(){
+										$(this).next().css("display","block");
+										$(this).next().on({
+											'mouseenter': function(event){
+												$(this).css("display","block")
+											 },
+											'mouseleave': function(){
+												$(this).css("display","none")
+											}
+										})
+									}).on("mouseleave",function(){
+										$(this).next().css("display","none");
+									})
+								})
+								
+								//取消收藏
+								$(".share-box-con a").on("click",function(event){
+										$(this).closest("li.course-one").remove();
+										var bookID = $(this).closest("div.course-list-cont").find("span:hidden:eq(0)").text();
+										var param = {
+												url: "UserHouseBookAction_removeHouseBook",
+												data:{
+													"dbID": localStorage.getItem("dbID"),
+													"bookID": bookID
+												}
+										}
+										ajaxSend(param)
+											.then( () => {}, () => {
+												errorTip("操作异常 请稍后重试")
+											})
+								})
+								//跳转到书籍详情页面。。
+								var aItem = $(".tl-item ul li").find(".catog-points a");
+									$.each(aItem, function(k, v){
+										$(this).on("click",function(){
+											var bookId =  $(this).closest(".course-list-cont").find("span:hidden:eq(0)").text();
+											var	documentUrl =  "../booksInfor/booksInfo.html";
+											if(isNaN(bookId) === false){
+												documentUrl = "../booksInfor/booksInfo.html?bookId="+bookId;
+											}
+											document.location.href = documentUrl;
+										})
+									})
+								
+							}, () => {
+								
+							})
+				   }
+			 });
+			
+			
+			function ajaxSend( params ){
+				const param = {
+					type: "post",
+					url: null,
+					dataType: "json",
+					async: true
+				};
+				$.extend(true, param, params );
+				return new Promise( (resolve, reject) => {
+					$.ajax({
+						type: param.type,
+			    	 	url: param.url,
+						dataType: param.dataType,
+			    		async: true,
+			    		data: param.data
+					}).then( (res) => {
+						resolve(res)
+					}, (res) => {
+						reject(res)
+					})
+				})
+			};
+			//param: [{2-12},{2-13},{2-12}...]
+			//return: [ [{2-12},{2-12}], [{2-13},{2-13}], [{2-14},{2-14}]...]
+			function filterData(data){
+				data = data.map( (current, index, data) => {
+					//取简短时间
+					 current.hostTime = current.hostTime.split(" ")[0];
+					 return current;
+				})
+				data.sort( (a, b) => {
+					return new Date(b.hostTime) - new Date(a.hostTime)
+				})
+				//先装进第一个元素。
+				var arr = [];
+				var first = new Array();
+				first.push(data[0]);
+				arr.push(first);
+				
+				data.forEach( function(v, k){
+					if( k !== 0 ){
+						for(var i = 0; i < arr.length; i++){
+							for(var j = 0; j < arr[i].length; j++){
+								if( j === 0 ){
+									//时间相同，则塞入相同的数组中
+									if( arr[i][j].hostTime === v.hostTime){
+										arr[i].push(v);
+										return;
+									}
+								}
+							}
+						}
+						//不相同，直接塞入新的数组
+						var item = new Array();
+						item.push(v);
+						arr.push(item);
+					}
+				})
+				return arr;
+			}
+			function xuanran(res){
+		 	    var str = ``;
+				for(var i = 0; i < res.data.length; i++){
+					str +=`<div class="clearfix tl-item">
+					            <span class="time">
+				                <b>${res.data[i][0].hostTime.split("-")[0]}</b>
+				                <em>${res.data[i][0].hostTime.split("-")[1]}月${res.data[i][0].hostTime.split("-")[2]}日
+				                </em>
+				            </span>
+				            <div class="course-list course-list-m">
+				                <ul class="clearfix">`;
+				    for(var j = 0; j < res.data[i].length; j++){
+				    	str += `<li class="course-one">
+				                 <div class="course-list-img l">
+				                      <a href="javascript:void(0)">
+				                          <img src=${res.data[i][j].img} width="200" height="113">
+				                      </a>
+			                     </div>
+	                     <div class="course-list-cont">
+	                     	<span style="display:none">${res.data[i][j].bookID}</span>
+	                     	<h3 class="study-hd">
+	                            <a href="javascript:void(0)">${res.data[i][j].boName}</a>
+                   				<span class="i-new">${res.data[i][j].boDesc}</span>
+   								<div class="share-box clearfix">
+						            <div class="show-btn">
+						            	<i class="fa fa-angle-down" aria-hidden="true"></i> 
+						            </div>
+						            <div class="share-box-con courses-r">
+						                <a href="javascript:void(0);" title="删除" class="del">
+						                	<i class="fa fa-trash-o" aria-hidden="true"></i>
+						                </a>
+						            </div>
+						        </div>
+				        	</h3>
+	                      	<div class="study-points">
+								<span class="i-left span-common">${res.data[i][j].auName}</span>
+								<span class="i-right span-common">${res.data[i][j].pbName}</span>
+							</div>
+						    <div class="catog-points">
+							   	<a href="#" class="btn-red continute-btn">继续学习</a>
+							</div>
+	                     </div>
+	                 </li>`;
+				    }
+				    str += `</ul>
+			            </div>
+					 </div>`;
+				}
+				$(".js-course-list").html(str);
+			}
+			
+			//退出操作
+			$(".logoutApp").on("click",function(){
+				$.ajax({
+					url:"LoginGeneralAction_logout",
+					type: 'post',
+					dataType : 'json',
+					success(res){
+						if(res.code === 200 && res.msg === "SUCCESS"){
+							localStorage.removeItem("dbID");
+							localStorage.removeItem("dbName");
+							localStorage.removeItem("dbProfile");
+							document.location.href = "../index.html";
+						}else{
+							errorTip("请求异常 请稍后重试");
+						}
+					},
+					error(){
+						errorTip("网络异常 请稍后重试");
+					}
+				})
+			})
+			//搜索处
+				 $(".search-area input:eq(0)").focus(function(){
+					 $(this).parent().siblings(".searchTags").css("display","none");
+				 })
+				 $(".search-area input:eq(0)").blur(function(){
+					 $(this).parent().siblings(".searchTags").css("display","block");
+				 })
+		}())
+	</script>
+	</body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.jju.cfiltering.entity">
+	<class name="UserDynamicShareMap" table="user_dynamic_share_map">
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="comments" column="comments" length="1024"></property>
+		<property name="thumbsUp" column="thumbs_up"></property>
+		<property name="commnetTime" column="commnet_time"></property>
+		
+		<many-to-one name="user" column="user_id" class="User"></many-to-one>
+		<many-to-one name="dynamicShare" column="dynamicshare_id" class="DynamicShare"></many-to-one>
+	</class>
+</hibernate-mapping>

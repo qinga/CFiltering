@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>新手入門</title>
+		<link rel="stylesheet" href="./css/direct.css" type="text/css">
+		<link rel="stylesheet" type="text/css" href="../../Admin/font-awesome-4.7.0/css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="../Admin/layui/css/layui.css" type="text/css" />
+		<link rel="stylesheet" href="./css/video-js.css" type="text/css" />
+		<style>
+			.play_mask{
+				width:100%;
+				height:100%;
+				position: fixed;
+				display:none;
+				z-index:100;
+				top:0px;
+				left:0px;
+				bottom:0px;
+				background:rgba(0,0,0,0.8)
+			}
+			#direct_video{
+				margin: 100px auto;
+			}
+			.colse_video{
+				width: 100px;
+				height: 100px;
+				float: right;
+				margin: 15px 50px;
+				text-align:center;
+				
+			}
+			.colse_video img{
+				margin-top: 20px;
+				cursor: pointer;
+			}
+			.vjs-paused .vjs-big-play-button,
+			.vjs-paused.vjs-has-started .vjs-big-play-button {
+			    display: block;
+			}
+			.video-js .vjs-time-control{display:block;}
+			.video-js .vjs-remaining-time{display: none;}
+		</style>
+	</head>
+
+	<body>
+		<div id="header">
+			<div class="page-container new-header" id="nav">
+				<ul class="nav-item">
+					<li>
+						<a href="../index.html">CFiltering首页</a>
+					</li>
+					<li>
+						<a href="../booksType/booksType.html">书海</a>
+					</li>
+					<li>
+						<a href="../shareDynaticLink/index.html">猿分享</a>
+					</li>
+				</ul>
+				<div class="header-right clearfix">
+					<div id="login-area">
+						<ul class="clearfix logined">
+							<li class="user-card-box" id="header-user-card">
+								<a id="header-avator" class="user-card-item js-header-avator">
+									<img src="" width="40" height="40">
+								</a>
+								<div class="g-user-card">
+									<div class="card-inner">
+										<div class="card-top clearfix">
+											<a href="" class="l">
+												<img src="" alt="">
+											</a>
+											<div class="card-top-right-box l">
+												<a href="">
+													<span class="name text-ellipsis"></span>
+												</a>
+											</div>
+										</div>
+										<div class="user-center-box">
+											<ul class="clearfix">
+												<li class="lispace">
+													<a href="../myShareArticleAndHouse/myHouseArticle.html">
+														<span>我的收藏</span>
+													</a>
+												</li>
+												<li class="lispace">
+													<a href="../myShareArticleAndHouse/myShareArticle.html">
+														<span>我的分享</span>
+													</a>
+												</li>
+												<li class="lispace">
+													<a href="../perManage/perManage.html">
+														<span>我的课程</span>
+													</a>
+												</li>
+												<li class="lispace">
+													<a href="../myShareArticleAndHouse/myLearnPath.html">
+														<span>学习路线</span>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="card-sets clearfix logoutApp">
+											<a href="javascript:void(0)" class="l">安全退出</a>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="body-main">
+			<div class="search-wrap">
+				<div class="search clearfix">
+					<div class="img l"></div>
+					<div class="text l">成长 因陪伴不再孤单</div>
+				</div>
+			</div>
+			<div class="banner" style="background-image: url(./image/dir.jpg);">
+				<div class="container">
+					<div class="path">
+						<a href="javascript:void(0)"></a>
+					</div>
+					<h2 class="cat_name"></h2>
+					<p class="name"></p>
+					<!-- 导学视频 -->
+					<div class="video-btn js-video-start">
+						
+					</div>
+					<!-- 导学视频 end -->
+					<div class="sc-info clearfix">
+						<dl class="info-wrap">
+							<dt></dt>
+							<dd></dd>
+						</dl>
+						<dl class="info-wrap service-dl">
+							<dt><a href="javascript:void(0)"></a></dt>
+							<dd><a href="javascript:void(0)"><span></span></a></dd>
+						</dl>
+						<dl class="info-wrap">
+							<dt></dt>
+							<dd><span></span></dd>
+						</dl>
+						<dl class="info-wrap">
+							<dt></dt>
+							<dd><span></span></dd>
+						</dl>
+						<dl class="info-wrap">
+							<dt></dt>
+							<dd><span></span></dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+			<!-- 视频 -->
+			<div id="js-index-video" class="video-container">
+				<div class="video-wrap" id="js-video-wrap">
+					<div id="js-video"></div>
+				</div>
+				<div class="video-mask"></div>
+				<div id="js-video-close" class="video-close imv2-close"></div>
+			</div>
+			<!-- 视频end -->
+			<!-- 主体 -->
+			<div id="scmain" class="scmain">
+				<div id="pageNav" class="page-nav">
+	                <a class="moco-change-big-btn active" href="/sc/20/series">内容安排</a>
+	                <a class="moco-change-big-btn" href="">路线简介<span></span></a>
+	            </div>
+				<div class="step-wrap">
+					
+				</div>
+			</div>
+			<!-- 主体 end -->
+		</div>
+		<div id="footer">
+			<div class="waper">
+				<div class="footerwaper clearfix">
+				</div>
+			</div>
+		</div>
+		<div id="J_GotoTop" class="elevator">
+			<a href="" class="elevator-msg" target="_blank">
+				<i class="fa fa-qq" aria-hidden="true"></i>
+				<span class="">QQ空间分享</span>
+			</a>
+			<a href="" class="elevator-faq" target="_blank">
+				<i class="fa fa-weibo" aria-hidden="true"></i>
+				<span class="">微信分享</span>
+			</a>
+			<a href="javascript:void(0)" class="elevator-top no-goto"  id="backTop" style="display:none">
+				<i class="fa fa-chevron-circle-up" aria-hidden="true"></i>
+				<span class="">返回顶部</span>
+			</a>
+		</div>
+		<div id="play_mask" class="play_mask">
+			<div class="colse_video">
+				<img src="./image/close.png">
+			</div>
+			<video id="direct_video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none">
+			    <source src="" type="video/mp4">
+			</video>
+		</div>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="./js/video.js"></script>
+		<!-- layui.js -->
+		<script src="../../Admin/layui/layui.js"></script>
+		<script type="text/javascript" src="./js/directLogin.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var player = null;
+				$(".js-video-start").on("click",function(){
+					if(player === null){
+						player = videojs('direct_video', {
+						    muted: false,
+						    controls: true,
+						    height: 500,
+						    width: 800,
+						    loop: false,
+						    autoplay: true
+						 });
+					}
+					player.load();
+					$("#play_mask").css("display","block");
+					$(".colse_video img").on("click",function(){
+						player.pause();
+						$(".play_mask").css("display","none")
+					})
+				})
+				//获取url查询参数
+				// param: name | type:string | return string OR null;
+				function getQueryString(name) { 
+			        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+			        var r = window.location.search.substr(1).match(reg); 
+			        if (r != null) return unescape(r[2]); 
+			        return null; 
+			    } 
+				$.ajax({
+					url: "LearnPathAction_findDirect",
+					type: "post",
+					dataType: "json",
+					data: {
+						"directID": getQueryString("directID")
+					},
+					success(res){
+						if(res.code === 200 && res.msg === "SUCCESS"){
+							var data = filterData(res.data.detail);
+							res.data.detail = data;
+							xuanran(res);
+						}else{
+							layui.use(['layer'], function(){
+					    		var layer = layui.layer;
+						  		layer.msg("未查询到相应路线");
+					    	});	
+						}
+					},error(){
+						layui.use(['layer'], function(){
+				    		var layer = layui.layer;
+					  		layer.msg("网络异常 请稍后重试");
+				    	});						
+					}
+				})	
+				function filterData(data){
+					var arr = [];
+					var first = [];
+					//first表示三段
+					first = data.split("&&");
+					for(var i = 0; i < first.length; i++){
+						var inner = new Array(first[i]);
+						arr.push(inner);
+					}
+					var finalArr = [];
+					//外层的每一个数组
+					for(var i = 0; i < arr.length; i++){
+						var t = new Array(arr[i][0].split("&"));
+						var tt = new Array();
+						for(var j = 0; j < t.length; j++){
+							for(var k = 0; k < t[j].length; k = k + 2){
+								var item = {};
+								item[t[j][k]] = t[j][k + 1]
+								tt.push(item);
+							}
+						}
+						finalArr.push(tt);
+					}
+					return finalArr;
+				}
+				function xuanran(res){
+					let {
+							//data表示要渲染的路线内容
+							data:{detail:data},
+								data:{mark},
+									data:{name},
+										data:{video}
+					} = res;
+					$(".container p.name").text(name);
+					$(".container h2.cat_name").text(mark);
+					$(".container .path a").text(mark);
+					$(".play_mask source").attr("src",video);
+					var str = ``;
+					for(var i = 0; i < data.length; i++){
+						str += `<p class="step-title">
+									<span>步骤 ${ i + 1}:</span>
+									${Object.keys(data[i][0])[0]}
+								</p>
+								<p class="step-desc">
+								${data[i][0][ Object.keys(data[i][0])[0] ]}
+								</p>
+								<ul class="clearfix">`;
+								//里面章节的数组。。
+								for( var j = 1; j < data[i].length; j++){
+									str += `<div class="sc-course-cart">
+												<div class="sc-course-cart-wrap">
+													<div class="sc-cart-t">
+														第${j}课
+													</div>
+													<div class="sc-cart-b">
+														<h3>${Object.keys(data[i][j])[0]}</h3>
+														<p class="sc-cart-info">
+															${data[i][j][ Object.keys(data[i][j])[0] ]}
+														</p>
+													</div>
+												</div>
+												<div class="sc-course-cart-axis">
+													<div class="relative">
+														<div class="axisx"></div>
+														<div class="axisy"></div>
+													</div>
+												</div>
+											</div>`;
+								}
+							str += `</ul>`;
+					}
+					$(".step-wrap").html(str);
+				}
+				
+				$(".logoutApp").on("click",function(){
+					$.ajax({
+						url:"LoginGeneralAction_logout",
+						type: 'post',
+						dataType : 'json',
+						success(res){
+							if(res.code === 200 && res.msg === "SUCCESS"){
+								localStorage.removeItem("dbID");
+								localStorage.removeItem("dbName");
+								localStorage.removeItem("dbProfile");
+								document.location.reload();
+							}else{
+								errorTip("请求异常 请稍后重试");
+							}
+						},
+						error(){
+							errorTip("网络异常 请稍后重试");
+						}
+					})
+				})
+				 $(window).on("scroll",function(){
+					 var scrollHeight = document.documentElement.scrollTop;
+					 if(scrollHeight > 200){
+						//隐藏
+						 $("#backTop").fadeIn();
+					 }else
+						//显示
+						 $("#backTop").fadeOut();
+				});
+				$("#backTop").bind("click",function(){
+					$("html,body").animate({scrollTop:0},500);
+				});
+			})
+			let index = document.location.search.split("=")[1];
+			index = /\d{1,2}/g.test(index) ? index : 1;
+			let local = "./image/" + index + ".jpg";
+			$(".banner").css("background-image", "url(" + local + ")");
+		</script>
+	</body>
+</html>

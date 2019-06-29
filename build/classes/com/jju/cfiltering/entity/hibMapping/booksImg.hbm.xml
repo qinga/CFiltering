@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.jju.cfiltering.entity">
+	<class name="BooksImg" table="books_img">
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="imgAddr" column="img_addr"/>
+		<property name="imgDesc" column="img_desc"/>
+		<property name="priority" column="priority"/>
+		
+		<!-- 图片与书籍表达多对一的关系 -->
+		<many-to-one name="books" column="books_id" class="Books"></many-to-one>
+	</class>
+</hibernate-mapping>

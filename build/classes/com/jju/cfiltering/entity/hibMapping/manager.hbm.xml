@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.jju.cfiltering.entity">
+	<class name="Manager" table="manager">
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="managerName" column="manager_name" length="20"></property>
+		<property name="email" column="email" length="20"></property>
+		<property name="password" column="password" length="255"></property>
+		<property name="managerFlag" column="manager_flag" length="8"></property>
+	</class>
+</hibernate-mapping>
